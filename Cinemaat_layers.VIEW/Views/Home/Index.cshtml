@@ -11,10 +11,20 @@
     <div class="container text-center maintitle">
         <h1>Nu in de bioscoop</h1>
         <div class="row movies">
-            <div class="col-md-3 movie"><img src="~/images/Homepage/Avengers_age_of_ultron.jpg" /></div>
-            <div class="col-md-3 movie"><img src="~/images/Homepage/Avengers_infinity_war.jpg" /></div>
-            <div class="col-md-3 movie"><img src="~/images/Homepage/Captain_America_civil_war.jpg" /></div>
-            <div class="col-md-3 movie"><img src="~/images/Homepage/Spiderman_farm_from_home.jpg" /></div>
+            <div class="col-md-3 movie">                
+                <img src="~/images/Homepage/Avengers_age_of_ultron.jpg"/>                
+            </div>
+            <div class="col-md-3 movie">
+                <a asp-area="" asp-controller="Movie" asp-action="Movie">
+                    <img src="~/images/Homepage/Avengers_infinity_war.jpg" />
+                </a>
+            </div>
+            <div class="col-md-3 movie">
+                <img src="~/images/Homepage/Captain_America_civil_war.jpg" />
+            </div>
+            <div class="col-md-3 movie">
+                <img src="~/images/Homepage/Spiderman_farm_from_home.jpg" />
+            </div>
         </div>
     </div>
 </body>

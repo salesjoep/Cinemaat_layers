@@ -37,6 +37,26 @@ namespace Cinemaat_layers.VIEW.Controllers
             return View(movies);
         }
 
+        public ActionResult Movie()
+        {
+            var movieLogic = new MovieLogic(_movieContext);
+            var movies = new List<MovieViewModel>();
+
+            foreach (var movie in movieLogic.GetAllMovies())
+            {
+                movies.Add(new MovieViewModel
+                {
+                    MovieName = movie.MovieName,
+                    Description = movie.Description,
+                    DateCreated = movie.DateCreated,
+                    Genre = movie.Genre,
+                    Review = movie.Review,
+                    Rating = movie.Rating
+                });
+            }
+            return View(movies);
+        }
+
         //GET: Customer/Details/5
 
     }

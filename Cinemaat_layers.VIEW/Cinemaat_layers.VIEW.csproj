@@ -14,6 +14,10 @@
     <ProjectReference Include="..\Cinemaat_layers.LOGIC\Cinemaat_layers.LOGIC.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\Homepage\Movies\Avengers_Endgame\" />
+  </ItemGroup>
+
 
 
 </Project>
