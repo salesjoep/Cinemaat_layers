@@ -34,6 +34,9 @@ namespace Cinemaat_layers.VIEW
 
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddScoped<IMovieContext, MovieContext>();
+            services.AddScoped<IShoppingCartContext, ShoppingCartContext>();
+            services.AddScoped<IOrderContext, OrderContext>();
+            services.AddScoped<IMovieHallContext, MovieHallContext>();
             services.AddTransient(_ => new DatabaseConnection(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllersWithViews();
