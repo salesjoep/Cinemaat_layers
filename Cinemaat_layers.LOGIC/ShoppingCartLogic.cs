@@ -13,7 +13,7 @@ namespace Cinemaat_layers.LOGIC
         {
             Repository = new ShoppingCartRepository(context);
         }
-        private ShoppingCartRepository Repository { get; set; }
+        private ShoppingCartRepository Repository { get;}
 
         public void AddShoppingCart(int userId, int orderId, DateTime date, int quanitity)
         {

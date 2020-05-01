@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Cinemaat_layers.LOGIC.Models
 {
-    public class ShoppingCart : IShoppingCart
+    internal class ShoppingCart : IShoppingCart
     {
         public int UserId { get; set; }
         public int OrderId { get; set; }
