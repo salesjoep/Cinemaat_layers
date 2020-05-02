@@ -39,6 +39,7 @@ namespace Cinemaat_layers.VIEW
             services.AddScoped<IOrderContext, OrderContext>();
             services.AddScoped<IMovieHallContext, MovieHallContext>();
             services.AddScoped<ISeatContext, SeatContext>();
+            services.AddScoped<IAgendaContext, AgendaContext>();
 
             services.AddTransient(_ => new DatabaseConnection(Configuration.GetConnectionString("DefaultConnection")));
 
