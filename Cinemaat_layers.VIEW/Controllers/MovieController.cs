@@ -42,7 +42,7 @@ namespace Cinemaat_layers.VIEW.Controllers
             var movieLogic = new MovieLogic(_movieContext);
             var movies = new List<MovieViewModel>();
 
-            foreach (var movie in movieLogic.GetAllMovies())
+            foreach (var movie in movieLogic.SelectSpecificMovie())
             {
                 movies.Add(new MovieViewModel
                 {
@@ -55,7 +55,7 @@ namespace Cinemaat_layers.VIEW.Controllers
                 });
             }
             return View(movies);
-        }
+        }       
 
         //GET: Customer/Details/5
 

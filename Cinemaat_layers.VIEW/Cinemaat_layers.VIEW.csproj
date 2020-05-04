@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\Homepage\Movies\Avengers_Endgame\" />
+    <Folder Include="wwwroot\images\Login\" />
   </ItemGroup>
 
 

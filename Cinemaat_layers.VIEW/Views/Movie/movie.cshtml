@@ -15,13 +15,21 @@
     <div class="container movie-details">
         <div class="row">
             <div class="col-md-6 left-box">
-                <h1>Avengers: Endgame</h1>
-                <p>
-                    Avengers: Endgame is een Amerikaanse superheldenfilm uit 2019 van Marvel Studios,
-                    geregisseerd door Anthony en Joe Russo. De film is het zowel chronologisch
-                    als verhaaltechnisch het vervolg op Avengers: Infinity War en de climax van de
-                    eerste 22 films in de Marvel Cinematic Universe.
-                </p>
+                @foreach (var item in Model)
+                {
+                    <h1>@Html.DisplayFor(modelItem => item.MovieName)</h1>
+                    break;
+                }
+
+                @foreach (var item in Model)
+                {
+                    <p>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </p>
+                    break;
+                }
+
+
                 <p>Cast: </p>
                 <div class="casting">
                     <img src="~/images/Homepage/Movies/Avengers_Endgame/Black_widow.jpg" title="Scarlett Johansson">

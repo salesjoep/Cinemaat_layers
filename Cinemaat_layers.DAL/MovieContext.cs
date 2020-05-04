@@ -46,6 +46,24 @@ namespace Cinemaat_layers.DAL
             }
             return movieRecords;
         }
+        IEnumerable<IMovie> IMovieContext.SelectSpecificMovie()
+        {
+            var cmd = new MySqlCommand("SELECT * FROM Movie WHERE MovieName = 'Avengers: Endgame'", _connection.SqlConnection);
+            var reader = cmd.ExecuteReader();
+
+            var movieRecords = new List<IMovie>();
+
+            while (reader.Read())
+            {
+                var movie = new MovieDto
+                {
+                    MovieName = reader["MovieName"]?.ToString()
+                };
+
+                movieRecords.Add(movie);
+            }
+            return movieRecords;
+        }
 
         public IMovie GetById(int id)
         {
