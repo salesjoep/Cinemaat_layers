@@ -12,6 +12,7 @@ namespace Cinemaat_layers.DAL
 
         IEnumerable<IMovie> GetAll();
         IEnumerable<IMovie> SelectSpecificMovie();
+        IEnumerable<IMovie> Select1917Movie();
 
         IMovie GetById(int id);
     }

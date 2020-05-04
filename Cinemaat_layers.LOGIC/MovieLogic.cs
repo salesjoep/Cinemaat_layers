@@ -38,5 +38,10 @@ namespace Cinemaat_layers.LOGIC
         {
             return Repository.GetAll();
         }
+
+        public IEnumerable<IMovie> Select1917Movie()
+        {
+            return Repository.GetAll();
+        }
     }
 }

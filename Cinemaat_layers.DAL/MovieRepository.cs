@@ -23,5 +23,10 @@ namespace Cinemaat_layers.DAL
         {
             return _context.GetAll();
         }
+
+        public IEnumerable<IMovie> Select1917Movie()
+        {
+            return _context.GetAll();
+        }
     }
 }

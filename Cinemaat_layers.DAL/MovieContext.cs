@@ -57,7 +57,28 @@ namespace Cinemaat_layers.DAL
             {
                 var movie = new MovieDto
                 {
-                    MovieName = reader["MovieName"]?.ToString()
+                    MovieName = reader["MovieName"]?.ToString(),
+                    Description = reader["Description"]?.ToString()
+                };
+
+                movieRecords.Add(movie);
+            }
+            return movieRecords;
+        }
+
+        IEnumerable<IMovie> IMovieContext.Select1917Movie()
+        {
+            var cmd = new MySqlCommand("SELECT * FROM Movie WHERE MovieName = 1917;", _connection.SqlConnection);
+            var reader = cmd.ExecuteReader();
+
+            var movieRecords = new List<IMovie>();
+
+            while (reader.Read())
+            {
+                var movie = new MovieDto
+                {
+                    MovieName = reader["MovieName"]?.ToString(),
+                    Description = reader["Description"]?.ToString()
                 };
 
                 movieRecords.Add(movie);
