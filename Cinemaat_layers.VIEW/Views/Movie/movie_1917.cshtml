@@ -15,11 +15,38 @@
     <div class="container movie-details">
         <div class="row">
             <div class="col-md-6 left-box">
-                <h1>1917</h1>
-                <p>
-                    1917 is een Amerikaans-Britse oorlogsfilm uit 2019 onder regie van Sam Mendes.
-                    De hoofdrollen worden vertolkt door Dean-Charles Chapman en George MacKay.
-                </p>
+
+
+                @{
+                    int count = 0;
+                    foreach (var item in Model)
+                    {
+                        count += 1;
+                        if (count == 2)
+                        {
+                            <h1>@Html.DisplayFor(modelItem => item.MovieName)</h1>
+                            count = 0;
+                            break;
+                        }
+
+                    }
+                }
+
+                @{
+                    int count2 = 0;
+                    foreach (var item in Model)
+                    {
+                        count2 += 1;
+                        if (count2 == 2)
+                        {
+                            <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                            count2 = 0;
+                            break;
+                        }
+
+                    }
+                }
+                
 
 
                 <p>Cast: </p>

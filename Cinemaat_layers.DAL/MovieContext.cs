@@ -68,7 +68,7 @@ namespace Cinemaat_layers.DAL
 
         IEnumerable<IMovie> IMovieContext.Select1917Movie()
         {
-            var cmd = new MySqlCommand("SELECT * FROM Movie WHERE MovieName = 1917;", _connection.SqlConnection);
+            var cmd = new MySqlCommand("SELECT * FROM Movie WHERE MovieName = 1917", _connection.SqlConnection);
             var reader = cmd.ExecuteReader();
 
             var movieRecords = new List<IMovie>();
