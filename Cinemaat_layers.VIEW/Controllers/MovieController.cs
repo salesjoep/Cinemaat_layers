@@ -37,7 +37,7 @@ namespace Cinemaat_layers.VIEW.Controllers
             return View(movies);
         }
 
-        public ActionResult Movie()
+        public ActionResult Avengers_Endgame()
         {
             var movieLogic = new MovieLogic(_movieContext);
             var movies = new List<MovieViewModel>();
