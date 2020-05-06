@@ -43,5 +43,19 @@ namespace Cinemaat_layers.LOGIC
         {
             return Repository.GetAll();
         }
+
+        public void UpdateMovie(string movieName, string description, DateTime dateCreated, string genre, string review, double rating)
+        {
+            var movie = new Movie
+            {
+                MovieName = movieName,
+                Description = description,
+                DateCreated = dateCreated,
+                Genre = genre,
+                Review = review,
+                Rating = rating
+            };
+            Repository.UpdateMovie(movie);
+        }
     }
 }

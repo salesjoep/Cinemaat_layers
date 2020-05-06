@@ -25,6 +25,11 @@ namespace Cinemaat_layers.DAL
             return _context.GetAll();
         }
 
+        public void UpdateMovie(IMovie movie)
+        {
+            _context.UpdateMovie(movie);
+        }
+
         
     }
 }

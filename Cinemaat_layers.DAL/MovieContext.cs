@@ -90,5 +90,15 @@ namespace Cinemaat_layers.DAL
         {
             throw new NotImplementedException();
         }
+
+        public void DeleteMovie(int movieId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateMovie(IMovie movie)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
