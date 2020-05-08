@@ -19,7 +19,19 @@ namespace Cinemaat_layers.DAL
         //Create in CRUD
         public void CreateMovie(IMovie movie)
         {
-            throw new NotImplementedException();
+            _connection.SqlConnection.Open();
+            string query = "INSERT INTO movie VALUES(@MovieName, @Description, @DateCreated, @Genre, @Review, @Rating; ";
+            using (MySqlCommand command = new MySqlCommand(query, _connection.SqlConnection))
+            {
+                command.Parameters.AddWithValue("@MovieName", movie.MovieName);
+                command.Parameters.AddWithValue("@Description", movie.Description);
+                command.Parameters.AddWithValue("@DateCreated", movie.DateCreated);
+                command.Parameters.AddWithValue("@Genre", movie.Genre);
+                command.Parameters.AddWithValue("@Review", movie.Review);
+                command.Parameters.AddWithValue("@Rating", movie.Rating);
+
+                command.ExecuteNonQuery();
+            }
         }
 
         //Read in CRUD
@@ -57,7 +69,13 @@ namespace Cinemaat_layers.DAL
         //Delete in CRUD
         public void DeleteMovie(int movieId)
         {
-            throw new NotImplementedException();
+            _connection.SqlConnection.Open();
+            string query = "DELETE FROM movie WHERE MovieId=@MovieId; ";
+            using (MySqlCommand command = new MySqlCommand(query, _connection.SqlConnection))
+            {
+                command.Parameters.AddWithValue("@MovieId", movieId);
+                command.ExecuteNonQuery();
+            }
         }
 
         //Update in CRUD
