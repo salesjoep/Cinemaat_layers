@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Cinemaat_layers.DAL;
+using Cinemaat_layers.LOGIC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -40,6 +41,7 @@ namespace Cinemaat_layers.VIEW
             services.AddScoped<IMovieHallContext, MovieHallContext>();
             services.AddScoped<ISeatContext, SeatContext>();
             services.AddScoped<IAgendaContext, AgendaContext>();
+            services.AddScoped<IMovieLogic, MovieLogic>();
 
             services.AddTransient(_ => new DatabaseConnection(Configuration.GetConnectionString("DefaultConnection")));
 

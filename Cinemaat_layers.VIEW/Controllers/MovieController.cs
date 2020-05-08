@@ -13,18 +13,21 @@ namespace Cinemaat_layers.VIEW.Controllers
 {
     public class MovieController : Controller
     {
-        private readonly IMovieContext _movieContext;
+        private readonly IMovieLogic  _movieLogic;
 
-        public MovieController(IMovieContext movieContext)
+        public MovieController(IMovieLogic movieLogic)
         {
-            _movieContext = movieContext;
+          
+            _movieLogic = movieLogic;
         }
+        
         public ActionResult Index()
         {
-            var movieLogic = new MovieLogic(_movieContext);
+            var allMovies = _movieLogic.GetAllMovies();
+            //var movieLogic = new MovieLogic(_movieContext);
             var movies = new List<MovieViewModel>();
 
-            foreach (var movie in movieLogic.GetAllMovies())
+            foreach (var movie in allMovies)
             {
                 movies.Add(new MovieViewModel
                 {
@@ -42,10 +45,11 @@ namespace Cinemaat_layers.VIEW.Controllers
 
         public ActionResult Avengers_Endgame()
         {
-            var movieLogic = new MovieLogic(_movieContext);
+            var allMovies = _movieLogic.GetAllMovies();
+            //var movieLogic = new MovieLogic(_movieContext);
             var movies = new List<MovieViewModel>();
 
-            foreach (var movie in movieLogic.GetAllMovies())
+            foreach (var movie in allMovies)
             {
                 movies.Add(new MovieViewModel
                 {
@@ -62,10 +66,11 @@ namespace Cinemaat_layers.VIEW.Controllers
 
         public ActionResult Movie_1917()
         {
-            var movieLogic = new MovieLogic(_movieContext);
+            var allMovies = _movieLogic.GetAllMovies();
+            //var movieLogic = new MovieLogic(_movieContext);
             var movies = new List<MovieViewModel>();
 
-            foreach (var movie in movieLogic.GetAllMovies())
+            foreach (var movie in allMovies)
             {
                 movies.Add(new MovieViewModel
                 {
@@ -80,14 +85,20 @@ namespace Cinemaat_layers.VIEW.Controllers
             return View(movies);
         }
 
+        [HttpPost]
         public ActionResult Delete(int MovieId)
         {
-            //_movieContext.DeleteMovie(MovieId);
-            MovieLogic movieLogic = new MovieLogic(_movieContext);
-            movieLogic.DeleteMovie(MovieId);
+            _movieLogic.DeleteMovie(MovieId);
+            ////_movieContext.DeleteMovie(MovieId);
+            //MovieLogic movieLogic = new MovieLogic(_movieContext);
+            //movieLogic.DeleteMovie(MovieId);
             return RedirectToAction("Index");
 
         }
+
+        //public ActionResult Edit(int movieId)
+        //{
+        //}
 
 
 

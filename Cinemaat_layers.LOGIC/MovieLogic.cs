@@ -7,13 +7,13 @@ using System.Text;
 
 namespace Cinemaat_layers.LOGIC
 {
-    public class MovieLogic
+    public class MovieLogic : IMovieLogic
     {
         private readonly MovieRepository _repository;
         public MovieLogic(IMovieContext context)
         {
             Repository = new MovieRepository(context);
-            
+
         }
 
         private MovieRepository Repository { get; }
