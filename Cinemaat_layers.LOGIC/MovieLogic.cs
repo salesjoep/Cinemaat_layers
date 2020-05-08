@@ -18,7 +18,7 @@ namespace Cinemaat_layers.LOGIC
 
         private MovieRepository Repository { get; }
 
-        public void AddMovie(string movieName, string description, DateTime dateCreated, string genre, string review, double rating)
+        public void CreateMovie(string movieName, string description, DateTime dateCreated, string genre, string review, double rating)
         {
             var movie = new Movie
             {
@@ -29,24 +29,15 @@ namespace Cinemaat_layers.LOGIC
                 Review = review,
                 Rating = rating
             };
-            Repository.Add(movie);
+            Repository.CreateMovie(movie);
         }
 
         public IEnumerable<IMovie> GetAllMovies()
         {
             return Repository.GetAll();
         }
-        public IEnumerable<IMovie> SelectSpecificMovie()
-        {
-            return Repository.GetAll();
-        }
 
-        public IEnumerable<IMovie> Select1917Movie()
-        {
-            return Repository.GetAll();
-        }
-
-        public IMovie UpdateMovie(string movieName, string description, DateTime dateCreated, string genre, string review, double rating)
+        public IMovie UpdateMovie(int MovieId, string movieName, string description, DateTime dateCreated, string genre, string review, double rating)
         {
             var movie = new Movie
             {
@@ -57,8 +48,13 @@ namespace Cinemaat_layers.LOGIC
                 Review = review,
                 Rating = rating
             };
-            _repository.UpdateMovie(movie);
+            _repository.UpdateMovie(movie, MovieId);
             return movie;
+        }
+
+        public void DeleteMovie(int movieId)
+        {
+            Repository.DeleteMovie(movieId);
         }
     }
 }

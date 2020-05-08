@@ -32,6 +32,7 @@ namespace Cinemaat_layers.DAL
 
                 command.ExecuteNonQuery();
             }
+            _connection.SqlConnection.Close();
         }
 
         //Read in CRUD
@@ -59,6 +60,7 @@ namespace Cinemaat_layers.DAL
 
                 movieRecords.Add(movie);
             }
+            _connection.SqlConnection.Close();
             return movieRecords;
         }
 
@@ -76,12 +78,27 @@ namespace Cinemaat_layers.DAL
                 command.Parameters.AddWithValue("@MovieId", movieId);
                 command.ExecuteNonQuery();
             }
+            _connection.SqlConnection.Close();
         }
 
         //Update in CRUD
-        public void UpdateMovie(IMovie movie)
+        public void UpdateMovie(IMovie movie, int MovieId)
         {
-            throw new NotImplementedException();
+            _connection.SqlConnection.Open();
+            string query = "UPDATE movie SET MovieName = @MovieName, Description = @Description, DateCreated = @DateCreated, Genre = @Genre, Review = @Review, Rating = @Rating WHERE MovieId=@MovieId; ";
+            using (MySqlCommand command = new MySqlCommand(query, _connection.SqlConnection))
+            {
+                command.Parameters.AddWithValue("@MovieId", MovieId);
+                command.Parameters.AddWithValue("@MovieName", movie.MovieName);
+                command.Parameters.AddWithValue("@Description", movie.Description);
+                command.Parameters.AddWithValue("@DateCreated", movie.DateCreated);
+                command.Parameters.AddWithValue("@Genre", movie.Genre);
+                command.Parameters.AddWithValue("@Review", movie.Review);
+                command.Parameters.AddWithValue("@Rating", movie.Rating);
+
+                command.ExecuteNonQuery();
+                _connection.SqlConnection.Close();
+            }
         }
     }
 }

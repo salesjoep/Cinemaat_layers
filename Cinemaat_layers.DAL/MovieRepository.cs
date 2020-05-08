@@ -15,9 +15,9 @@ namespace Cinemaat_layers.DAL
             _context = context;
         }
 
-        public void Add(IMovie movie)
+        public void CreateMovie(IMovie movie)
         {
-            _context.Add(movie);
+            _context.CreateMovie(movie);
         }
         
         public IEnumerable<IMovie> GetAll()
@@ -25,9 +25,14 @@ namespace Cinemaat_layers.DAL
             return _context.GetAll();
         }
 
-        public void UpdateMovie(IMovie movie)
+        public void UpdateMovie(IMovie movie, int MovieId)
         {
-            _context.UpdateMovie(movie);
+            _context.UpdateMovie(movie, MovieId);
+        }
+
+        public void DeleteMovie(int movieId)
+        {
+            _context.DeleteMovie(movieId);
         }
 
         

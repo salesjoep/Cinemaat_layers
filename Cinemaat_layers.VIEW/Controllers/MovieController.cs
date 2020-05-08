@@ -7,6 +7,7 @@ using Cinemaat_layers.INTERFACES;
 using Cinemaat_layers.LOGIC;
 using Cinemaat_layers.VIEW.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Razor.Language.Extensions;
 
 namespace Cinemaat_layers.VIEW.Controllers
 {
@@ -78,22 +79,14 @@ namespace Cinemaat_layers.VIEW.Controllers
             return View(movies);
         }
 
-        public ActionResult Update()
+        public ActionResult Delete(int MovieId)
         {
             var movieLogic = new MovieLogic(_movieContext);
             var movies = new List<MovieViewModel>();
 
             foreach (var movie in movieLogic.GetAllMovies())
             {
-                movies.Add(new MovieViewModel
-                {
-                    MovieName = movie.MovieName,
-                    Description = movie.Description,
-                    DateCreated = movie.DateCreated,
-                    Genre = movie.Genre,
-                    Review = movie.Review,
-                    Rating = movie.Rating
-                });
+                movieLogic.DeleteMovie(MovieId);
             }
             return View(movies);
         }

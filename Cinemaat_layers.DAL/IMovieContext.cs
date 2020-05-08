@@ -12,7 +12,7 @@ namespace Cinemaat_layers.DAL
 
         IEnumerable<IMovie> GetAll();
 
-        void UpdateMovie(IMovie movie);
+        void UpdateMovie(IMovie movie, int MovieId);
 
         IMovie GetById(int id);
 
