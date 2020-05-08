@@ -15,11 +15,14 @@ namespace Cinemaat_layers.DAL
         {
             _connection = connection;
         }
-        public void Add(IMovie movie)
+
+        //Create in CRUD
+        public void CreateMovie(IMovie movie)
         {
             throw new NotImplementedException();
         }
 
+        //Read in CRUD
         IEnumerable<IMovie> IMovieContext.GetAll()
         {
             _connection.SqlConnection.Open();
@@ -46,56 +49,18 @@ namespace Cinemaat_layers.DAL
             }
             return movieRecords;
         }
-        IEnumerable<IMovie> IMovieContext.SelectSpecificMovie()
-        {
-            var cmd = new MySqlCommand("SELECT * FROM Movie WHERE MovieName = 'Avengers: Endgame'", _connection.SqlConnection);
-            var reader = cmd.ExecuteReader();
-
-            var movieRecords = new List<IMovie>();
-
-            while (reader.Read())
-            {
-                var movie = new MovieDto
-                {
-                    MovieName = reader["MovieName"]?.ToString(),
-                    Description = reader["Description"]?.ToString()
-                };
-
-                movieRecords.Add(movie);
-            }
-            return movieRecords;
-        }
-
-        IEnumerable<IMovie> IMovieContext.Select1917Movie()
-        {
-            var cmd = new MySqlCommand("SELECT * FROM Movie WHERE MovieName = 1917", _connection.SqlConnection);
-            var reader = cmd.ExecuteReader();
-
-            var movieRecords = new List<IMovie>();
-
-            while (reader.Read())
-            {
-                var movie = new MovieDto
-                {
-                    MovieName = reader["MovieName"]?.ToString(),
-                    Description = reader["Description"]?.ToString()
-                };
-
-                movieRecords.Add(movie);
-            }
-            return movieRecords;
-        }
 
         public IMovie GetById(int id)
         {
             throw new NotImplementedException();
         }
-
+        //Delete in CRUD
         public void DeleteMovie(int movieId)
         {
             throw new NotImplementedException();
         }
 
+        //Update in CRUD
         public void UpdateMovie(IMovie movie)
         {
             throw new NotImplementedException();

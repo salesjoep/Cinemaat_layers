@@ -18,22 +18,43 @@
 
 
                 @{
-                    int count = 0;
-                    foreach (var item in Model)
+                    
+                string movieName;
+                foreach (var item in Model)
+                {
+                    if (item.MovieName == "1917")
                     {
-                        count += 1;
-                        if (count == 2)
-                        {
-                            <h1>@Html.DisplayFor(modelItem => item.MovieName)</h1>
-                            count = 0;
+                        movieName = item.MovieName;
+                            <h1>@movieName</h1>
                             break;
                         }
-
+                        else
+                        {                            
+                            continue;
+                            <h1>Error: Could not load Movie Title</h1>
+                            
+                        }
                     }
                 }
 
                 @{
-                    int count2 = 0;
+                    string movieDescription;
+                    foreach (var item in Model)
+                    {
+                        if (item.MovieName == "1917")
+                        {
+                            movieDescription = item.Description;
+                            <p>@movieDescription</p>
+                            break;
+                        }
+                        else
+                        {
+                            continue;
+                            <p>Error: Could not load Movie Description</p>
+                        }
+                    }
+
+                    @*int count2 = 0;
                     foreach (var item in Model)
                     {
                         count2 += 1;
@@ -44,7 +65,7 @@
                             break;
                         }
 
-                    }
+                    }*@
                 }
                 
 

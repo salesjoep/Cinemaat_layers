@@ -9,9 +9,11 @@ namespace Cinemaat_layers.LOGIC
 {
     public class MovieLogic
     {
+        private readonly MovieRepository _repository;
         public MovieLogic(IMovieContext context)
         {
             Repository = new MovieRepository(context);
+            
         }
 
         private MovieRepository Repository { get; }
@@ -44,7 +46,7 @@ namespace Cinemaat_layers.LOGIC
             return Repository.GetAll();
         }
 
-        public void UpdateMovie(string movieName, string description, DateTime dateCreated, string genre, string review, double rating)
+        public IMovie UpdateMovie(string movieName, string description, DateTime dateCreated, string genre, string review, double rating)
         {
             var movie = new Movie
             {
@@ -55,7 +57,8 @@ namespace Cinemaat_layers.LOGIC
                 Review = review,
                 Rating = rating
             };
-            Repository.UpdateMovie(movie);
+            _repository.UpdateMovie(movie);
+            return movie;
         }
     }
 }

@@ -15,33 +15,60 @@
     <div class="container movie-details">
         <div class="row">
             <div class="col-md-6 left-box">
-                @foreach (var item in Model)
-                {
-                    <h1>@Html.DisplayFor(modelItem => item.MovieName)</h1>
-                    break;
+
+                @{
+                    string movieName;
+                    foreach (var item in Model)
+                    {
+                        if (item.MovieName == "Avengers: Endgame")
+                        {
+                            movieName = item.MovieName;
+                            <h1>@movieName</h1>
+                            break;
+                        }
+                        else
+                        {
+                            continue;
+                            <h1>Error: Could not load Movie Title.</h1>
+
+                        }
+                    }
                 }
 
-                @foreach (var item in Model)
-                {
-                    <p>
-                        @Html.DisplayFor(modelItem => item.Description)
-                    </p>
-                    break;
+                @{ 
+                    string movieDesciption;
+                    foreach (var item in Model)
+                    {
+                        if (item.MovieName == "Avengers: Endgame")
+                        {
+                            movieDesciption = item.Description;
+                            <p>@movieDesciption</p>
+                            break;
+                        }
+                        else
+                        {
+                            continue;
+                            <p>Error:  Could not load Movie Description.</p>
+                        }
+                    }
                 }
 
+                
 
-                <p>Cast: </p>
-                <div class="casting">
-                    <img src="~/images/Homepage/Movies/Avengers_Endgame/Black_widow.jpg" title="Scarlett Johansson">
-                    <img src="~/images/Homepage/Movies/Avengers_Endgame/iron_man.jpg" title="Robert Downey Jr.">
-                    <img src="~/images/Homepage/Movies/Avengers_Endgame/thor.jpeg" title="Chris Hamsworth">
-                    <img src="~/images/Homepage/Movies/Avengers_Endgame/starlord.jpg" title="Chris Pratt">
-                    <img src="~/images/Homepage/Movies/Avengers_Endgame/spiderman.jpg" title="Tom Holland">
+
+
+                    <p>Cast: </p>
+                    <div class="casting">
+                        <img src="~/images/Homepage/Movies/Avengers_Endgame/Black_widow.jpg" title="Scarlett Johansson">
+                        <img src="~/images/Homepage/Movies/Avengers_Endgame/iron_man.jpg" title="Robert Downey Jr.">
+                        <img src="~/images/Homepage/Movies/Avengers_Endgame/thor.jpeg" title="Chris Hamsworth">
+                        <img src="~/images/Homepage/Movies/Avengers_Endgame/starlord.jpg" title="Chris Pratt">
+                        <img src="~/images/Homepage/Movies/Avengers_Endgame/spiderman.jpg" title="Tom Holland">
+                    </div>
+                    <a href="#"><i class=""></i>Selecteer film</a>
+                    <a href="#" class="download-btn"><i class=""></i>Voeg aan favorieten toe</a>
+
                 </div>
-                <a href="#"><i class=""></i>Selecteer film</a>
-                <a href="#" class="download-btn"><i class=""></i>Voeg aan favorieten toe</a>
-
-            </div>
             <div class="col-md-6 text-center">
                 <img src="~/images/Homepage/Movies/Avengers_Endgame/Avengers_Endgame.jpg" class="movie-img">
             </div>

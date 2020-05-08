@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Cinemaat_layers.DAL;
+using Cinemaat_layers.INTERFACES;
 using Cinemaat_layers.LOGIC;
 using Cinemaat_layers.VIEW.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -42,7 +43,7 @@ namespace Cinemaat_layers.VIEW.Controllers
             var movieLogic = new MovieLogic(_movieContext);
             var movies = new List<MovieViewModel>();
 
-            foreach (var movie in movieLogic.SelectSpecificMovie())
+            foreach (var movie in movieLogic.GetAllMovies())
             {
                 movies.Add(new MovieViewModel
                 {
@@ -62,7 +63,7 @@ namespace Cinemaat_layers.VIEW.Controllers
             var movieLogic = new MovieLogic(_movieContext);
             var movies = new List<MovieViewModel>();
 
-            foreach (var movie in movieLogic.Select1917Movie())
+            foreach (var movie in movieLogic.GetAllMovies())
             {
                 movies.Add(new MovieViewModel
                 {
@@ -77,7 +78,7 @@ namespace Cinemaat_layers.VIEW.Controllers
             return View(movies);
         }
 
-        public ActionResult Edit()
+        public ActionResult Update()
         {
             var movieLogic = new MovieLogic(_movieContext);
             var movies = new List<MovieViewModel>();
