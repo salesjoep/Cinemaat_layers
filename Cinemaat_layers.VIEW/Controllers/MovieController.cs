@@ -28,6 +28,7 @@ namespace Cinemaat_layers.VIEW.Controllers
             {
                 movies.Add(new MovieViewModel
                 {
+                    MovieId = movie.MovieId,
                     MovieName = movie.MovieName,
                     Description = movie.Description,
                     DateCreated = movie.DateCreated,
@@ -81,14 +82,11 @@ namespace Cinemaat_layers.VIEW.Controllers
 
         public ActionResult Delete(int MovieId)
         {
-            var movieLogic = new MovieLogic(_movieContext);
-            var movies = new List<MovieViewModel>();
+            //_movieContext.DeleteMovie(MovieId);
+            MovieLogic movieLogic = new MovieLogic(_movieContext);
+            movieLogic.DeleteMovie(MovieId);
+            return RedirectToAction("Index");
 
-            foreach (var movie in movieLogic.GetAllMovies())
-            {
-                movieLogic.DeleteMovie(MovieId);
-            }
-            return View(movies);
         }
 
 

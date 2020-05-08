@@ -1,15 +1,14 @@
 ﻿@model IEnumerable<Cinemaat_layers.VIEW.Models.MovieViewModel>
 
-@{
-    ViewBag.Title = "title";
-    Layout = "_Layout";
-}
-
-<h2>Customers</h2>
-
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieId)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.MovieName)
             </th>
@@ -28,15 +27,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.Rating)
             </th>
-            <th>
-                Delete
-            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
+@foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MovieId)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MovieName)
             </td>
@@ -56,7 +55,9 @@
                 @Html.DisplayFor(modelItem => item.Rating)
             </td>
             <td>
-                <a asp-area="" asp-controller="Movie" asp-action="Delete">Delete</a>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { movieId=item.MovieId }, new { onclick = "return confirm('Are sure wants to delete?');" })
             </td>
         </tr>
 }

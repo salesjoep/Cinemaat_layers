@@ -8,6 +8,7 @@ namespace Cinemaat_layers.VIEW.Models
 {
     public class MovieViewModel : IMovie
     {
+        public int MovieId { get; set; }
         public string MovieName { get; set; }
         public string Description { get; set; }
         public DateTime DateCreated { get; set; }

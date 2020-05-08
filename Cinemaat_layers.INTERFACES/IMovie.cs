@@ -6,6 +6,7 @@ namespace Cinemaat_layers.INTERFACES
 {
     public interface IMovie
     {
+        public int MovieId { get; set; }
         string MovieName { get; set; }
         string Description { get; set; }
         DateTime DateCreated { get; set; }
