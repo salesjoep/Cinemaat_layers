@@ -13,21 +13,21 @@ namespace Cinemaat_layers.VIEW.Controllers
 {
     public class MovieController : Controller
     {
-        private readonly IMovieLogic  _movieLogic;
+        private readonly IMovieContext  _movieContext;
 
-        public MovieController(IMovieLogic movieLogic)
+        public MovieController(IMovieContext movieContext)
         {
           
-            _movieLogic = movieLogic;
+            _movieContext = movieContext;
         }
         
         public ActionResult Index()
         {
-            var allMovies = _movieLogic.GetAllMovies();
-            //var movieLogic = new MovieLogic(_movieContext);
+            //var allMovies = _movieContext.GetAllMovies();
+            var movieLogic = new MovieLogic(_movieContext);
             var movies = new List<MovieViewModel>();
 
-            foreach (var movie in allMovies)
+            foreach (var movie in movieLogic.GetAllMovies())
             {
                 movies.Add(new MovieViewModel
                 {
@@ -45,11 +45,11 @@ namespace Cinemaat_layers.VIEW.Controllers
 
         public ActionResult Avengers_Endgame()
         {
-            var allMovies = _movieLogic.GetAllMovies();
-            //var movieLogic = new MovieLogic(_movieContext);
+            //var allMovies = _movieContext.GetAllMovies();
+            var movieLogic = new MovieLogic(_movieContext);
             var movies = new List<MovieViewModel>();
 
-            foreach (var movie in allMovies)
+            foreach (var movie in movieLogic.GetAllMovies())
             {
                 movies.Add(new MovieViewModel
                 {
@@ -66,11 +66,11 @@ namespace Cinemaat_layers.VIEW.Controllers
 
         public ActionResult Movie_1917()
         {
-            var allMovies = _movieLogic.GetAllMovies();
-            //var movieLogic = new MovieLogic(_movieContext);
+            //var allMovies = _movieContext.GetAllMovies();
+            var movieLogic = new MovieLogic(_movieContext);
             var movies = new List<MovieViewModel>();
 
-            foreach (var movie in allMovies)
+            foreach (var movie in movieLogic.GetAllMovies())
             {
                 movies.Add(new MovieViewModel
                 {
@@ -85,13 +85,13 @@ namespace Cinemaat_layers.VIEW.Controllers
             return View(movies);
         }
 
-        [HttpPost]
+        
         public ActionResult Delete(int MovieId)
         {
-            _movieLogic.DeleteMovie(MovieId);
-            ////_movieContext.DeleteMovie(MovieId);
-            //MovieLogic movieLogic = new MovieLogic(_movieContext);
-            //movieLogic.DeleteMovie(MovieId);
+            //_movieContext.DeleteMovie(MovieId);
+            //////_movieContext.DeleteMovie(MovieId);
+            MovieLogic movieLogic = new MovieLogic(_movieContext);
+            movieLogic.DeleteMovie(MovieId);
             return RedirectToAction("Index");
 
         }
