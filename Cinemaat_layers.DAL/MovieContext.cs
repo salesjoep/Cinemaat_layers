@@ -20,9 +20,10 @@ namespace Cinemaat_layers.DAL
         public void CreateMovie(IMovie movie)
         {
             _connection.SqlConnection.Open();
-            string query = "INSERT INTO movie VALUES(@MovieName, @Description, @DateCreated, @Genre, @Review, @Rating; ";
+            string query = "INSERT INTO movie VALUES (@MovieId, @MovieName, @Description, @DateCreated, @Genre, @Review, @Rating); ";
             using (MySqlCommand command = new MySqlCommand(query, _connection.SqlConnection))
             {
+                command.Parameters.AddWithValue("@MovieId", movie.MovieId);
                 command.Parameters.AddWithValue("@MovieName", movie.MovieName);
                 command.Parameters.AddWithValue("@Description", movie.Description);
                 command.Parameters.AddWithValue("@DateCreated", movie.DateCreated);
@@ -82,13 +83,13 @@ namespace Cinemaat_layers.DAL
         }
 
         //Update in CRUD
-        public void UpdateMovie(IMovie movie, int MovieId)
+        public void UpdateMovie(IMovie movie)
         {
             _connection.SqlConnection.Open();
             string query = "UPDATE movie SET MovieName = @MovieName, Description = @Description, DateCreated = @DateCreated, Genre = @Genre, Review = @Review, Rating = @Rating WHERE MovieId=@MovieId; ";
             using (MySqlCommand command = new MySqlCommand(query, _connection.SqlConnection))
             {
-                command.Parameters.AddWithValue("@MovieId", MovieId);
+                command.Parameters.AddWithValue("@MovieId", movie.MovieId);
                 command.Parameters.AddWithValue("@MovieName", movie.MovieName);
                 command.Parameters.AddWithValue("@Description", movie.Description);
                 command.Parameters.AddWithValue("@DateCreated", movie.DateCreated);

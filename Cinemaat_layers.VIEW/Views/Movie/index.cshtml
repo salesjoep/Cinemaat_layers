@@ -54,9 +54,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Rating)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            <td>                
+                @Html.ActionLink("Edit", "Edit", new { movieId = item.MovieId }) |
+                @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
                 @Html.ActionLink("Delete", "Delete", new { movieId = item.MovieId }, new { onclick = "return confirm('Are sure wants to delete?');" })
             </td>
         </tr>

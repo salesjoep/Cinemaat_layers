@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Cinemaat_layers.DAL.Dto
 {
-    internal class MovieDto : IMovie
+    public class MovieDto : IMovie
     {
         public int MovieId { get; set; }
         public string MovieName { get; set; }
@@ -14,5 +14,10 @@ namespace Cinemaat_layers.DAL.Dto
         public string Genre { get; set; }
         public string Review { get; set; }
         public double Rating { get; set; }
+
+        public MovieDto()
+        {
+
+        }
     }
 }

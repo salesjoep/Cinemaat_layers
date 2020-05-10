@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Cinemaat_layers.LOGIC.Models
 {
-    internal class Movie : IMovie
+    public class Movie : IMovie
     {
         public int MovieId { get; set; }
         public string MovieName { get; set; }
@@ -14,5 +14,10 @@ namespace Cinemaat_layers.LOGIC.Models
         public string Genre { get; set; }
         public string Review { get; set; }
         public double Rating { get; set; }
+
+        public Movie()
+        {
+
+        }
     }
 }

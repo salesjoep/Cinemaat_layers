@@ -6,28 +6,33 @@ using Cinemaat_layers.DAL;
 using Cinemaat_layers.INTERFACES;
 using Cinemaat_layers.LOGIC;
 using Cinemaat_layers.VIEW.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Razor.Language.Extensions;
+using Org.BouncyCastle.Asn1.Mozilla;
 
 namespace Cinemaat_layers.VIEW.Controllers
 {
     public class MovieController : Controller
     {
-        private readonly IMovieContext  _movieContext;
+        private readonly IMovieLogic  _movieLogic;
 
-        public MovieController(IMovieContext movieContext)
+        public MovieController(IMovieLogic movieLogic)
         {
           
-            _movieContext = movieContext;
+            _movieLogic = movieLogic;
         }
+
+        //Read in CRUD
         
         public ActionResult Index()
         {
             //var allMovies = _movieContext.GetAllMovies();
-            var movieLogic = new MovieLogic(_movieContext);
+            
+            var allMovies = _movieLogic.GetAllMovies();
             var movies = new List<MovieViewModel>();
 
-            foreach (var movie in movieLogic.GetAllMovies())
+            foreach (var movie in allMovies)
             {
                 movies.Add(new MovieViewModel
                 {
@@ -40,16 +45,17 @@ namespace Cinemaat_layers.VIEW.Controllers
                     Rating = movie.Rating
                 });
             }
+            
             return View(movies);
         }
 
         public ActionResult Avengers_Endgame()
         {
             //var allMovies = _movieContext.GetAllMovies();
-            var movieLogic = new MovieLogic(_movieContext);
+            var allMovies = _movieLogic.GetAllMovies();
             var movies = new List<MovieViewModel>();
 
-            foreach (var movie in movieLogic.GetAllMovies())
+            foreach (var movie in allMovies)
             {
                 movies.Add(new MovieViewModel
                 {
@@ -67,10 +73,10 @@ namespace Cinemaat_layers.VIEW.Controllers
         public ActionResult Movie_1917()
         {
             //var allMovies = _movieContext.GetAllMovies();
-            var movieLogic = new MovieLogic(_movieContext);
+            var allMovies = _movieLogic.GetAllMovies();
             var movies = new List<MovieViewModel>();
 
-            foreach (var movie in movieLogic.GetAllMovies())
+            foreach (var movie in allMovies)
             {
                 movies.Add(new MovieViewModel
                 {
@@ -88,21 +94,44 @@ namespace Cinemaat_layers.VIEW.Controllers
         
         public ActionResult Delete(int MovieId)
         {
-            //_movieContext.DeleteMovie(MovieId);
-            //////_movieContext.DeleteMovie(MovieId);
-            MovieLogic movieLogic = new MovieLogic(_movieContext);
-            movieLogic.DeleteMovie(MovieId);
+
+            _movieLogic.DeleteMovie(MovieId);
             return RedirectToAction("Index");
 
+        
         }
 
-        //public ActionResult Edit(int movieId)
-        //{
-        //}
+        //Create in CRUD
 
+        [HttpGet]
+        public ActionResult Create()
+        {
+            var movieViewModel = new MovieViewModel();
+            return View(movieViewModel);
+        }
 
+        [HttpPost]
+        public ActionResult Create(MovieViewModel movie)
+        {
+            _movieLogic.CreateMovie(movie);
 
-        //GET: Customer/Details/5
+            return RedirectToAction("Index");
+            //return View(new MovieViewModel());
+        }
+        
+        [HttpGet]
+        public ActionResult Edit()
+        {
+            var movieViewModel = new MovieViewModel();
+            return View(movieViewModel);
+        }
 
+        [HttpPost]
+        public ActionResult Edit(MovieViewModel movie)
+        {
+            _movieLogic.UpdateMovie(movie);
+            return RedirectToAction("Index");
+        }
+        
     }
 }

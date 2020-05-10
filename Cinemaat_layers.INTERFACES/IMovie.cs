@@ -13,5 +13,6 @@ namespace Cinemaat_layers.INTERFACES
         string Genre { get; set; }
         string Review { get; set; }
         double Rating { get; set; }
+
     }
 }
