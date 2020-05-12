@@ -133,6 +133,11 @@ namespace Cinemaat_layers.VIEW.Controllers
             _movieLogic.UpdateMovie(movie);
             return RedirectToAction("Index");
         }
+
+        public ActionResult AllMovies()
+        {
+            return View();
+        }
         
     }
 }
