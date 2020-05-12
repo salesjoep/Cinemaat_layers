@@ -39,15 +39,20 @@ namespace Cinemaat_layers.LOGIC
 
         public IMovie UpdateMovie(IMovie movie)
         {
-            Movie _movie = new Movie();
-            movie = _movie;
-            _repository.UpdateMovie(movie);
+            //Movie _movie = new Movie();
+            //movie = _movie;
+            Repository.UpdateMovie(movie);
             return movie;
         }
 
         public void DeleteMovie(int movieId)
         {
             Repository.DeleteMovie(movieId);
+        }
+
+        public void GetById(int MovieId)
+        {
+            Repository.GetById(MovieId);
         }
     }
 }

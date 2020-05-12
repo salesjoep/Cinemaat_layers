@@ -11,5 +11,6 @@ namespace Cinemaat_layers.LOGIC
         void DeleteMovie(int movieId);
         IEnumerable<IMovie> GetAllMovies();
         IMovie UpdateMovie(IMovie movie);
+        void GetById(int MovieId);
     }
 }
