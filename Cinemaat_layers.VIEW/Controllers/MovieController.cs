@@ -123,7 +123,7 @@ namespace Cinemaat_layers.VIEW.Controllers
         public ActionResult Edit()
         {
             MovieViewModel movieViewModel = new MovieViewModel();
-            _movieLogic.GetById(movieViewModel.MovieId);
+            _movieLogic.GetById(movieViewModel);
             return View(movieViewModel);
         }
 

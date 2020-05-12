@@ -14,7 +14,7 @@ namespace Cinemaat_layers.DAL
 
         void UpdateMovie(IMovie movie);
 
-        void GetById(int id);
+        IMovie GetById(IMovie _movie);
 
         void DeleteMovie(int movieId);
     }

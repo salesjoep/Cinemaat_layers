@@ -50,9 +50,9 @@ namespace Cinemaat_layers.LOGIC
             Repository.DeleteMovie(movieId);
         }
 
-        public void GetById(int MovieId)
+        public IMovie GetById(IMovie movie)
         {
-            Repository.GetById(MovieId);
+            return Repository.GetById(movie);
         }
     }
 }

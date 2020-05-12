@@ -35,9 +35,9 @@ namespace Cinemaat_layers.DAL
             _context.DeleteMovie(movieId);
         }
 
-        public void GetById(int MovieId)
+        public IMovie GetById(IMovie movie)
         {
-            _context.GetById(MovieId);
+            return _context.GetById(movie);
         }
 
         

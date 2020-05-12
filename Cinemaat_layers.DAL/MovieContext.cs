@@ -65,24 +65,25 @@ namespace Cinemaat_layers.DAL
             return movieRecords;
         }
 
-        public void GetById(int MovieId)
+        public IMovie GetById(IMovie movie)
         {
             _connection.SqlConnection.Open();
             string query = "SELECT * FROM movie WHERE MovieId = @MovieId; ";
-            var movie = new MovieDto();
+
+            
             using (MySqlCommand command = new MySqlCommand(query, _connection.SqlConnection))
             {
-                command.Parameters.AddWithValue("@MovieId", MovieId);
+                command.Parameters.AddWithValue("@MovieId", movie.MovieId);
                 command.Parameters.AddWithValue("@MovieName", movie.MovieName);
                 command.Parameters.AddWithValue("@Description", movie.Description);
                 command.Parameters.AddWithValue("@DateCreated", movie.DateCreated);
                 command.Parameters.AddWithValue("@Genre", movie.Genre);
                 command.Parameters.AddWithValue("@Review", movie.Review);
                 command.Parameters.AddWithValue("@Rating", movie.Rating);
-
-                command.ExecuteNonQuery();
             }
             _connection.SqlConnection.Close();
+            return movie;
+            
         }
         //Delete in CRUD
         public void DeleteMovie(int movieId)
