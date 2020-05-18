@@ -20,9 +20,12 @@ body{
     width: 300px;
     padding: 50px;
     transition: .5s;
-    box-shadow: -4px 4px 5px 0px #000000;
 }
 
 .movies img:hover{
     transform: translateY(-10px);
+}
+
+.movie-img {
+
 }

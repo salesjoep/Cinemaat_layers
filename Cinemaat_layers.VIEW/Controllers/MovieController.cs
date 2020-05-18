@@ -91,7 +91,216 @@ namespace Cinemaat_layers.VIEW.Controllers
             return View(movies);
         }
 
-        
+        public ActionResult Thor_Ragnarok()
+        {
+            //var allMovies = _movieContext.GetAllMovies();
+            var allMovies = _movieLogic.GetAllMovies();
+            var movies = new List<MovieViewModel>();
+
+            foreach (var movie in allMovies)
+            {
+                movies.Add(new MovieViewModel
+                {
+                    MovieName = movie.MovieName,
+                    Description = movie.Description,
+                    DateCreated = movie.DateCreated,
+                    Genre = movie.Genre,
+                    Review = movie.Review,
+                    Rating = movie.Rating
+                });
+            }
+            return View(movies);
+        }
+
+        public ActionResult Spiderman_Far_From_Home()
+        {
+            //var allMovies = _movieContext.GetAllMovies();
+            var allMovies = _movieLogic.GetAllMovies();
+            var movies = new List<MovieViewModel>();
+
+            foreach (var movie in allMovies)
+            {
+                movies.Add(new MovieViewModel
+                {
+                    MovieName = movie.MovieName,
+                    Description = movie.Description,
+                    DateCreated = movie.DateCreated,
+                    Genre = movie.Genre,
+                    Review = movie.Review,
+                    Rating = movie.Rating
+                });
+            }
+            return View(movies);
+        }
+
+        public ActionResult Captain_Marvel()
+        {
+            //var allMovies = _movieContext.GetAllMovies();
+            var allMovies = _movieLogic.GetAllMovies();
+            var movies = new List<MovieViewModel>();
+
+            foreach (var movie in allMovies)
+            {
+                movies.Add(new MovieViewModel
+                {
+                    MovieName = movie.MovieName,
+                    Description = movie.Description,
+                    DateCreated = movie.DateCreated,
+                    Genre = movie.Genre,
+                    Review = movie.Review,
+                    Rating = movie.Rating
+                });
+            }
+            return View(movies);
+        }
+
+        public ActionResult Antman_And_The_Wasp()
+        {
+            //var allMovies = _movieContext.GetAllMovies();
+            var allMovies = _movieLogic.GetAllMovies();
+            var movies = new List<MovieViewModel>();
+
+            foreach (var movie in allMovies)
+            {
+                movies.Add(new MovieViewModel
+                {
+                    MovieName = movie.MovieName,
+                    Description = movie.Description,
+                    DateCreated = movie.DateCreated,
+                    Genre = movie.Genre,
+                    Review = movie.Review,
+                    Rating = movie.Rating
+                });
+            }
+            return View(movies);
+        }
+
+        public ActionResult Black_Panther()
+        {
+            //var allMovies = _movieContext.GetAllMovies();
+            var allMovies = _movieLogic.GetAllMovies();
+            var movies = new List<MovieViewModel>();
+
+            foreach (var movie in allMovies)
+            {
+                movies.Add(new MovieViewModel
+                {
+                    MovieName = movie.MovieName,
+                    Description = movie.Description,
+                    DateCreated = movie.DateCreated,
+                    Genre = movie.Genre,
+                    Review = movie.Review,
+                    Rating = movie.Rating
+                });
+            }
+            return View(movies);
+        }
+
+        public ActionResult Doctor_Strange()
+        {
+            //var allMovies = _movieContext.GetAllMovies();
+            var allMovies = _movieLogic.GetAllMovies();
+            var movies = new List<MovieViewModel>();
+
+            foreach (var movie in allMovies)
+            {
+                movies.Add(new MovieViewModel
+                {
+                    MovieName = movie.MovieName,
+                    Description = movie.Description,
+                    DateCreated = movie.DateCreated,
+                    Genre = movie.Genre,
+                    Review = movie.Review,
+                    Rating = movie.Rating
+                });
+            }
+            return View(movies);
+        }
+        public ActionResult Captain_America_Winter_Soldier()
+        {
+            //var allMovies = _movieContext.GetAllMovies();
+            var allMovies = _movieLogic.GetAllMovies();
+            var movies = new List<MovieViewModel>();
+
+            foreach (var movie in allMovies)
+            {
+                movies.Add(new MovieViewModel
+                {
+                    MovieName = movie.MovieName,
+                    Description = movie.Description,
+                    DateCreated = movie.DateCreated,
+                    Genre = movie.Genre,
+                    Review = movie.Review,
+                    Rating = movie.Rating
+                });
+            }
+            return View(movies);
+        }
+
+        public ActionResult Antman()
+        {
+            //var allMovies = _movieContext.GetAllMovies();
+            var allMovies = _movieLogic.GetAllMovies();
+            var movies = new List<MovieViewModel>();
+
+            foreach (var movie in allMovies)
+            {
+                movies.Add(new MovieViewModel
+                {
+                    MovieName = movie.MovieName,
+                    Description = movie.Description,
+                    DateCreated = movie.DateCreated,
+                    Genre = movie.Genre,
+                    Review = movie.Review,
+                    Rating = movie.Rating
+                });
+            }
+            return View(movies);
+        }
+
+        public ActionResult Spiderman_Homecoming()
+        {
+            //var allMovies = _movieContext.GetAllMovies();
+            var allMovies = _movieLogic.GetAllMovies();
+            var movies = new List<MovieViewModel>();
+
+            foreach (var movie in allMovies)
+            {
+                movies.Add(new MovieViewModel
+                {
+                    MovieName = movie.MovieName,
+                    Description = movie.Description,
+                    DateCreated = movie.DateCreated,
+                    Genre = movie.Genre,
+                    Review = movie.Review,
+                    Rating = movie.Rating
+                });
+            }
+            return View(movies);
+        }
+
+        public ActionResult No_Time_To_Die()
+        {
+            //var allMovies = _movieContext.GetAllMovies();
+            var allMovies = _movieLogic.GetAllMovies();
+            var movies = new List<MovieViewModel>();
+
+            foreach (var movie in allMovies)
+            {
+                movies.Add(new MovieViewModel
+                {
+                    MovieName = movie.MovieName,
+                    Description = movie.Description,
+                    DateCreated = movie.DateCreated,
+                    Genre = movie.Genre,
+                    Review = movie.Review,
+                    Rating = movie.Rating
+                });
+            }
+            return View(movies);
+        }
+
+
         public ActionResult Delete(int MovieId)
         {
 

@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Cinemaat_layers.VIEW.Models.MovieViewModel>
+
+@{
+    ViewBag.Title = "Ant Man";
+    Layout = "_Layout";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/Antman_Style.css" />
+</head>
+
+<body>
+    <div class="container movie-details">
+        <div class="row">
+            <div class="col-md-6 left-box">
+
+                @{
+                    string movieName;
+                    foreach (var item in Model)
+                    {
+                        if (item.MovieName == "Ant Man")
+                        {
+                            movieName = item.MovieName;
+                            <h1>@movieName</h1>
+                            break;
+                        }
+                        else
+                        {
+                            continue;
+                            <h1>Error: Could not load Movie Title.</h1>
+
+                        }
+                    }
+                }
+
+                @{
+                    string movieDesciption;
+                    foreach (var item in Model)
+                    {
+                        if (item.MovieName == "Ant Man")
+                        {
+                            movieDesciption = item.Description;
+                            <p>@movieDesciption</p>
+                            break;
+                        }
+                        else
+                        {
+                            continue;
+                            <p>Error:  Could not load Movie Description.</p>
+                        }
+                    }
+                }
+
+
+
+
+
+                <p>Cast: </p>
+                <div class="casting">
+                    <img src="~/images/Homepage/Movies/Avengers_Endgame/Black_widow.jpg" title="Scarlett Johansson">
+                    <img src="~/images/Homepage/Movies/Avengers_Endgame/iron_man.jpg" title="Robert Downey Jr.">
+                    <img src="~/images/Homepage/Movies/Avengers_Endgame/thor.jpeg" title="Chris Hamsworth">
+                    <img src="~/images/Homepage/Movies/Avengers_Endgame/starlord.jpg" title="Chris Pratt">
+                    <img src="~/images/Homepage/Movies/Avengers_Endgame/spiderman.jpg" title="Tom Holland">
+                </div>
+                <a href="#"><i class=""></i>Selecteer film</a>
+                <a href="#" class="download-btn"><i class=""></i>Voeg aan favorieten toe</a>
+
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="~/images/All Movies/Ant_Man.jpg" class="movie-img">
+            </div>
+        </div>
+    </div>
+    <div class="container series">
+        <h3>Bekijk ook</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-6"><img src="~/images/Homepage/Avengers_Endgame.jpg"></div>
+                    <div class="col-6"><img src="~/images/Homepage/Avengers_age_of_ultron.jpg"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-6"><img src="~/images/Homepage/Avengers_infinity_war.jpg"></div>
+                    <div class="col-6"><img src="~/images/Homepage/Captain_America_civil_war.jpg"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-6"> <img src="~/images/Homepage/Guardians_of_the_galaxy_Volume_2.png"></div>
+                    <div class="col-6"> <img src="~/images/Homepage/Spiderman_farm_from_home.jpg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
