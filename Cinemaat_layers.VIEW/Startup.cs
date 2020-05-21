@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Cinemaat_layers.DAL;
+using Cinemaat_layers.DAL.Context_Classes;
+using Cinemaat_layers.INTERFACES.Context;
+using Cinemaat_layers.INTERFACES.Logic;
 using Cinemaat_layers.LOGIC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -41,11 +44,17 @@ namespace Cinemaat_layers.VIEW
             services.AddScoped<IMovieHallContext, MovieHallContext>();
             services.AddScoped<ISeatContext, SeatContext>();
             services.AddScoped<IAgendaContext, AgendaContext>();
+            services.AddScoped<IUserRegistrationContext, UserRegistrationContext>();
+            services.AddScoped<ILoginLogic, LoginLogic>();
+            services.AddScoped<ILoginContext, LoginContext>();
             services.AddScoped<IMovieLogic, MovieLogic>();
+            services.AddScoped<IUserRegistrationLogic, UserRegistrationLogic>();
+            
 
             services.AddTransient(_ => new DatabaseConnection(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllersWithViews();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
