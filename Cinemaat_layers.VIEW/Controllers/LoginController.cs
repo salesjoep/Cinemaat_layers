@@ -37,7 +37,9 @@ namespace Cinemaat_layers.VIEW.Controllers
                 System.Threading.Thread.Sleep(3500);
                 return RedirectToAction("Index", "Home");
             }
+
             return View();
+            
         }
 
         public ActionResult Logout()

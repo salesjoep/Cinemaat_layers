@@ -33,9 +33,26 @@
                     <h2>Totaal Prijs</h2>
                     <p>€10,00</p>
                 </div>
-                <div class="text-left">
-                    <a class="pay-btn" href="https://paypal.me/joepsales?locale.x=nl_NL" target="_blank">Betalen</a>
-                </div>
+                @{
+                    var Email = new Byte[20];
+                    bool nameOK = Context.Session.TryGetValue("Email", out Email);
+                }
+                @{
+                    if (nameOK)
+                    {
+                        string EmailString = System.Text.Encoding.UTF8.GetString(Email);
+                        <div class="text-left">
+                            <a class="pay-btn" href="https://paypal.me/joepsales?locale.x=nl_NL" target="_blank">Betalen</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-left">
+                            <a class="pay-btn" asp-area="" asp-controller="Login" asp-action="Index">Betalen</a>
+                        </div>
+                    }
+                }
+
             </div>
         </div>
     </div>
