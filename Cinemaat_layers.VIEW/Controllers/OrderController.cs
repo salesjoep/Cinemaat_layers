@@ -37,5 +37,10 @@ namespace Cinemaat_layers.VIEW.Controllers
             }
             return View(orders);
         }
+        
+        public ActionResult Order()
+        {
+            return View("Order");
+        }
     }
 }

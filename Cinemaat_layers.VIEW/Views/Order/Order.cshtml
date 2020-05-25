@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Cinemaat_layers.VIEW.Models.MovieViewModel>
+
+@{
+    ViewData["Title"] = "Order";
+}
+
+<head>
+    <title>Shopping Cart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/Order/OrderStyle.css">
+</head>
+
+<body>
+    <h1 class="text-center text-white">Mijn Bestelling</h1>
+    <div class="container movie-details">
+        <div class="row">
+            <div class="col text-right">
+                <img src="~/images/Homepage/Avengers_Endgame.jpg" class="movie-img">
+            </div>
+            <div class="col text-center">
+                <div class="text-left text-white">
+                    <h1>Avengers: Endgame</h1>
+                </div>
+                <div class="text-left text-white">
+                    <h2>Wanneer</h2>
+                    <p>Donderdag 02 April 09:45</p>
+                </div>
+                <div class="text-left text-white">
+                    <h2>Stoelen</h2>
+                    <p>Rij 3 Stoel 30</p>
+                </div>
+                <div class="text-left text-white">
+                    <h2>Totaal Prijs</h2>
+                    <p>€10,00</p>
+                </div>
+                <div class="text-left">
+                    <a class="pay-btn" href="https://paypal.me/joepsales?locale.x=nl_NL" target="_blank">Betalen</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
