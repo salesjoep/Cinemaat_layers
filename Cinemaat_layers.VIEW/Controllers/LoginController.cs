@@ -34,6 +34,7 @@ namespace Cinemaat_layers.VIEW.Controllers
             {
                 HttpContext.Session.SetString("Email", user.Email);
                 HttpContext.Session.SetInt32("UserId", user.UserId);
+                System.Threading.Thread.Sleep(3500);
                 return RedirectToAction("Index", "Home");
             }
             return View();

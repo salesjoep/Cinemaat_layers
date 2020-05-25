@@ -6,8 +6,7 @@
     <title>@ViewData["Title"] - Cinemaat</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.css"
-          rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/css/API/sweetalert2.css" />
 </head>
 <body>    
     <header>
@@ -46,7 +45,7 @@
                             {
                                 string EmailString = System.Text.Encoding.UTF8.GetString(Email);
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" onclick="return confirm('Are you sure you want to logout?');" asp-area="" asp-controller="Login" asp-action="Logout">Logout @EmailString</a>
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Login" asp-action="Logout">Logout @EmailString</a>
                                 </li>
                             }
                             else
@@ -78,8 +77,8 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="sweetalert2.all.min.js"></script>
+    <script src="~/js/sweetalert2.all.js"></script>
+    <script src="~/js/ShowSwal.js"></script>
 
     @RenderSection("Scripts", required: false)
 </body>
