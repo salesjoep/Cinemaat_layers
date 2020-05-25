@@ -34,5 +34,10 @@ namespace Cinemaat_layers.VIEW.Controllers
             }
             return View(agendas);
         }
+
+        public ActionResult Agenda()
+        {
+            return View();
+        }
     }
 }
