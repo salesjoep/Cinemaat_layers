@@ -6,8 +6,10 @@
     <title>@ViewData["Title"] - Cinemaat</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.0/sweetalert.min.css"
+          rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body>    
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3">
             <div class="container">
@@ -28,11 +30,11 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="Movie" asp-action="Index">Films Beheren</a>
                         </li>
                         @*<li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="UserRegistration" asp-action="CreateUser">Registreren</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Login" asp-action="Index">Login</a>
-                        </li>*@
+                                <a class="nav-link text-white" asp-area="" asp-controller="UserRegistration" asp-action="CreateUser">Registreren</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Login" asp-action="Index">Login</a>
+                            </li>*@
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         @{
@@ -44,7 +46,7 @@
                             {
                                 string EmailString = System.Text.Encoding.UTF8.GetString(Email);
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" asp-area="" asp-controller="User" asp-action="Logout">Logout @EmailString</a>
+                                    <a class="nav-link text-white" onclick="return confirm('Are you sure you want to logout?');" asp-area="" asp-controller="Login" asp-action="Logout">Logout @EmailString</a>
                                 </li>
                             }
                             else
@@ -76,6 +78,9 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="sweetalert2.all.min.js"></script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

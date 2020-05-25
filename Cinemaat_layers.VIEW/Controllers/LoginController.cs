@@ -34,9 +34,25 @@ namespace Cinemaat_layers.VIEW.Controllers
             {
                 HttpContext.Session.SetString("Email", user.Email);
                 HttpContext.Session.SetInt32("UserId", user.UserId);
-                return RedirectToAction("Welcome");
+                return RedirectToAction("Index", "Home");
             }
             return View();
+        }
+
+        public ActionResult Logout()
+        {
+            try
+            {
+                if (HttpContext.Session.GetInt32("UserId") != null)
+                {
+                    HttpContext.Session.Clear();
+                }
+                return RedirectToAction("Index", "Login");
+            }
+            catch
+            {
+                return View();
+            }
         }
 
 
