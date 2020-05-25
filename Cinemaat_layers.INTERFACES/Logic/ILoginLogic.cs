@@ -7,6 +7,6 @@ namespace Cinemaat_layers.INTERFACES.Logic
 {
     public interface ILoginLogic
     {
-        void Login(ILogin user);
+        bool Login(ILogin user);
     }
 }

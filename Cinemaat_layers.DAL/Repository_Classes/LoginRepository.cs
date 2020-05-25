@@ -14,9 +14,9 @@ namespace Cinemaat_layers.DAL.Repository_Classes
             _context = context;
         }
 
-        public void Login(ILogin user)
+        public bool Login(ILogin user)
         {
-            _context.Login(user);
+            return _context.Login(user);
         }
     }
 }

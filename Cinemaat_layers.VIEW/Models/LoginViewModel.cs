@@ -9,6 +9,7 @@ namespace Cinemaat_layers.VIEW.Models
 {
     public class LoginViewModel : ILogin
     {
+        public int UserId { get; set; }
         [Required(ErrorMessage = "Dit veld is verplicht")]
         [Display(Name = "Emailadres")]
         public string Email { get; set; }

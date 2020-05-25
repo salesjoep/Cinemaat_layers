@@ -7,6 +7,7 @@ namespace Cinemaat_layers.INTERFACES.Models
 {
     public interface ILogin
     {
+        int UserId { get; set; }
         [Required(ErrorMessage = "Dit veld is verplicht")]
         [Display(Name = "Emailadres")]
         string Email { get; set; }

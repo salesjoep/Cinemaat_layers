@@ -16,9 +16,9 @@ namespace Cinemaat_layers.LOGIC
         {
             Repository = new LoginRepository(context);
         }
-        public void Login(ILogin user)
+        public bool Login(ILogin user)
         {
-            Repository.Login(user);
+            return Repository.Login(user);
         }
     }
 }

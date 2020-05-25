@@ -7,6 +7,6 @@ namespace Cinemaat_layers.INTERFACES.Context
 {
     public interface ILoginContext
     {
-        void Login(ILogin user);
+        bool Login(ILogin user);
     }
 }

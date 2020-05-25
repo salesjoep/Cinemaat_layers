@@ -8,6 +8,7 @@ namespace Cinemaat_layers.DAL.Dto
 {
     public class LoginDto : ILogin
     {
+        public int UserId { get; set; }
         [Required(ErrorMessage = "Dit veld is verplicht")]
         [Display(Name = "Emailadres")]
         public string Email { get; set; }

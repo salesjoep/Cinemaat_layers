@@ -29,8 +29,14 @@ namespace Cinemaat_layers.VIEW.Controllers
         [HttpPost]
         public ActionResult Index(LoginViewModel user)
         {
-            _loginLogic.Login(user);
-            return RedirectToAction("Welcome");
+            bool login = _loginLogic.Login(user);
+            if (login)
+            {
+                HttpContext.Session.SetString("Email", user.Email);
+                HttpContext.Session.SetInt32("UserId", user.UserId);
+                return RedirectToAction("Welcome");
+            }
+            return View();
         }
 
 

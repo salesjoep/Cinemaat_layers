@@ -35,6 +35,12 @@ namespace Cinemaat_layers.VIEW
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
 
             services.AddSingleton<IConfiguration>(Configuration);
 
@@ -74,6 +80,7 @@ namespace Cinemaat_layers.VIEW
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
             app.UseAuthorization();
 

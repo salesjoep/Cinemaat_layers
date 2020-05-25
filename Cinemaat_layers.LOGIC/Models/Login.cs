@@ -8,6 +8,7 @@ namespace Cinemaat_layers.LOGIC.Models
 {
     public class Login : ILogin
     {
+        public int UserId { get; set; }
         [Required(ErrorMessage = "Dit veld is verplicht")]
         [Display(Name = "Emailadres")]
         public string Email { get; set; }
