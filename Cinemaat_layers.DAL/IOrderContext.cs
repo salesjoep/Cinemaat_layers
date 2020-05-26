@@ -8,7 +8,7 @@ namespace Cinemaat_layers.DAL
     public interface IOrderContext
     {
 
-        void Add(IOrder order);
+        void CreateOrder(IOrder order);
 
         IEnumerable<IOrder> GetAll();
 

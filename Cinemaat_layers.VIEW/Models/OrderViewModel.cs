@@ -8,6 +8,7 @@ namespace Cinemaat_layers.VIEW.Models
 {
     public class OrderViewModel : IOrder
     {
+        public int OrderId { get; set; }
         public int MovieId { get; set; }
         public int UserId { get; set; }
         public int SeatId { get; set; }

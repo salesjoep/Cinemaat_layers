@@ -51,5 +51,25 @@ namespace Cinemaat_layers.DAL
         {
             throw new NotImplementedException();
         }
+
+        public void CreateOrder(IOrder order)
+        {
+            _connection.SqlConnection.Open();
+            string query = "INSERT INTO order VALUES (@OrderId, @MovieId, @UserId, @SeatId, @MovieHallId, @MovieName, @MoviePrice, @TotalPrice); ";
+            using (MySqlCommand command = new MySqlCommand(query, _connection.SqlConnection))
+            {
+                command.Parameters.AddWithValue("@OrderId", order.OrderId);
+                command.Parameters.AddWithValue("@MovieId", order.MovieId);
+                command.Parameters.AddWithValue("@UserId", order.UserId);
+                command.Parameters.AddWithValue("@SeatId", order.SeatId);
+                command.Parameters.AddWithValue("@MovieHallId", order.MovieHallId);
+                command.Parameters.AddWithValue("@MovieName", order.MovieName);
+                command.Parameters.AddWithValue("@MoviePrice", order.MoviePrice);
+                command.Parameters.AddWithValue("@TotalPrice", order.TotalPrice);
+
+                command.ExecuteNonQuery();
+            }
+            _connection.SqlConnection.Close();
+        }
     }
 }

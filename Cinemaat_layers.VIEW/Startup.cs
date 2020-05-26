@@ -47,6 +47,7 @@ namespace Cinemaat_layers.VIEW
             services.AddScoped<IMovieContext, MovieContext>();
             services.AddScoped<IShoppingCartContext, ShoppingCartContext>();
             services.AddScoped<IOrderContext, OrderContext>();
+            services.AddScoped<IOrderLogic, OrderLogic>();
             services.AddScoped<IMovieHallContext, MovieHallContext>();
             services.AddScoped<ISeatContext, SeatContext>();
             services.AddScoped<IAgendaContext, AgendaContext>();

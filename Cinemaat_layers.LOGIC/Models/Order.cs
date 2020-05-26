@@ -5,8 +5,9 @@ using System.Text;
 
 namespace Cinemaat_layers.LOGIC.Models
 {
-    internal class Order : IOrder
+    public class Order : IOrder
     {
+        public int OrderId { get; set; }
         public int MovieId { get; set; }
         public int UserId { get; set; }
         public int SeatId { get; set; }

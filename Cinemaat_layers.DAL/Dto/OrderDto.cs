@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Cinemaat_layers.DAL.Dto
 {
-    internal class OrderDto : IOrder
+    public class OrderDto : IOrder
     {
         public int OrderId { get; set; }
         public int MovieId { get; set; }

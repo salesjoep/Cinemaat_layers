@@ -1,5 +1,6 @@
 ﻿using Cinemaat_layers.DAL;
 using Cinemaat_layers.INTERFACES;
+using Cinemaat_layers.INTERFACES.Logic;
 using Cinemaat_layers.LOGIC.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace Cinemaat_layers.LOGIC
 {
-    public class OrderLogic
+    public class OrderLogic : IOrderLogic
     {
         public OrderLogic(IOrderContext context)
         {
@@ -16,19 +17,20 @@ namespace Cinemaat_layers.LOGIC
 
         private OrderRepository Repository { get; }
 
-        public void AddOrder(int movieId, int userId, int seatId, int movieHallId, string movieName, double moviePrice, double totalPrice)
+        public void CreateOrder(IOrder _order)
         {
             var order = new Order
             {
-                MovieId = movieId,
-                UserId = userId,
-                SeatId = seatId,
-                MovieHallId = movieHallId,
-                MovieName = movieName,
-                MoviePrice = moviePrice,
-                TotalPrice = totalPrice
+                OrderId = _order.OrderId,
+                MovieId = _order.MovieId,
+                UserId = _order.UserId,
+                SeatId = _order.SeatId,
+                MovieHallId = _order.MovieHallId,
+                MovieName = _order.MovieName,
+                MoviePrice = _order.MoviePrice,
+                TotalPrice = _order.TotalPrice
             };
-            Repository.Add(order);
+            Repository.CreateOrder(order);
         }
 
         public IEnumerable<IOrder> GetAllOrders()

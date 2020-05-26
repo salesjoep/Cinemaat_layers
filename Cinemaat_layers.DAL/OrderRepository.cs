@@ -13,10 +13,10 @@ namespace Cinemaat_layers.DAL
         {
             _context = context;
         }
-
-        public void Add(IOrder order)
+        
+        public void CreateOrder(IOrder order)
         {
-            _context.Add(order);
+            _context.CreateOrder(order);
         }
 
         public IEnumerable<IOrder> GetAll()

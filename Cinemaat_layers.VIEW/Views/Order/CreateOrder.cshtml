@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Cinemaat_layers.VIEW.Models.AgendaViewModel>
+﻿@model Cinemaat_layers.VIEW.Models.OrderViewModel
 
 @{
     ViewData["Title"] = "Order";
@@ -19,19 +19,7 @@
             </div>
             <div class="col text-center">
                 <div class="text-left text-white">
-                    @{ 
-                        string movieName;
-                        foreach (var item in Model)
-                        {
-                            if (item.MovieName == "Avengers: Endgame")
-                            {
-                                movieName = item.MovieName;
-                                <h1>@movieName</h1>
-                                break;
-                            }
-                            
-                        }
-                    }
+                    <h1>Avengers: Endgame</h1>
                 </div>
                 <div class="text-left text-white">
                     <h2>Wanneer</h2>

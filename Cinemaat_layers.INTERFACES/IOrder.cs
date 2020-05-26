@@ -6,6 +6,7 @@ namespace Cinemaat_layers.INTERFACES
 {
     public interface IOrder
     {
+        int OrderId { get; set; }
         int MovieId { get; set; }
         int UserId { get; set; }
         int SeatId { get; set; }
