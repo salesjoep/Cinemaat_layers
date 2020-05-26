@@ -35,6 +35,7 @@ namespace Cinemaat_layers.DAL
                 {
                     AgendaId = (int)reader["AgendaId"],
                     MovieId = (int)reader["MovieId"],
+                    MovieName = reader["MovieName"]?.ToString(),
                     MovieHallId = (int)reader["MovieHallId"],
                     IsValid = (bool)reader["IsValid"],
                     Time = DateTime.Parse(reader["Time"]?.ToString() ?? "")

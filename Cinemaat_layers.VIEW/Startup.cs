@@ -50,6 +50,7 @@ namespace Cinemaat_layers.VIEW
             services.AddScoped<IMovieHallContext, MovieHallContext>();
             services.AddScoped<ISeatContext, SeatContext>();
             services.AddScoped<IAgendaContext, AgendaContext>();
+            services.AddScoped<IAgendaLogic, AgendaLogic>();
             services.AddScoped<IUserRegistrationContext, UserRegistrationContext>();
             services.AddScoped<ILoginLogic, LoginLogic>();
             services.AddScoped<ILoginContext, LoginContext>();

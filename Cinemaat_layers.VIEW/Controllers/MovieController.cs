@@ -9,7 +9,6 @@ using Cinemaat_layers.VIEW.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Razor.Language.Extensions;
-using Org.BouncyCastle.Asn1.Mozilla;
 
 namespace Cinemaat_layers.VIEW.Controllers
 {

@@ -1,28 +1,30 @@
 ﻿@model IEnumerable<Cinemaat_layers.VIEW.Models.AgendaViewModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Agenda";
 }
 
-<h1>Index</h1>
+<h1>Datum & Tijd</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.MovieId)
+                Film
+                @*@Html.DisplayNameFor(model => model.MovieName)*@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MovieHallId)
+                Filmzaal
+                @*@Html.DisplayNameFor(model => model.MovieHallId)*@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IsValid)
+                Beschikbaarheid
+                @*@Html.DisplayNameFor(model => model.IsValid)*@
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Time)
+                Datum & Tijd
+                @*@Html.DisplayNameFor(model => model.Time)*@
             </th>
             <th></th>
         </tr>
@@ -31,7 +33,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.MovieId)
+                @Html.DisplayFor(modelItem => item.MovieName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MovieHallId)
@@ -43,7 +45,8 @@
                 @Html.DisplayFor(modelItem => item.Time)
             </td>
             <td>
-                @Html.ActionLink("Selecteer Tijdstip", "Edit", new { /* id=item.PrimaryKey */ })
+                <a asp-area="" asp-controller="Order" asp-action="Order">Selecteer Tijdstip</a>
+                @*@Html.ActionLink("Selecteer Tijdstip", "Edit", new { /* id=item.PrimaryKey */ })*@
             </td>
         </tr>
 }
