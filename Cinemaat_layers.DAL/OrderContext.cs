@@ -55,7 +55,7 @@ namespace Cinemaat_layers.DAL
         public void CreateOrder(IOrder order)
         {
             _connection.SqlConnection.Open();
-            string query = "INSERT INTO order VALUES (@OrderId, @MovieId, @UserId, @SeatId, @MovieHallId, @MovieName, @MoviePrice, @TotalPrice); ";
+            string query = "INSERT INTO `order` (`OrderId`, `MovieId`, `UserId`, `SeatId`, `MovieHallId`, `MovieName`, `MoviePrice`, `TotalPrice`) VALUES (@OrderId, @MovieId, @UserId, @SeatId, @MovieHallId, @MovieName, @MoviePrice, @TotalPrice); ";
             using (MySqlCommand command = new MySqlCommand(query, _connection.SqlConnection))
             {
                 command.Parameters.AddWithValue("@OrderId", order.OrderId);
