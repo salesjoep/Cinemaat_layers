@@ -25,6 +25,8 @@ namespace Cinemaat_layers.LOGIC
                 MovieId = _order.MovieId,
                 UserId = _order.UserId,
                 SeatId = _order.SeatId,
+                AgendaId = _order.AgendaId,
+                Time = _order.Time,
                 MovieHallId = _order.MovieHallId,
                 MovieName = _order.MovieName,
                 MoviePrice = _order.MoviePrice,

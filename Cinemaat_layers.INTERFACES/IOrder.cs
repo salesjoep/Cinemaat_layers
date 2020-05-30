@@ -10,6 +10,8 @@ namespace Cinemaat_layers.INTERFACES
         int MovieId { get; set; }
         int UserId { get; set; }
         int SeatId { get; set; }
+        int AgendaId { get; set; }
+        DateTime Time { get; set; }
         int MovieHallId { get; set; }
         string MovieName { get; set; }
         double MoviePrice { get; set; }

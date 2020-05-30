@@ -37,6 +37,8 @@ namespace Cinemaat_layers.DAL
                     MovieId = (int)reader["MovieId"],
                     UserId = (int)reader["UserId"],
                     SeatId = (int)reader["SeatId"],
+                    AgendaId = (int)reader["AgendaId"],
+                    Time = DateTime.Parse(reader["Time"]?.ToString() ?? ""),
                     MovieHallId = (int)reader["MovieHallId"],
                     MovieName = reader["MovieName"]?.ToString(),
                     MoviePrice = (double)reader["MoviePrice"],
@@ -55,13 +57,15 @@ namespace Cinemaat_layers.DAL
         public void CreateOrder(IOrder order)
         {
             _connection.SqlConnection.Open();
-            string query = "INSERT INTO `order` (`OrderId`, `MovieId`, `UserId`, `SeatId`, `MovieHallId`, `MovieName`, `MoviePrice`, `TotalPrice`) VALUES (@OrderId, @MovieId, @UserId, @SeatId, @MovieHallId, @MovieName, @MoviePrice, @TotalPrice); ";
+            string query = "INSERT INTO `order` (`OrderId`, `MovieId`, `UserId`, `SeatId`, `AgendaId`, `Time`, `MovieHallId`, `MovieName`, `MoviePrice`, `TotalPrice`) VALUES (@OrderId, @MovieId, @UserId, @SeatId, @AgendaId, @Time, @MovieHallId, @MovieName, @MoviePrice, @TotalPrice); ";
             using (MySqlCommand command = new MySqlCommand(query, _connection.SqlConnection))
             {
                 command.Parameters.AddWithValue("@OrderId", order.OrderId);
                 command.Parameters.AddWithValue("@MovieId", order.MovieId);
                 command.Parameters.AddWithValue("@UserId", order.UserId);
                 command.Parameters.AddWithValue("@SeatId", order.SeatId);
+                command.Parameters.AddWithValue("@AgendaId", order.AgendaId);
+                command.Parameters.AddWithValue("@Time", order.Time);
                 command.Parameters.AddWithValue("@MovieHallId", order.MovieHallId);
                 command.Parameters.AddWithValue("@MovieName", order.MovieName);
                 command.Parameters.AddWithValue("@MoviePrice", order.MoviePrice);

@@ -16,5 +16,7 @@ namespace Cinemaat_layers.VIEW.Models
         public string MovieName { get; set; }
         public double MoviePrice { get; set; }
         public double TotalPrice { get; set; }
+        public int AgendaId { get; set; }
+        public DateTime Time { get; set; }
     }
 }
