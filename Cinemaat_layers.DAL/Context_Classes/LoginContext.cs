@@ -20,7 +20,7 @@ namespace Cinemaat_layers.DAL.Context_Classes
         {
             bool login = false;            
             _connection.SqlConnection.Open();
-            using (MySqlCommand query = new MySqlCommand("SELECT * FROM userregistration WHERE Email = @Email AND Password = @Password; ", _connection.SqlConnection))
+            using (MySqlCommand query = new MySqlCommand("SELECT * FROM userregistration WHERE Email = @Email AND Password = SHA1(@Password); ", _connection.SqlConnection))
             {
                 query.Parameters.AddWithValue("@Email", user.Email);
                 query.Parameters.AddWithValue("@Password", user.Password);
