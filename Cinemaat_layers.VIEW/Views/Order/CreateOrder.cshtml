@@ -20,18 +20,22 @@
             <div class="col text-center">
                 <div class="text-left text-white">                    
                     <h1>Avengers: Endgame</h1>
+                    <input type="hidden" asp-for="MovieName" />
                 </div>
                 <div class="text-left text-white">
                     <h2>Wanneer</h2>
                     <p>Donderdag 02 April 09:45</p>
+                    <input type="hidden" asp-for="Time" />
                 </div>
                 <div class="text-left text-white">
                     <h2>Stoelen</h2>
                     <p>Rij 3 Stoel 30</p>
+                    <input type="hidden" asp-for="SeatId" />
                 </div>
                 <div class="text-left text-white">
                     <h2>Totaal Prijs</h2>
                     <p>€10,00</p>
+                    <input type="hidden" asp-for="TotalPrice" />
                 </div>
                 @{
                     var Email = new Byte[20];
@@ -56,6 +60,25 @@
             </div>
         </div>
     </div>
+    <form method="post">
+        <div class="Order">
+            <button type="submit" asp-controller="Order" asp-action="CreateOrder">Bevestigen</button>
+            <button type="submit" asp-controller="Movie" asp-action="Index">Annuleren</button>
+            <input type="hidden" asp-for="MovieName" />
+            <input type="hidden" asp-for="Time" />
+            <input type="hidden" asp-for="SeatId" />
+            <input type="hidden" asp-for="TotalPrice" />
+            @{
+
+                <h1>@Html.DisplayFor(modelItem => modelItem.MovieName)</h1>
+                <h1>@Html.DisplayFor(modelItem => modelItem.Time)</h1>
+                <h1>@Html.DisplayFor(modelItem => modelItem.SeatId)</h1>
+                <h1>@Html.DisplayFor(modelItem => modelItem.TotalPrice)</h1>
+
+            }
+        </div>
+    </form>
+
     <div class="row">
         <div class="col-md-4">
             <form asp-action="CreateOrder">

@@ -6,6 +6,7 @@ using Cinemaat_layers.INTERFACES.Logic;
 using Cinemaat_layers.LOGIC;
 using Cinemaat_layers.VIEW.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Razor.Language.Extensions;
 
 namespace Cinemaat_layers.VIEW.Controllers
 {
@@ -65,9 +66,20 @@ namespace Cinemaat_layers.VIEW.Controllers
         }
 
         [HttpGet]
-        public ActionResult CreateOrder()
+        public ActionResult CreateOrder(int movieId, int userId, int seatId, int agendaId, DateTime time, int movieHallId, string movieName, double moviePrice, double totalPrice)
         {
-            var orderViewModel = new OrderViewModel();
+            var orderViewModel = new OrderViewModel()
+            {
+                MovieId = movieId,
+                UserId = userId,
+                SeatId = seatId,
+                AgendaId = agendaId,
+                Time = time,
+                MovieHallId = movieHallId,
+                MovieName = movieName,
+                MoviePrice = moviePrice,
+                TotalPrice = totalPrice
+            };
             return View(orderViewModel);
         }
 
