@@ -7,6 +7,7 @@ namespace Cinemaat_layers.LOGIC.Models
 {
     public class Agenda : IAgenda
     {
+        public int AgendaId { get; set; }
         public int MovieId { get; set; }
         public string MovieName { get; set; }
         public int MovieHallId { get; set; }

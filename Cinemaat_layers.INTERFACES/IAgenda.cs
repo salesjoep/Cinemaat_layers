@@ -6,6 +6,7 @@ namespace Cinemaat_layers.INTERFACES
 {
     public interface IAgenda
     {
+        int AgendaId { get; set; }
         int MovieId { get; set; }
         string MovieName { get; set; }
         int MovieHallId { get; set; }

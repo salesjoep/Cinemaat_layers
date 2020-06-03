@@ -24,7 +24,7 @@
                 </div>
                 <div class="text-left text-white">
                     <h2>Wanneer</h2>
-                    <p>Donderdag 02 April 09:45</p>
+                    <p>@Html.DisplayFor(modelItem => modelItem.Time)</p>
                     <input type="hidden" asp-for="Time" />
                 </div>
                 <div class="text-left text-white">
@@ -69,7 +69,8 @@
             <input type="hidden" asp-for="SeatId" />
             <input type="hidden" asp-for="TotalPrice" />
             @{
-
+                <h1 class="text-white">Film gegevens</h1>
+                <h1>@Html.DisplayFor(modelItem => modelItem.AgendaId)</h1>
                 <h1>@Html.DisplayFor(modelItem => modelItem.MovieName)</h1>
                 <h1>@Html.DisplayFor(modelItem => modelItem.Time)</h1>
                 <h1>@Html.DisplayFor(modelItem => modelItem.SeatId)</h1>

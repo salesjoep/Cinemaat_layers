@@ -8,6 +8,7 @@ namespace Cinemaat_layers.VIEW.Models
 {
     public class AgendaViewModel : IAgenda
     {
+        public int AgendaId { get; set; }
         public int MovieId { get; set; }
         public string MovieName { get; set; }
         public int MovieHallId { get; set; }

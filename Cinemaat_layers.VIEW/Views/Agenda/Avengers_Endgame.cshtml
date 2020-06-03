@@ -45,8 +45,8 @@
                 @Html.DisplayFor(modelItem => item.Time)
             </td>
             <td>
-                <a asp-area="" asp-controller="Order" asp-action="CreateOrder">Selecteer Tijdstip</a>
-                @*@Html.ActionLink("Selecteer Tijdstip", "Edit", new { /* id=item.PrimaryKey */ })*@
+                @*<a asp-area="" asp-controller="Order" asp-action="CreateOrder">Selecteer Tijdstip</a>*@
+                @Html.ActionLink("Selecteer Tijdstip", "CreateOrder", "Order", new { agendaId = item.AgendaId, time = item.Time })
             </td>
         </tr>
 }
