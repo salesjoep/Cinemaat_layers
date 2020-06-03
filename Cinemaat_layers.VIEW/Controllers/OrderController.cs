@@ -7,6 +7,7 @@ using Cinemaat_layers.LOGIC;
 using Cinemaat_layers.VIEW.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Razor.Language.Extensions;
+using Renci.SshNet;
 
 namespace Cinemaat_layers.VIEW.Controllers
 {
@@ -69,14 +70,15 @@ namespace Cinemaat_layers.VIEW.Controllers
         [HttpGet]
         public ActionResult CreateOrder(int movieId, int userId, int seatId, int agendaId, DateTime time, int movieHallId, string movieName, double price, double totalPrice)
         {
+
             var orderViewModel = new OrderViewModel()
             {
-                MovieId = 1,
+                MovieId = movieId,
                 UserId = 12,
                 SeatId = 1,
                 AgendaId = agendaId,
                 Time = time,
-                MovieHallId = 1,
+                MovieHallId = movieHallId,
                 MovieName = movieName,
                 Price = price,
                 TotalPrice = price

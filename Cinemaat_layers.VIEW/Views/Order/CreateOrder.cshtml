@@ -57,7 +57,6 @@
                     {
                         string EmailString = System.Text.Encoding.UTF8.GetString(Email);
                         <div class="text-left">
-                            @*<a class="pay-btn" href="https://paypal.me/joepsales?locale.x=nl_NL" target="_blank">Betalen</a>*@
                             <form method="post">
                                 <button type="submit" asp-controller="Order" asp-action="CreateOrder">Betalen</button>
                                 <input type="hidden" asp-for="MovieId" />

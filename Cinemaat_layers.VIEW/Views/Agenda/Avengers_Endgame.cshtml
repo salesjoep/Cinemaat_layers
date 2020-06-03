@@ -58,7 +58,7 @@
             </td>
             <td>
                 @*<a asp-area="" asp-controller="Order" asp-action="CreateOrder">Selecteer Tijdstip</a>*@
-                @Html.ActionLink("Selecteer Tijdstip", "CreateOrder", "Order", new { agendaId = item.AgendaId, time = item.Time, movieName = item.MovieName, price = item.Price })
+                @Html.ActionLink("Selecteer Tijdstip", "CreateOrder", "Order", new { agendaId = item.AgendaId, time = item.Time, movieName = item.MovieName, price = item.Price, movieHallId = item.MovieHallId, movieId = item.MovieId })
             </td>
         </tr>
 }
