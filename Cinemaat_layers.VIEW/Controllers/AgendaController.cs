@@ -27,6 +27,7 @@ namespace Cinemaat_layers.VIEW.Controllers
             {
                 agendas.Add(new AgendaViewModel
                 {
+                    AgendaId = agenda.AgendaId,
                     MovieId = agenda.MovieId,
                     MovieName = agenda.MovieName,
                     MovieHallId = agenda.MovieHallId,

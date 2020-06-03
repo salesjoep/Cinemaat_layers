@@ -17,10 +17,11 @@ namespace Cinemaat_layers.LOGIC
 
         private AgendaRepository Repository { get; }
 
-        public void AddAgenda(int movieId, string movieName,int movieHallId, bool isValid, DateTime time)
+        public void AddAgenda(int agendaId, int movieId, string movieName,int movieHallId, bool isValid, DateTime time)
         {
             var agenda = new Agenda
             {
+                AgendaId = agendaId,
                 MovieId = movieId,
                 MovieName = movieName,
                 MovieHallId = movieHallId,
