@@ -53,6 +53,23 @@
                     }
                 }
 
+                @{ 
+                    double moviePrice;
+                    foreach (var item in Model)
+                    {
+                        if (item.MovieName == "Avengers: Endgame")
+                        {
+                            moviePrice = item.Price;
+                            <p>Filmprijs: €@moviePrice</p>
+                            break;
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                }
+
                 
 
 

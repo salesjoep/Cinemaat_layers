@@ -38,7 +38,8 @@ namespace Cinemaat_layers.DAL
                     MovieName = reader["MovieName"]?.ToString(),
                     MovieHallId = (int)reader["MovieHallId"],
                     IsValid = (bool)reader["IsValid"],
-                    Time = DateTime.Parse(reader["Time"]?.ToString() ?? "")
+                    Time = DateTime.Parse(reader["Time"]?.ToString() ?? ""),
+                    Price = (double)reader["Price"]
                 };
 
                 agendaRecords.Add(agenda);

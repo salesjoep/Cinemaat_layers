@@ -14,6 +14,7 @@ namespace Cinemaat_layers.LOGIC.Models
         public string Genre { get; set; }
         public string Review { get; set; }
         public double Rating { get; set; }
+        public double Price { get; set; }
 
         public Movie()
         {

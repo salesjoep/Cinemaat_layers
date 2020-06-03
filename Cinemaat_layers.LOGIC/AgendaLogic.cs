@@ -17,7 +17,7 @@ namespace Cinemaat_layers.LOGIC
 
         private AgendaRepository Repository { get; }
 
-        public void AddAgenda(int agendaId, int movieId, string movieName,int movieHallId, bool isValid, DateTime time)
+        public void AddAgenda(int agendaId, int movieId, string movieName,int movieHallId, bool isValid, DateTime time, double price)
         {
             var agenda = new Agenda
             {
@@ -26,7 +26,8 @@ namespace Cinemaat_layers.LOGIC
                 MovieName = movieName,
                 MovieHallId = movieHallId,
                 IsValid = isValid,
-                Time = time
+                Time = time,
+                Price = price
             };
             Repository.Add(agenda);
         }

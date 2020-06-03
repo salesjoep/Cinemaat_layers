@@ -20,7 +20,7 @@ namespace Cinemaat_layers.DAL
         public void CreateMovie(IMovie movie)
         {
             _connection.SqlConnection.Open();
-            string query = "INSERT INTO movie VALUES (@MovieId, @MovieName, @Description, @DateCreated, @Genre, @Review, @Rating); ";
+            string query = "INSERT INTO movie VALUES (@MovieId, @MovieName, @Description, @DateCreated, @Genre, @Review, @Rating @Price); ";
             using (MySqlCommand command = new MySqlCommand(query, _connection.SqlConnection))
             {
                 command.Parameters.AddWithValue("@MovieId", movie.MovieId);
@@ -30,6 +30,7 @@ namespace Cinemaat_layers.DAL
                 command.Parameters.AddWithValue("@Genre", movie.Genre);
                 command.Parameters.AddWithValue("@Review", movie.Review);
                 command.Parameters.AddWithValue("@Rating", movie.Rating);
+                command.Parameters.AddWithValue("@Price", movie.Price);
 
                 command.ExecuteNonQuery();
             }
@@ -56,7 +57,8 @@ namespace Cinemaat_layers.DAL
                     DateCreated = DateTime.Parse(reader["DateCreated"]?.ToString() ?? ""),
                     Genre = reader["Genre"]?.ToString(),
                     Review = reader["Review"]?.ToString(),
-                    Rating = (double)reader["Rating"]
+                    Rating = (double)reader["Rating"],
+                    Price = (double)reader["Price"]
                 };
 
                 movieRecords.Add(movie);
@@ -80,6 +82,7 @@ namespace Cinemaat_layers.DAL
                 command.Parameters.AddWithValue("@Genre", movie.Genre);
                 command.Parameters.AddWithValue("@Review", movie.Review);
                 command.Parameters.AddWithValue("@Rating", movie.Rating);
+                command.Parameters.AddWithValue("@Price", movie.Price);
             }
             _connection.SqlConnection.Close();
             return movie;
@@ -102,7 +105,7 @@ namespace Cinemaat_layers.DAL
         public void UpdateMovie(IMovie movie)
         {
             _connection.SqlConnection.Open();
-            string query = "UPDATE movie SET MovieName = @MovieName, Description = @Description, DateCreated = @DateCreated, Genre = @Genre, Review = @Review, Rating = @Rating WHERE MovieId=@MovieId; ";
+            string query = "UPDATE movie SET MovieName = @MovieName, Description = @Description, DateCreated = @DateCreated, Genre = @Genre, Review = @Review, Rating = @Rating, Price = @Price WHERE MovieId=@MovieId; ";
             using (MySqlCommand command = new MySqlCommand(query, _connection.SqlConnection))
             {
                 command.Parameters.AddWithValue("@MovieId", movie.MovieId);
@@ -112,6 +115,7 @@ namespace Cinemaat_layers.DAL
                 command.Parameters.AddWithValue("@Genre", movie.Genre);
                 command.Parameters.AddWithValue("@Review", movie.Review);
                 command.Parameters.AddWithValue("@Rating", movie.Rating);
+                command.Parameters.AddWithValue("@Price", movie.Price);
 
                 command.ExecuteNonQuery();
                 _connection.SqlConnection.Close();

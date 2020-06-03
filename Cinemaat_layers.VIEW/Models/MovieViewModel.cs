@@ -15,6 +15,7 @@ namespace Cinemaat_layers.VIEW.Models
         public string Genre { get; set; }
         public string Review { get; set; }
         public double Rating { get; set; }
+        public double Price { get; set; }
 
         public MovieViewModel()
         {

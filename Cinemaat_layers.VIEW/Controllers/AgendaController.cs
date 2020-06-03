@@ -32,7 +32,8 @@ namespace Cinemaat_layers.VIEW.Controllers
                     MovieName = agenda.MovieName,
                     MovieHallId = agenda.MovieHallId,
                     IsValid = agenda.IsValid,
-                    Time = agenda.Time
+                    Time = agenda.Time,
+                    Price = agenda.Price
                 });
             }
             return View(agendas);

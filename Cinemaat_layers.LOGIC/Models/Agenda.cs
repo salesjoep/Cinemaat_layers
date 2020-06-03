@@ -13,5 +13,6 @@ namespace Cinemaat_layers.LOGIC.Models
         public int MovieHallId { get; set; }
         public bool IsValid { get; set; }
         public DateTime Time { get; set; }
+        public double Price { get; set; }
     }
 }

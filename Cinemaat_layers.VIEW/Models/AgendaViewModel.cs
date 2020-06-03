@@ -14,5 +14,6 @@ namespace Cinemaat_layers.VIEW.Models
         public int MovieHallId { get; set; }
         public bool IsValid { get; set; }
         public DateTime Time { get; set; }
+        public double Price { get; set; }
     }
 }

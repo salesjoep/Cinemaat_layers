@@ -19,7 +19,7 @@
             </div>
             <div class="col text-center">
                 <div class="text-left text-white">                    
-                    <h1>Avengers: Endgame</h1>
+                    <h1>@Html.DisplayFor(modelItem => modelItem.MovieName)</h1>
                     <input type="hidden" asp-for="MovieName" />
                 </div>
                 <div class="text-left text-white">
@@ -33,9 +33,9 @@
                     <input type="hidden" asp-for="SeatId" />
                 </div>
                 <div class="text-left text-white">
-                    <h2>Totaal Prijs</h2>
-                    <p>€10,00</p>
-                    <input type="hidden" asp-for="TotalPrice" />
+                    <h2>Ticket Prijs</h2>
+                    <p>@Html.DisplayFor(modelItem => modelItem.MoviePrice)</p>
+                    <input type="hidden" asp-for="MoviePrice" />
                 </div>
                 @{
                     var Email = new Byte[20];

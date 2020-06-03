@@ -41,7 +41,8 @@ namespace Cinemaat_layers.VIEW.Controllers
                     DateCreated = movie.DateCreated,
                     Genre = movie.Genre,
                     Review = movie.Review,
-                    Rating = movie.Rating
+                    Rating = movie.Rating,
+                    Price = movie.Price
                 });
             }
             
@@ -63,7 +64,8 @@ namespace Cinemaat_layers.VIEW.Controllers
                     DateCreated = movie.DateCreated,
                     Genre = movie.Genre,
                     Review = movie.Review,
-                    Rating = movie.Rating
+                    Rating = movie.Rating,
+                    Price = movie.Price
                 });
             }
             return View(movies);
@@ -84,7 +86,8 @@ namespace Cinemaat_layers.VIEW.Controllers
                     DateCreated = movie.DateCreated,
                     Genre = movie.Genre,
                     Review = movie.Review,
-                    Rating = movie.Rating
+                    Rating = movie.Rating,
+                    Price = movie.Price
                 });
             }
             return View(movies);
@@ -105,7 +108,8 @@ namespace Cinemaat_layers.VIEW.Controllers
                     DateCreated = movie.DateCreated,
                     Genre = movie.Genre,
                     Review = movie.Review,
-                    Rating = movie.Rating
+                    Rating = movie.Rating,
+                    Price = movie.Price
                 });
             }
             return View(movies);
@@ -126,7 +130,8 @@ namespace Cinemaat_layers.VIEW.Controllers
                     DateCreated = movie.DateCreated,
                     Genre = movie.Genre,
                     Review = movie.Review,
-                    Rating = movie.Rating
+                    Rating = movie.Rating,
+                    Price = movie.Price
                 });
             }
             return View(movies);
@@ -147,7 +152,8 @@ namespace Cinemaat_layers.VIEW.Controllers
                     DateCreated = movie.DateCreated,
                     Genre = movie.Genre,
                     Review = movie.Review,
-                    Rating = movie.Rating
+                    Rating = movie.Rating,
+                    Price = movie.Price
                 });
             }
             return View(movies);
@@ -168,7 +174,8 @@ namespace Cinemaat_layers.VIEW.Controllers
                     DateCreated = movie.DateCreated,
                     Genre = movie.Genre,
                     Review = movie.Review,
-                    Rating = movie.Rating
+                    Rating = movie.Rating,
+                    Price = movie.Price
                 });
             }
             return View(movies);
@@ -189,7 +196,8 @@ namespace Cinemaat_layers.VIEW.Controllers
                     DateCreated = movie.DateCreated,
                     Genre = movie.Genre,
                     Review = movie.Review,
-                    Rating = movie.Rating
+                    Rating = movie.Rating,
+                    Price = movie.Price
                 });
             }
             return View(movies);
@@ -210,7 +218,8 @@ namespace Cinemaat_layers.VIEW.Controllers
                     DateCreated = movie.DateCreated,
                     Genre = movie.Genre,
                     Review = movie.Review,
-                    Rating = movie.Rating
+                    Rating = movie.Rating,
+                    Price = movie.Price
                 });
             }
             return View(movies);
@@ -230,7 +239,8 @@ namespace Cinemaat_layers.VIEW.Controllers
                     DateCreated = movie.DateCreated,
                     Genre = movie.Genre,
                     Review = movie.Review,
-                    Rating = movie.Rating
+                    Rating = movie.Rating,
+                    Price = movie.Price
                 });
             }
             return View(movies);
@@ -251,7 +261,8 @@ namespace Cinemaat_layers.VIEW.Controllers
                     DateCreated = movie.DateCreated,
                     Genre = movie.Genre,
                     Review = movie.Review,
-                    Rating = movie.Rating
+                    Rating = movie.Rating,
+                    Price = movie.Price
                 });
             }
             return View(movies);
@@ -272,7 +283,8 @@ namespace Cinemaat_layers.VIEW.Controllers
                     DateCreated = movie.DateCreated,
                     Genre = movie.Genre,
                     Review = movie.Review,
-                    Rating = movie.Rating
+                    Rating = movie.Rating,
+                    Price = movie.Price
                 });
             }
             return View(movies);
@@ -293,7 +305,8 @@ namespace Cinemaat_layers.VIEW.Controllers
                     DateCreated = movie.DateCreated,
                     Genre = movie.Genre,
                     Review = movie.Review,
-                    Rating = movie.Rating
+                    Rating = movie.Rating,
+                    Price = movie.Price
                 });
             }
             return View(movies);

@@ -10,9 +10,9 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.AgendaId)
-            </th>
+            </th>*@
             <th>
                 Film
                 @*@Html.DisplayNameFor(model => model.MovieName)*@
@@ -29,15 +29,18 @@
                 Datum & Tijd
                 @*@Html.DisplayNameFor(model => model.Time)*@
             </th>
+            <th>
+                Ticket Prijs
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.AgendaId)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.MovieName)
             </td>
@@ -51,8 +54,11 @@
                 @Html.DisplayFor(modelItem => item.Time)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
                 @*<a asp-area="" asp-controller="Order" asp-action="CreateOrder">Selecteer Tijdstip</a>*@
-                @Html.ActionLink("Selecteer Tijdstip", "CreateOrder", "Order", new { agendaId = item.AgendaId, time = item.Time })
+                @Html.ActionLink("Selecteer Tijdstip", "CreateOrder", "Order", new { agendaId = item.AgendaId, time = item.Time, movieName = item.MovieName, price = item.Price })
             </td>
         </tr>
 }

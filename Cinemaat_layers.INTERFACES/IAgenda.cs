@@ -12,5 +12,6 @@ namespace Cinemaat_layers.INTERFACES
         int MovieHallId { get; set; }
         bool IsValid { get; set; }
         DateTime Time { get; set; }
+        double Price { get; set; }
     }
 }
