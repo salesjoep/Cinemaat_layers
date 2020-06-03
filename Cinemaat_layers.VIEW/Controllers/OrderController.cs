@@ -27,6 +27,7 @@ namespace Cinemaat_layers.VIEW.Controllers
             {
                 orders.Add(new OrderViewModel
                 {
+                    OrderId = order.OrderId,
                     MovieId = order.MovieId,
                     UserId = order.UserId,
                     SeatId = order.SeatId,
@@ -70,15 +71,15 @@ namespace Cinemaat_layers.VIEW.Controllers
         {
             var orderViewModel = new OrderViewModel()
             {
-                MovieId = movieId,
-                UserId = userId,
-                SeatId = seatId,
+                MovieId = 1,
+                UserId = 12,
+                SeatId = 1,
                 AgendaId = agendaId,
                 Time = time,
-                MovieHallId = movieHallId,
+                MovieHallId = 1,
                 MovieName = movieName,
                 Price = price,
-                TotalPrice = totalPrice
+                TotalPrice = price
             };
             return View(orderViewModel);
         }
@@ -87,7 +88,7 @@ namespace Cinemaat_layers.VIEW.Controllers
         public ActionResult CreateOrder(OrderViewModel order)
         {
             _orderLogic.CreateOrder(order);
-            return View();
+            return View("Success");
         }
     }
 }

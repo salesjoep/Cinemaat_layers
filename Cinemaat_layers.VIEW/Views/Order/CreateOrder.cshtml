@@ -18,7 +18,7 @@
                 <img src="~/images/Homepage/Avengers_Endgame.jpg" class="movie-img">
             </div>
             <div class="col text-center">
-                <div class="text-left text-white">                    
+                <div class="text-left text-white">
                     <h1>@Html.DisplayFor(modelItem => modelItem.MovieName)</h1>
                     <input type="hidden" asp-for="MovieName" />
                 </div>
@@ -37,6 +37,17 @@
                     <p>€@Html.DisplayFor(modelItem => modelItem.Price)</p>
                     <input type="hidden" asp-for="Price" />
                 </div>
+                <div class="text-left text-white">
+                    <h2>Aantal tickets</h2>
+                    <select name="Tickets">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <br />
                 @{
                     var Email = new Byte[20];
                     bool nameOK = Context.Session.TryGetValue("Email", out Email);
@@ -46,7 +57,19 @@
                     {
                         string EmailString = System.Text.Encoding.UTF8.GetString(Email);
                         <div class="text-left">
-                            <a class="pay-btn" href="https://paypal.me/joepsales?locale.x=nl_NL" target="_blank">Betalen</a>
+                            @*<a class="pay-btn" href="https://paypal.me/joepsales?locale.x=nl_NL" target="_blank">Betalen</a>*@
+                            <form method="post">
+                                <button type="submit" asp-controller="Order" asp-action="CreateOrder">Betalen</button>
+                                <input type="hidden" asp-for="MovieId" />
+                                <input type="hidden" asp-for="UserId" />
+                                <input type="hidden" asp-for="SeatId" />
+                                <input type="hidden" asp-for="MovieHallId" />
+                                <input type="hidden" asp-for="MovieName" />
+                                <input type="hidden" asp-for="Price" />
+                                <input type="hidden" asp-for="TotalPrice" />
+                                <input type="hidden" asp-for="AgendaId" />
+                                <input type="hidden" asp-for="Time" />
+                            </form>
                         </div>
                     }
                     else
