@@ -34,7 +34,7 @@ namespace Cinemaat_layers.VIEW.Controllers
                     Time = order.Time,
                     MovieHallId = order.MovieHallId,
                     MovieName = order.MovieName,
-                    MoviePrice = order.MoviePrice,
+                    Price = order.Price,
                     TotalPrice = order.TotalPrice
                 });
             }
@@ -58,7 +58,7 @@ namespace Cinemaat_layers.VIEW.Controllers
                     Time = order.Time,
                     MovieHallId = order.MovieHallId,
                     MovieName = order.MovieName,
-                    MoviePrice = order.MoviePrice,
+                    Price = order.Price,
                     TotalPrice = order.TotalPrice
                 });
             }
@@ -66,7 +66,7 @@ namespace Cinemaat_layers.VIEW.Controllers
         }
 
         [HttpGet]
-        public ActionResult CreateOrder(int movieId, int userId, int seatId, int agendaId, DateTime time, int movieHallId, string movieName, double moviePrice, double totalPrice)
+        public ActionResult CreateOrder(int movieId, int userId, int seatId, int agendaId, DateTime time, int movieHallId, string movieName, double price, double totalPrice)
         {
             var orderViewModel = new OrderViewModel()
             {
@@ -77,7 +77,7 @@ namespace Cinemaat_layers.VIEW.Controllers
                 Time = time,
                 MovieHallId = movieHallId,
                 MovieName = movieName,
-                MoviePrice = moviePrice,
+                Price = price,
                 TotalPrice = totalPrice
             };
             return View(orderViewModel);

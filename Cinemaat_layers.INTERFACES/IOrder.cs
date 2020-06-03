@@ -14,7 +14,7 @@ namespace Cinemaat_layers.INTERFACES
         DateTime Time { get; set; }
         int MovieHallId { get; set; }
         string MovieName { get; set; }
-        double MoviePrice { get; set; }
+        double Price { get; set; }
         double TotalPrice { get; set; }
     }
 }

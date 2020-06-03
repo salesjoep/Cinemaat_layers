@@ -29,7 +29,7 @@ namespace Cinemaat_layers.LOGIC
                 Time = _order.Time,
                 MovieHallId = _order.MovieHallId,
                 MovieName = _order.MovieName,
-                MoviePrice = _order.MoviePrice,
+                Price = _order.Price,
                 TotalPrice = _order.TotalPrice
             };
             Repository.CreateOrder(order);

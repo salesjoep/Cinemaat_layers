@@ -13,7 +13,7 @@ namespace Cinemaat_layers.LOGIC.Models
         public int SeatId { get; set; }
         public int MovieHallId { get; set; }
         public string MovieName { get; set; }
-        public double MoviePrice { get; set; }
+        public double Price { get; set; }
         public double TotalPrice { get; set; }
         public int AgendaId { get; set; }
         public DateTime Time { get; set; }

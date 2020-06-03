@@ -15,7 +15,7 @@ namespace Cinemaat_layers.DAL.Dto
         public int MovieHallId { get; set; }
         public DateTime Time { get; set; }
         public string MovieName { get; set; }
-        public double MoviePrice { get; set; }
+        public double Price { get; set; }
         public double TotalPrice { get; set; }
     }
 }
