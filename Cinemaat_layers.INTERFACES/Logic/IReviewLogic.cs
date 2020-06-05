@@ -7,6 +7,6 @@ namespace Cinemaat_layers.INTERFACES.Logic
     public interface IReviewLogic
     {
         void CreateReview(IReview _review);
-        IEnumerable<IReview> GetAllReviews();
+        IEnumerable<IReview> GetAllReviews(int movieId);
     }
 }

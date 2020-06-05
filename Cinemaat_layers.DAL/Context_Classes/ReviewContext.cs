@@ -33,10 +33,11 @@ namespace Cinemaat_layers.DAL.Context_Classes
             _connection.SqlConnection.Close();
         }
 
-        public IEnumerable<IReview> GetAll()
+        public IEnumerable<IReview> GetAll(int movieId)
         {
             _connection.SqlConnection.Open();
-            var cmd = new MySqlCommand("SELECT * FROM review", _connection.SqlConnection);
+            var cmd = new MySqlCommand("SELECT * FROM review WHERE `MovieId` = @MovieId", _connection.SqlConnection);
+            cmd.Parameters.AddWithValue("@MovieId", movieId);
             var reader = cmd.ExecuteReader();
 
             var reviewRecords = new List<IReview>();
@@ -51,7 +52,9 @@ namespace Cinemaat_layers.DAL.Context_Classes
                     MovieId = (int)reader["MovieId"]
                 };
                 reviewRecords.Add(review);
+
             }
+
             _connection.SqlConnection.Close();
             return reviewRecords;
         }

@@ -8,6 +8,6 @@ namespace Cinemaat_layers.DAL
     public interface IReviewContext
     {
         void CreateReview(IReview review);
-        IEnumerable<IReview> GetAll();
+        IEnumerable<IReview> GetAll(int movieId);
     }
 }

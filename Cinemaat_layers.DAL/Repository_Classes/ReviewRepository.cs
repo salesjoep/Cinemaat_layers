@@ -19,9 +19,9 @@ namespace Cinemaat_layers.DAL.Repository_Classes
             _context.CreateReview(review);
         }
 
-        public IEnumerable<IReview> GetAll()
+        public IEnumerable<IReview> GetAll(int movieId)
         {
-            return _context.GetAll();
+            return _context.GetAll(movieId);
         }
     }
 }

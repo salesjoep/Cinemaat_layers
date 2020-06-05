@@ -58,6 +58,7 @@ namespace Cinemaat_layers.VIEW.Controllers
             {
                 movies.Add(new MovieViewModel
                 {
+                    MovieId = movie.MovieId,
                     MovieName = movie.MovieName,
                     Description = movie.Description,
                     DateCreated = movie.DateCreated,

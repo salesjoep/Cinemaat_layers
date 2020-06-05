@@ -83,7 +83,23 @@
                     <img src="~/images/Homepage/Movies/Avengers_Endgame/spiderman.jpg" title="Tom Holland">
                 </div>
                 <a asp-area="" asp-controller="Agenda" asp-action="Avengers_Endgame">Selecteer film</a>
-                <a href="#" class="download-btn"><i class=""></i>Voeg aan favorieten toe</a>
+                @{
+                    foreach (var item in Model)
+                    {
+                        if (item.MovieId == 1)
+                        {
+                            @Html.ActionLink("Lees Reviews", "Index", "Review", new { movieId = item.MovieId });
+                            break;
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                        @*<a href="#" class="download-btn"><i class=""></i>@Url.ActionLink("Lees Reviews", "Index", "Review", new );</a>*@
+
+                    }
+                }
+
 
             </div>
             <div class="col-md-6 text-center">
