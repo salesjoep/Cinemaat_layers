@@ -12,5 +12,6 @@ namespace Cinemaat_layers.LOGIC
         IEnumerable<IMovie> GetAllMovies();
         IMovie UpdateMovie(IMovie movie);
         IMovie GetById(IMovie movie);
+        void CreateReview(IMovie _movie);
     }
 }

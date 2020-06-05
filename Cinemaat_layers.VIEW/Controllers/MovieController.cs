@@ -358,6 +358,20 @@ namespace Cinemaat_layers.VIEW.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult WriteReview()
+        {
+            var movieViewModel = new MovieViewModel();
+            return View(movieViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult WriteReview(MovieViewModel movieViewModel)
+        {
+            _movieLogic.CreateReview(movieViewModel);
+            return RedirectToAction("Index");
+        }
         
     }
 }

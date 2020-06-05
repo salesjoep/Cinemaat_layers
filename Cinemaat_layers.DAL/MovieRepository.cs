@@ -40,6 +40,11 @@ namespace Cinemaat_layers.DAL
             return _context.GetById(movie);
         }
 
+        public void CreateReview(IMovie movie)
+        {
+            _context.CreateReview(movie);
+        }
+
         
     }
 }

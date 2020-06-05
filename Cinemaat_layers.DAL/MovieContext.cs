@@ -121,5 +121,19 @@ namespace Cinemaat_layers.DAL
                 _connection.SqlConnection.Close();
             }
         }
+
+        public void CreateReview(IMovie movie)
+        {
+            _connection.SqlConnection.Open();
+            string query = "INSERT INTO review (Review, Rating) VALUES (@Review, @Rating); ";
+            using (MySqlCommand command = new MySqlCommand(query, _connection.SqlConnection))
+            {
+                command.Parameters.AddWithValue("@ReviewId", movie.Review);
+                command.Parameters.AddWithValue("@Rating", movie.Rating);
+
+                command.ExecuteNonQuery();
+                _connection.SqlConnection.Close();
+            }
+        }
     }
 }

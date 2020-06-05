@@ -55,5 +55,15 @@ namespace Cinemaat_layers.LOGIC
         {
             return Repository.GetById(movie);
         }
+
+        public void CreateReview(IMovie _movie)
+        {
+            var movie = new Movie
+            {
+                Review = _movie.Review,
+                Rating = _movie.Rating
+            };
+            Repository.CreateReview(movie);
+        }
     }
 }

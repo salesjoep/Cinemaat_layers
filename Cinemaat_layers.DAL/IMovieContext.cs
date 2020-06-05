@@ -17,5 +17,7 @@ namespace Cinemaat_layers.DAL
         IMovie GetById(IMovie _movie);
 
         void DeleteMovie(int movieId);
+
+        void CreateReview(IMovie movie);
     }
 }
