@@ -35,7 +35,7 @@
                     }
                 }
 
-                @{ 
+                @{
                     string movieDesciption;
                     foreach (var item in Model)
                     {
@@ -53,7 +53,7 @@
                     }
                 }
 
-                @{ 
+                @{
                     double moviePrice;
                     foreach (var item in Model)
                     {
@@ -70,22 +70,22 @@
                     }
                 }
 
-                
 
 
 
-                    <p>Cast: </p>
-                    <div class="casting">
-                        <img src="~/images/Homepage/Movies/Avengers_Endgame/Black_widow.jpg" title="Scarlett Johansson">
-                        <img src="~/images/Homepage/Movies/Avengers_Endgame/iron_man.jpg" title="Robert Downey Jr.">
-                        <img src="~/images/Homepage/Movies/Avengers_Endgame/thor.jpeg" title="Chris Hamsworth">
-                        <img src="~/images/Homepage/Movies/Avengers_Endgame/starlord.jpg" title="Chris Pratt">
-                        <img src="~/images/Homepage/Movies/Avengers_Endgame/spiderman.jpg" title="Tom Holland">
-                    </div>
-                    <a asp-area="" asp-controller="Agenda" asp-action="Avengers_Endgame">Selecteer film</a>
-                    <a href="#" class="download-btn"><i class=""></i>Voeg aan favorieten toe</a>
 
+                <p>Cast: </p>
+                <div class="casting">
+                    <img src="~/images/Homepage/Movies/Avengers_Endgame/Black_widow.jpg" title="Scarlett Johansson">
+                    <img src="~/images/Homepage/Movies/Avengers_Endgame/iron_man.jpg" title="Robert Downey Jr.">
+                    <img src="~/images/Homepage/Movies/Avengers_Endgame/thor.jpeg" title="Chris Hamsworth">
+                    <img src="~/images/Homepage/Movies/Avengers_Endgame/starlord.jpg" title="Chris Pratt">
+                    <img src="~/images/Homepage/Movies/Avengers_Endgame/spiderman.jpg" title="Tom Holland">
                 </div>
+                <a asp-area="" asp-controller="Agenda" asp-action="Avengers_Endgame">Selecteer film</a>
+                <a href="#" class="download-btn"><i class=""></i>Voeg aan favorieten toe</a>
+
+            </div>
             <div class="col-md-6 text-center">
                 <img src="~/images/Homepage/Movies/Avengers_Endgame/Avengers_Endgame.jpg" class="movie-img">
             </div>
@@ -97,45 +97,54 @@
             <div class="col-md-4">
                 <div class="row">
                     <div class="col-6">
-                    <a asp-area="" asp-controller="Movie" asp-action="Thor_Ragnarok">
-                        <img src="~/images/Homepage/Thor_ragnorok.jpg">
-                    </a>
+                        <a asp-area="" asp-controller="Movie" asp-action="Thor_Ragnarok">
+                            <img src="~/images/Homepage/Thor_ragnorok.jpg">
+                        </a>
                     </div>
                     <div class="col-6">
-                    <a asp-area="" asp-controller="Movie" asp-action="Spiderman_Homecoming">
-                        <img src="~/images/All Movies/Spiderman_Homecoming.jpg">
-                    </a>
+                        <a asp-area="" asp-controller="Movie" asp-action="Spiderman_Homecoming">
+                            <img src="~/images/All Movies/Spiderman_Homecoming.jpg">
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="row">
                     <div class="col-6">
-                    <a asp-area="" asp-controller="Movie" asp-action="Doctor_Strange">
-                        <img src="~/images/All Movies/Doctor_Strange.jpg">
-                    </a>
+                        <a asp-area="" asp-controller="Movie" asp-action="Doctor_Strange">
+                            <img src="~/images/All Movies/Doctor_Strange.jpg">
+                        </a>
                     </div>
                     <div class="col-6">
-                    <a asp-area="" asp-controller="Movie" asp-action="Captain_Marvel">
-                        <img src="~/images/All Movies/Captain_Marvel.jpg">
-                    </a>
+                        <a asp-area="" asp-controller="Movie" asp-action="Captain_Marvel">
+                            <img src="~/images/All Movies/Captain_Marvel.jpg">
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="row">
-                    <div class="col-6"> 
-                    <a asp-area="" asp-controller="Movie" asp-action="Antman">
-                        <img src="~/images/All Movies/Ant_Man.jpg">
-                    </a>
+                    <div class="col-6">
+                        <a asp-area="" asp-controller="Movie" asp-action="Antman">
+                            <img src="~/images/All Movies/Ant_Man.jpg">
+                        </a>
                     </div>
-                    <div class="col-6"> 
-                    <a asp-area="" asp-controller="Movie" asp-action="Black_Panther">
-                        <img src="~/images/All Movies/Black_panther.jpg">
-                    </a>
+                    <div class="col-6">
+                        <a asp-area="" asp-controller="Movie" asp-action="Black_Panther">
+                            <img src="~/images/All Movies/Black_panther.jpg">
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="container text-center maintitle">
+        <br />
+        <h1 class="text-white">Schrijf een recensie!</h1>
+        <form action="post">           
+            <textarea rows="10" cols="100"></textarea>
+            <br />
+            <input type="submit" value="Submit" class="pay-btn" />
+        </form>
     </div>
 </body>
