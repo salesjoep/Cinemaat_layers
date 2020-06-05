@@ -1,4 +1,5 @@
-﻿using Cinemaat_layers.INTERFACES;
+﻿using Cinemaat_layers.DAL.Dto;
+using Cinemaat_layers.INTERFACES;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,29 @@ namespace Cinemaat_layers.DAL.Context_Classes
                 command.ExecuteNonQuery();
             }
             _connection.SqlConnection.Close();
+        }
+
+        public IEnumerable<IReview> GetAll()
+        {
+            _connection.SqlConnection.Open();
+            var cmd = new MySqlCommand("SELECT * FROM review", _connection.SqlConnection);
+            var reader = cmd.ExecuteReader();
+
+            var reviewRecords = new List<IReview>();
+
+            while (reader.Read())
+            {
+                var review = new ReviewDto
+                {
+                    ReviewId = (int)reader["ReviewId"],
+                    Review = reader["Review"]?.ToString(),
+                    Rating = (int)reader["Rating"],
+                    MovieId = (int)reader["MovieId"]
+                };
+                reviewRecords.Add(review);
+            }
+            _connection.SqlConnection.Close();
+            return reviewRecords;
         }
     }
 }

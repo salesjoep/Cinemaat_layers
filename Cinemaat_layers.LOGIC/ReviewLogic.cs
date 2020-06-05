@@ -28,5 +28,10 @@ namespace Cinemaat_layers.LOGIC
             };
             Repository.CreateReview(review);
         }
+
+        public IEnumerable<IReview> GetAllReviews()
+        {
+            return Repository.GetAll();
+        }
     }
 }

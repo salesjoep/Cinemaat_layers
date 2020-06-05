@@ -15,9 +15,23 @@ namespace Cinemaat_layers.VIEW.Controllers
         {
             _reviewLogic = reviewLogic;
         }
-        public IActionResult Index()
+        public ActionResult Index()
         {
-            return View();
+            var allReviews = _reviewLogic.GetAllReviews();
+            var reviews = new List<ReviewViewModel>();
+
+            foreach (var review in allReviews)
+            {
+                reviews.Add(new ReviewViewModel
+                {
+                    ReviewId = review.ReviewId,
+                    Review = review.Review,
+                    Rating = review.Rating,
+                    MovieId = review.MovieId
+                });
+            }
+
+            return View(reviews);
         }
 
         [HttpGet]

@@ -18,5 +18,10 @@ namespace Cinemaat_layers.DAL.Repository_Classes
         {
             _context.CreateReview(review);
         }
+
+        public IEnumerable<IReview> GetAll()
+        {
+            return _context.GetAll();
+        }
     }
 }
