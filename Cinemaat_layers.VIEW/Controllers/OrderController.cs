@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Cinemaat_layers.INTERFACES.Logic;
 using Cinemaat_layers.LOGIC;
 using Cinemaat_layers.VIEW.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.Language.Extensions;
@@ -77,7 +78,7 @@ namespace Cinemaat_layers.VIEW.Controllers
             var orderViewModel = new OrderViewModel()
             {
                 MovieId = movieId,
-                UserId = 12,
+                UserId = Convert.ToInt32(HttpContext.Session.GetInt32("UserId")),
                 SeatId = 1,
                 AgendaId = agendaId,
                 Time = time,
