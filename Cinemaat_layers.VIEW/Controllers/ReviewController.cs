@@ -35,9 +35,12 @@ namespace Cinemaat_layers.VIEW.Controllers
         }
 
         [HttpGet]
-        public ActionResult WriteReview()
+        public ActionResult WriteReview(int movieId)
         {
-            var reviewViewModel = new ReviewViewModel();
+            var reviewViewModel = new ReviewViewModel()
+            {
+                MovieId = movieId
+            };
             return View(reviewViewModel);
         }
 
@@ -45,7 +48,7 @@ namespace Cinemaat_layers.VIEW.Controllers
         public ActionResult WriteReview(ReviewViewModel _review)
         {
             _reviewLogic.CreateReview(_review);
-            return View();
+            return Redirect("https://localhost:44384/Movie/AllMovies");
         }
     }
 }
