@@ -17,5 +17,6 @@ namespace Cinemaat_layers.LOGIC.Models
         public double TotalPrice { get; set; }
         public int AgendaId { get; set; }
         public DateTime Time { get; set; }
+        public int Quantity { get; set; }
     }
 }

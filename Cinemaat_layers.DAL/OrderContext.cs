@@ -42,7 +42,8 @@ namespace Cinemaat_layers.DAL
                     MovieHallId = (int)reader["MovieHallId"],
                     MovieName = reader["MovieName"]?.ToString(),
                     Price = (double)reader["Price"],
-                    TotalPrice = (double)reader["TotalPrice"]
+                    TotalPrice = (double)reader["TotalPrice"],
+                    Quantity = (int)reader["Quantity"]
                 };
                 orderRecords.Add(order);
             }
@@ -57,7 +58,7 @@ namespace Cinemaat_layers.DAL
         public void CreateOrder(IOrder order)
         {
             _connection.SqlConnection.Open();
-            string query = "INSERT INTO `order` (`OrderId`, `MovieId`, `UserId`, `SeatId`, `AgendaId`, `Time`, `MovieHallId`, `MovieName`, `Price`, `TotalPrice`) VALUES (@OrderId, @MovieId, @UserId, @SeatId, @AgendaId, @Time, @MovieHallId, @MovieName, @Price, @TotalPrice); ";
+            string query = "INSERT INTO `order` (`OrderId`, `MovieId`, `UserId`, `SeatId`, `AgendaId`, `Time`, `MovieHallId`, `MovieName`, `Price`, `TotalPrice`, `Quantity`) VALUES (@OrderId, @MovieId, @UserId, @SeatId, @AgendaId, @Time, @MovieHallId, @MovieName, @Price, @TotalPrice, @Quantity); ";
             using (MySqlCommand command = new MySqlCommand(query, _connection.SqlConnection))
             {
                 command.Parameters.AddWithValue("@OrderId", order.OrderId);
@@ -70,6 +71,7 @@ namespace Cinemaat_layers.DAL
                 command.Parameters.AddWithValue("@MovieName", order.MovieName);
                 command.Parameters.AddWithValue("@Price", order.Price);
                 command.Parameters.AddWithValue("@TotalPrice", order.TotalPrice);
+                command.Parameters.AddWithValue("@Quantity", order.Quantity);
 
                 command.ExecuteNonQuery();
             }

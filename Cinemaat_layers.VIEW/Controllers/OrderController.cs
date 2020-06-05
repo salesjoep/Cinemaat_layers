@@ -6,6 +6,7 @@ using Cinemaat_layers.INTERFACES.Logic;
 using Cinemaat_layers.LOGIC;
 using Cinemaat_layers.VIEW.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.Language.Extensions;
 using Renci.SshNet;
 
@@ -37,7 +38,8 @@ namespace Cinemaat_layers.VIEW.Controllers
                     MovieHallId = order.MovieHallId,
                     MovieName = order.MovieName,
                     Price = order.Price,
-                    TotalPrice = order.TotalPrice
+                    TotalPrice = order.TotalPrice,
+                    Quantity = order.Quantity
                 });
             }
             return View(orders);
@@ -61,14 +63,15 @@ namespace Cinemaat_layers.VIEW.Controllers
                     MovieHallId = order.MovieHallId,
                     MovieName = order.MovieName,
                     Price = order.Price,
-                    TotalPrice = order.TotalPrice
+                    TotalPrice = order.TotalPrice,
+                    Quantity = order.Quantity
                 });
             }
             return View(orders);
         }
 
         [HttpGet]
-        public ActionResult CreateOrder(int movieId, int userId, int seatId, int agendaId, DateTime time, int movieHallId, string movieName, double price, double totalPrice)
+        public ActionResult CreateOrder(int movieId, int agendaId, DateTime time, int movieHallId, string movieName, double price)
         {
 
             var orderViewModel = new OrderViewModel()
@@ -81,8 +84,9 @@ namespace Cinemaat_layers.VIEW.Controllers
                 MovieHallId = movieHallId,
                 MovieName = movieName,
                 Price = price,
-                TotalPrice = price
+                TotalPrice = price,
             };
+            
             return View(orderViewModel);
         }
 

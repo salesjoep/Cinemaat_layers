@@ -16,5 +16,6 @@ namespace Cinemaat_layers.INTERFACES
         string MovieName { get; set; }
         double Price { get; set; }
         double TotalPrice { get; set; }
+        int Quantity { get; set; }
     }
 }

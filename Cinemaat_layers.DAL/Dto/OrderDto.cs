@@ -17,5 +17,6 @@ namespace Cinemaat_layers.DAL.Dto
         public string MovieName { get; set; }
         public double Price { get; set; }
         public double TotalPrice { get; set; }
+        public int Quantity { get; set; }
     }
 }

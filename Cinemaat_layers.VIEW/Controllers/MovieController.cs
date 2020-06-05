@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Cinemaat_layers.DAL;
 using Cinemaat_layers.INTERFACES;
 using Cinemaat_layers.LOGIC;
 using Cinemaat_layers.VIEW.Models;

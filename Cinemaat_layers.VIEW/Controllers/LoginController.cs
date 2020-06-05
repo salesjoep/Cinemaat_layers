@@ -21,8 +21,7 @@ namespace Cinemaat_layers.VIEW.Controllers
 
         [HttpGet]
         public ActionResult Index()
-        {
-            
+        {            
             return View();
         }
 
