@@ -1,59 +1,94 @@
 ﻿@model Cinemaat_layers.VIEW.Models.FavouriteViewModel
 
-@*@{
-    ViewData["Title"] = "Create";
-}
 @{
     var Email = new Byte[20];
     bool nameOK = Context.Session.TryGetValue("Email", out Email);
 }
 @{
-    if (nameOK) {
-        <h1>Create</h1>
+    if (nameOK)
+    {
+        <h1 class="text-center text-white">Aan favorieten toevoegen:</h1>
+        <br />
+        <h1 class="text-white text-center">@Html.DisplayFor(modelItem => modelItem.MovieName)</h1>
+        <br>
+        <h3 class="text-white text-center">Weet u zeker dat u deze film wilt toevoegen aan favorieten?</h3>
 
-        <h4>FavouriteViewModel</h4>
-        <hr />
-        <div class="row">
-            <div class="col-md-4">
-                <form asp-action="Create">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="MovieId" class="control-label"></label>
-                        <input asp-for="MovieId" class="form-control" />
-                        <span asp-validation-for="MovieId" class="text-danger"></span>
+        <div class="container">
+            <div class="row">
+                <div class="col text-center text-white">
+                    <form method="post">
+                        <button type="submit" asp-controller="Favourite" asp-action="Create">Voeg toe</button>
+                        <input type="hidden" asp-for="MovieId" />
+                        <input type="hidden" asp-for="UserId" />
+                        <input type="hidden" asp-for="MovieName" />
+                    </form>
+                    <form method="post">
+                        <button type="submit" asp-controller="Home" asp-action="Index">Annuleren</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center text-white">
+                    <div class="text-left">
+
                     </div>
-                    <div class="form-group">
-                        <label asp-for="UserId" class="control-label"></label>
-                        <input asp-for="UserId" class="form-control" />
-                        <span asp-validation-for="UserId" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="MovieName" class="control-label"></label>
-                        <input asp-for="MovieName" class="form-control" />
-                        <span asp-validation-for="MovieName" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-primary" />
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
-        }
+
+        <div class="container">
+            <div class="row">
+
+            </div>
+
+        </div>
+
+
     }
+    else
+    {
+        <h1 class="text-center text-white">Aan favorieten toevoegen:</h1>
+        <br />
+        <h1 class="text-white text-center">@Html.DisplayFor(modelItem => modelItem.MovieName)</h1>
+        <br>
+        <h3 class="text-white text-center">Weet u zeker dat u deze film wilt toevoegen aan favorieten?</h3>
 
-        <div>
-            <a asp-action="Index">Back to List</a>
-        </div>*@
+        <div class="container">
+            <div class="row">
+                <div class="col text-center text-white">
+                    <form method="post">
+                        <button type="submit" asp-controller="Login" asp-action="Index">Voeg toe</button>
+                        <input type="hidden" asp-for="MovieId" />
+                        <input type="hidden" asp-for="UserId" />
+                        <input type="hidden" asp-for="MovieName" />
+                    </form>
+                    <form method="post">
+                        <button type="submit" asp-controller="Home" asp-action="Index">Annuleren</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center text-white">
+                    <div class="text-left">
 
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <div class="text-left">
-        <form method="post">
-            <button type="submit" asp-controller="Favourite" asp-action="Create">Voeg toe</button>
-            <input type="hidden" asp-for="MovieId" />
-            <input type="hidden" asp-for="UserId" />
-            <input type="hidden" asp-for="MovieName" />
-        </form>
-    </div>
+        <div class="container">
+            <div class="row">
+
+            </div>
+
+        </div>
+    }
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Homepagestyle.css" />
+</head>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
