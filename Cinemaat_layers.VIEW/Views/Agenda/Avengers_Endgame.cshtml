@@ -4,63 +4,77 @@
     ViewData["Title"] = "Agenda";
 }
 
-<h1>Datum & Tijd</h1>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/MovieStyle.css" />
+</head>
+
+<body class="text-white">
+
+    <h1>Datum & Tijd</h1>
 
 
-<table class="table">
-    <thead>
-        <tr>
-            @*<th>
-                @Html.DisplayNameFor(model => model.AgendaId)
-            </th>*@
-            <th>
-                Film
-                @*@Html.DisplayNameFor(model => model.MovieName)*@
-            </th>
-            <th>
-                Filmzaal
-                @*@Html.DisplayNameFor(model => model.MovieHallId)*@
-            </th>
-            <th>
-                Beschikbaarheid
-                @*@Html.DisplayNameFor(model => model.IsValid)*@
-            </th>
-            <th>
-                Datum & Tijd
-                @*@Html.DisplayNameFor(model => model.Time)*@
-            </th>
-            <th>
-                Ticket Prijs
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.AgendaId)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.MovieName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MovieHallId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsValid)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Time)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @*<a asp-area="" asp-controller="Order" asp-action="CreateOrder">Selecteer Tijdstip</a>*@
-                @Html.ActionLink("Selecteer Tijdstip", "CreateOrder", "Order", new { agendaId = item.AgendaId, time = item.Time, movieName = item.MovieName, price = item.Price, movieHallId = item.MovieHallId, movieId = item.MovieId })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <table class="table text-white">
+        <thead>
+            <tr>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.AgendaId)
+                    </th>*@
+                <th>
+                    Film
+                    @*@Html.DisplayNameFor(model => model.MovieName)*@
+                </th>
+                <th>
+                    Filmzaal
+                    @*@Html.DisplayNameFor(model => model.MovieHallId)*@
+                </th>
+                <th>
+                    Beschikbaarheid
+                    @*@Html.DisplayNameFor(model => model.IsValid)*@
+                </th>
+                <th>
+                    Datum & Tijd
+                    @*@Html.DisplayNameFor(model => model.Time)*@
+                </th>
+                <th>
+                    Ticket Prijs
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.AgendaId)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MovieName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MovieHallId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsValid)
+                    </td>
+                    <td>
+                        @{ 
+                            string timeString = item.Time.ToString("g");
+                            <p>@timeString</p>
+                        } 
+                        @*@Html.DisplayFor(modelItem => item.Time)*@
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @*<a asp-area="" asp-controller="Order" asp-action="CreateOrder">Selecteer Tijdstip</a>*@
+                        @Html.ActionLink("Selecteer Tijdstip", "CreateOrder", "Order", new { agendaId = item.AgendaId, time = item.Time, movieName = item.MovieName, price = item.Price, movieHallId = item.MovieHallId, movieId = item.MovieId }, new { id = "OT", style = "color: white" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

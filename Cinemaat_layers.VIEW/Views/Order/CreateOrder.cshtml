@@ -24,7 +24,11 @@
                 </div>
                 <div class="text-left text-white">
                     <h2>Wanneer</h2>
-                    <p>@Html.DisplayFor(modelItem => modelItem.Time)</p>
+                    @{
+                        string time = Model.Time.ToString("g");
+                    }
+                    @*<p>@Html.DisplayFor(modelItem => modelItem.Time)</p>*@
+                    <p>@time</p>
                     <input type="hidden" asp-for="Time" />
                 </div>
                 <div class="text-left text-white">

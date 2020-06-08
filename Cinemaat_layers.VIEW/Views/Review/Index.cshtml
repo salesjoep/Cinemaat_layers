@@ -4,56 +4,64 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Reviews</h1>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="stylesheet" href="/wwwroot/css/Homepagestyle.css" />
+</head>
 
-<p>
-    @{ 
-        foreach (var item in Model)
-        {
-            @Html.ActionLink("Schrijf Review", "WriteReview", "Review", new { movieId = item.MovieId})
-            break;
+<body>
+    <h1>Reviews</h1>
+
+    <p>
+        @{
+            foreach (var item in Model)
+            {
+                @Html.ActionLink("Schrijf Review", "WriteReview", "Review", new { movieId = item.MovieId })
+                break;
+            }
         }
-    }
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            @*<th>
-                @Html.DisplayNameFor(model => model.ReviewId)
-            </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.Review)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rating)
-            </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.MovieId)
-            </th>*@
-            @*<th></th>*@
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.ReviewId)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.Review)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.MovieId)
-            </td>*@
-            @*<td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>*@
-        </tr>
-}
-    </tbody>
-</table>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.ReviewId)
+                    </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.Review)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Rating)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.MovieId)
+                    </th>*@
+                @*<th></th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.ReviewId)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Review)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rating)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.MovieId)
+                        </td>*@
+                    @*<td>
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        </td>*@
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

@@ -60,7 +60,7 @@
                         if (item.MovieName == "Avengers: Endgame")
                         {
                             moviePrice = item.Price;
-                            <p>Filmprijs: €@moviePrice</p>
+                            <p>Filmprijs: €@moviePrice </p>
                             break;
                         }
                         else
@@ -153,14 +153,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container text-center maintitle">
-        <br />
-        <h1 class="text-white">Schrijf een recensie!</h1>
-        <form action="post">           
-            <textarea rows="10" cols="100"></textarea>
-            <br />
-            <a class="btn btn-success" asp-area="" asp-controller="Movie" asp-action="WriteReview">Submit</a>
-        </form>
     </div>
 </body>
