@@ -59,6 +59,8 @@ namespace Cinemaat_layers.VIEW
             services.AddScoped<IUserRegistrationLogic, UserRegistrationLogic>();
             services.AddScoped<IReviewContext, ReviewContext>();
             services.AddScoped<IReviewLogic, ReviewLogic>();
+            services.AddScoped<IFavouriteContext, FavouriteContext>();
+            services.AddScoped<IFavouriteLogic, FavouriteLogic>();
             
 
             services.AddTransient(_ => new DatabaseConnection(Configuration.GetConnectionString("DefaultConnection")));
