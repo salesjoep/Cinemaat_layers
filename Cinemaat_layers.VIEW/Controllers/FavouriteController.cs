@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Cinemaat_layers.INTERFACES.Logic;
 using Cinemaat_layers.VIEW.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cinemaat_layers.VIEW.Controllers
@@ -21,9 +22,14 @@ namespace Cinemaat_layers.VIEW.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create()
+        public ActionResult Create(int movieId, string movieName)
         {
-            var favouriteViewModel = new FavouriteViewModel();
+            var favouriteViewModel = new FavouriteViewModel()
+            {
+                MovieId = movieId,
+                UserId = Convert.ToInt32(HttpContext.Session.GetInt32("UserId")),
+                MovieName = movieName
+            };
             return View(favouriteViewModel);
         }
 
