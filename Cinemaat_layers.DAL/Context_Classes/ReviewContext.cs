@@ -3,6 +3,7 @@ using Cinemaat_layers.INTERFACES;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.Text;
 
 namespace Cinemaat_layers.DAL.Context_Classes
@@ -20,13 +21,14 @@ namespace Cinemaat_layers.DAL.Context_Classes
         public void CreateReview(IReview review)
         {
             _connection.SqlConnection.Open();
-            string query = "INSERT INTO `review` (`ReviewId`, `Review`, `Rating`, `MovieId`) VALUES (@ReviewId, @Review, @Rating, @MovieId); ";
+            string query = "INSERT INTO `review` (`ReviewId`, `Review`, `Rating`, `MovieId`, `UserId`) VALUES (@ReviewId, @Review, @Rating, @MovieId, @UserId); ";
             using (MySqlCommand command = new MySqlCommand(query, _connection.SqlConnection))
             {
                 command.Parameters.AddWithValue("@ReviewId", review.ReviewId);
                 command.Parameters.AddWithValue("@Review", review.Review);
                 command.Parameters.AddWithValue("@Rating", review.Rating);
                 command.Parameters.AddWithValue("@MovieId", review.MovieId);
+                command.Parameters.AddWithValue("@UserId", review.UserId);
 
                 command.ExecuteNonQuery();
             }

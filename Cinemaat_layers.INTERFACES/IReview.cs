@@ -10,5 +10,6 @@ namespace Cinemaat_layers.INTERFACES
         string Review { get; set; }
         int Rating { get; set; }
         int MovieId { get; set; }
+        int UserId { get; set; }
     }
 }

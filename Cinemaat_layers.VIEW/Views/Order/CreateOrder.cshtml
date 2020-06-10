@@ -35,7 +35,7 @@
                         <h2>Filmzaal</h2>
                         <p>Zaal @Html.DisplayFor(modelItem => modelItem.MovieHallId)</p>
                         <input type="hidden" asp-for="MovieHallId" />
-                    </div>
+                    </div> 
                     <div class="text-left text-white">
                         <h2>Ticket Prijs</h2>
                         <p>€@Html.DisplayFor(modelItem => modelItem.Price)</p>
@@ -70,7 +70,7 @@
                                 <input type="hidden" asp-for="Time" />
                                 <div class="text-left text-white">
                                     <h2>Aantal tickets</h2>
-                                    <input asp-for="Quantity" class="form-control" />
+                                    <input asp-for="Quantity" min="1" class="form-control" />
                                     <span asp-validation-for="Quantity" class="text-danger"></span>
                                 </div>
                                 <button type="submit" asp-controller="Order" asp-action="CreateOrder">Betalen</button>

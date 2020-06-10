@@ -19,5 +19,9 @@ namespace Cinemaat_layers.DAL.Repository_Classes
         {
             _context.CreateFavourite(favourite);
         }
+        public IEnumerable<IFavourite> GetAll(int favouriteId)
+        {
+            return _context.GetAll(favouriteId);
+        }
     }
 }

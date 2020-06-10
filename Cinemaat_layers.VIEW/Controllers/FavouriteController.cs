@@ -16,9 +16,23 @@ namespace Cinemaat_layers.VIEW.Controllers
         {
             _favouriteLogic = favouriteLogic;
         }
-        public IActionResult Index()
+        public ActionResult Index(int favouriteId)
         {
-            return View();
+            var allFavourites = _favouriteLogic.GetAll(favouriteId);
+            var favourites = new List<FavouriteViewModel>();
+
+            foreach (var favourite in allFavourites)
+            {
+                favourites.Add(new FavouriteViewModel
+                {
+                    favouriteId = favourite.favouriteId,
+                    MovieId = favourite.MovieId,
+                    UserId = favourite.UserId,
+                    MovieName = favourite.MovieName
+                });
+            }
+
+            return View(favourites);
         }
 
         [HttpGet]

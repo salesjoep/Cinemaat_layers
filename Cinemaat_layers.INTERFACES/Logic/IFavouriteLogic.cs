@@ -7,5 +7,6 @@ namespace Cinemaat_layers.INTERFACES.Logic
     public interface IFavouriteLogic
     {
         void CreateFavourite(IFavourite _favourite);
+        IEnumerable<IFavourite> GetAll(int favouriteId);
     }
 }

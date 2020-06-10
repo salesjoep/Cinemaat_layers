@@ -24,7 +24,8 @@ namespace Cinemaat_layers.LOGIC
                 ReviewId = _review.ReviewId,
                 Review = _review.Review,
                 Rating = _review.Rating,
-                MovieId = _review.MovieId
+                MovieId = _review.MovieId,
+                UserId = _review.UserId
             };
             Repository.CreateReview(review);
         }

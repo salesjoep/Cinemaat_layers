@@ -1,4 +1,4 @@
-﻿@model Cinemaat_layers.VIEW.Models.UserRegistrationViewModel
+﻿@model IEnumerable<Cinemaat_layers.VIEW.Models.FavouriteViewModel>
 
 @{
     ViewData["Title"] = "MyAccount";
@@ -30,6 +30,10 @@
             </div>
             <div class="col text-center text-white">
                 <h2>Favoriete films</h2>
+                @foreach (var item in Model)
+                {
+                    Html.DisplayFor(modelItem => item.MovieName);
+                }
             </div>
         </div>
     </div>

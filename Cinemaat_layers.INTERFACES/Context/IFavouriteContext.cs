@@ -7,5 +7,6 @@ namespace Cinemaat_layers.INTERFACES.Context
     public interface IFavouriteContext
     {
         void CreateFavourite(IFavourite favourite);
+        IEnumerable<IFavourite> GetAll(int favouriteId);
     }
 }

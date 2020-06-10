@@ -1,4 +1,5 @@
-﻿using Cinemaat_layers.INTERFACES;
+﻿using Cinemaat_layers.DAL.Dto;
+using Cinemaat_layers.INTERFACES;
 using Cinemaat_layers.INTERFACES.Context;
 using MySql.Data.MySqlClient;
 using System;
@@ -31,6 +32,32 @@ namespace Cinemaat_layers.DAL.Context_Classes
 
             }
             _connection.SqlConnection.Close();
+        }
+
+        public IEnumerable<IFavourite> GetAll(int favouriteId)
+        {
+            _connection.SqlConnection.Open();
+            var cmd = new MySqlCommand("SELECT * FROM favourite WHERE `FavouriteId` = @FavouriteId", _connection.SqlConnection);
+            cmd.Parameters.AddWithValue("@FavouriteId", favouriteId);
+            var reader = cmd.ExecuteReader();
+
+            var favouriteRecords = new List<IFavourite>();
+
+            while (reader.Read())
+            {
+                var favourite = new FavouriteDto
+                {
+                    favouriteId = (int)reader["favouriteId"],
+                    MovieId = (int)reader["MovieId"],
+                    UserId = (int)reader["UserId"],
+                    MovieName = reader["MovieName"]?.ToString()
+                };
+                favouriteRecords.Add(favourite);
+
+            }
+
+            _connection.SqlConnection.Close();
+            return favouriteRecords;
         }
     }
 }

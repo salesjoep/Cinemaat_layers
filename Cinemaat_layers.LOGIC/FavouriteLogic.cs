@@ -28,5 +28,10 @@ namespace Cinemaat_layers.LOGIC
             };
             Repository.CreateFavourite(favourite);
         }
+
+        public IEnumerable<IFavourite> GetAll(int favouriteId)
+        {
+            return Repository.GetAll(favouriteId);
+        }
     }
 }

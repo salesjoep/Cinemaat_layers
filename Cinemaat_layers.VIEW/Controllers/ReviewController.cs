@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Cinemaat_layers.INTERFACES.Logic;
 using Cinemaat_layers.VIEW.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cinemaat_layers.VIEW.Controllers
@@ -39,7 +40,8 @@ namespace Cinemaat_layers.VIEW.Controllers
         {
             var reviewViewModel = new ReviewViewModel()
             {
-                MovieId = movieId
+                MovieId = movieId,
+                UserId = Convert.ToInt32(HttpContext.Session.GetInt32("UserId"))
             };
             return View(reviewViewModel);
         }

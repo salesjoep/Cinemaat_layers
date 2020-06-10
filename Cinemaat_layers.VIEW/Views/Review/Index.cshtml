@@ -5,23 +5,37 @@
 }
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <link rel="stylesheet" href="/wwwroot/css/Homepagestyle.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/Order/OrderStyle.css">
 </head>
 
-<body>
-    <h1>Reviews</h1>
+<body class="text-white">
+    
 
     <p>
         @{
-            foreach (var item in Model)
-            {
-                @Html.ActionLink("Schrijf Review", "WriteReview", "Review", new { movieId = item.MovieId })
-                break;
-            }
+            var Email = new Byte[20];
+            bool nameOK = Context.Session.TryGetValue("Email", out Email);
         }
-    </p>
-    <table class="table">
+        @{
+            if (nameOK)
+            {
+                string EmailString = System.Text.Encoding.UTF8.GetString(Email);
+            
+                    foreach (var item in Model)
+                    {
+                        <h1>@Html.ActionLink("Schrijf Een Review!", "WriteReview", "Review", new { movieId = item.MovieId }, new { id = "OT", style = "color: white" })</h1>
+                    break;
+                }
+            }
+            else
+            {
+                <h1>Alle Reviews</h1>
+            }
+                        }
+                    
+            </p>
+    <table class="table text-white">
         <thead>
             <tr>
                 @*<th>
@@ -33,10 +47,9 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Rating)
                 </th>
-                @*<th>
-                        @Html.DisplayNameFor(model => model.MovieId)
-                    </th>*@
-                @*<th></th>*@
+                <th>
+                    Geschreven door
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -52,14 +65,9 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Rating)
                     </td>
-                    @*<td>
-                            @Html.DisplayFor(modelItem => item.MovieId)
-                        </td>*@
-                    @*<td>
-                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                        </td>*@
+                    <td>
+
+                    </td>
                 </tr>
             }
         </tbody>

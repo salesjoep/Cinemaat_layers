@@ -96,7 +96,7 @@ namespace Cinemaat_layers.VIEW.Controllers
         public ActionResult CreateOrder(OrderViewModel order)
         {
             _orderLogic.CreateOrder(order);
-            return View("Success");
+            return Redirect("https://paypal.me/joepsales?locale.x=nl_NL");
         }
     }
 }
