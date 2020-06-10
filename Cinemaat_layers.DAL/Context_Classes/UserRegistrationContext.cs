@@ -20,7 +20,7 @@ namespace Cinemaat_layers.DAL.Context_Classes
         public void CreateUser(IUserRegistration user)
         {
             _connection.SqlConnection.Open();
-            string query = "INSERT INTO UserRegistration VALUES (@UserId, @Username, @Email, SHA1(@Password)); ";
+            string query = "INSERT INTO userregistration VALUES (@UserId, @Username, @Email, SHA1(@Password)); ";
             using (MySqlCommand command = new MySqlCommand(query, _connection.SqlConnection))
             {
                 command.Parameters.AddWithValue("@UserId", user.UserId);

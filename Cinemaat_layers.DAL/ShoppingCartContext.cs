@@ -24,7 +24,7 @@ namespace Cinemaat_layers.DAL
         {
             _connection.SqlConnection.Open();
 
-            var cmd = new MySqlCommand("SELECT * FROM ShoppingCart", _connection.SqlConnection);
+            var cmd = new MySqlCommand("SELECT * FROM shoppingcart", _connection.SqlConnection);
             var reader = cmd.ExecuteReader();
 
             var shoppingCartRecords = new List<IShoppingCart>();

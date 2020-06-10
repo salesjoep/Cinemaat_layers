@@ -24,7 +24,7 @@ namespace Cinemaat_layers.DAL
         {
             _connection.SqlConnection.Open();
 
-            var cmd = new MySqlCommand("SELECT * FROM Seat", _connection.SqlConnection);
+            var cmd = new MySqlCommand("SELECT * FROM seat", _connection.SqlConnection);
             var reader = cmd.ExecuteReader();
 
             var seatRecords = new List<ISeat>();

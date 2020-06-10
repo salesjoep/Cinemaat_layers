@@ -24,7 +24,7 @@ namespace Cinemaat_layers.DAL
         {
             _connection.SqlConnection.Open();
 
-            var cmd = new MySqlCommand("SELECT * FROM Order", _connection.SqlConnection);
+            var cmd = new MySqlCommand("SELECT * FROM order", _connection.SqlConnection);
             var reader = cmd.ExecuteReader();
 
             var orderRecords = new List<IOrder>();

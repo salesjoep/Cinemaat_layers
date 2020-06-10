@@ -24,7 +24,7 @@ namespace Cinemaat_layers.DAL
         {
             _connection.SqlConnection.Open();
 
-            var cmd = new MySqlCommand("SELECT * FROM MovieHall", _connection.SqlConnection);
+            var cmd = new MySqlCommand("SELECT * FROM moviehall", _connection.SqlConnection);
             var reader = cmd.ExecuteReader();
 
             var movieHallRecords = new List<IMovieHall>();

@@ -72,7 +72,7 @@ namespace Cinemaat_layers.VIEW.Controllers
         }
 
         [HttpGet]
-        public ActionResult CreateOrder(int movieId, int agendaId, DateTime time, int movieHallId, string movieName, double price)
+        public ActionResult CreateOrder(int movieId, int agendaId, DateTime time, int movieHallId, string movieName, double price, int quantity)
         {
 
             var orderViewModel = new OrderViewModel()
@@ -86,6 +86,7 @@ namespace Cinemaat_layers.VIEW.Controllers
                 MovieName = movieName,
                 Price = price,
                 TotalPrice = price,
+                Quantity = quantity
             };
             
             return View(orderViewModel);

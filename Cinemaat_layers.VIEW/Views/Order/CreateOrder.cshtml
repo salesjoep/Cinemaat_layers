@@ -18,33 +18,35 @@
                 <img src="~/images/Homepage/Avengers_Endgame.jpg" class="movie-img">
             </div>
             <div class="col text-center">
-                <div class="text-left text-white">
-                    <h1>@Html.DisplayFor(modelItem => modelItem.MovieName)</h1>
-                    <input type="hidden" asp-for="MovieName" />
-                </div>
-                <div class="text-left text-white">
-                    <h2>Wanneer</h2>
-                    @{
-                        string time = Model.Time.ToString("g");
-                    }
-                    @*<p>@Html.DisplayFor(modelItem => modelItem.Time)</p>*@
-                    <p>@time</p>
-                    <input type="hidden" asp-for="Time" />
-                </div>
-                <div class="text-left text-white">
-                    <h2>Filmzaal</h2>
-                    <p>Zaal @Html.DisplayFor(modelItem => modelItem.MovieHallId)</p>
-                    <input type="hidden" asp-for="MovieHallId" />
-                </div>
-                <div class="text-left text-white">
-                    <h2>Ticket Prijs</h2>
-                    <p>€@Html.DisplayFor(modelItem => modelItem.Price)</p>
-                    <input type="hidden" asp-for="Price" />
-                </div>
-                <div class="text-left text-white">
-                    <h2>Aantal tickets</h2>
-                    <input asp-for="Quantity" class="form-control"/>
-                </div>
+                <form asp-action="CreateOrder">
+                    <div class="text-left text-white">
+                        <h1>@Html.DisplayFor(modelItem => modelItem.MovieName)</h1>
+                        <input type="hidden" asp-for="MovieName" />
+                    </div>
+                    <div class="text-left text-white">
+                        <h2>Wanneer</h2>
+                        @{
+                            string time = Model.Time.ToString("g");
+                        }
+                        <p>@time</p>
+                        <input type="hidden" asp-for="Time" />
+                    </div>
+                    <div class="text-left text-white">
+                        <h2>Filmzaal</h2>
+                        <p>Zaal @Html.DisplayFor(modelItem => modelItem.MovieHallId)</p>
+                        <input type="hidden" asp-for="MovieHallId" />
+                    </div>
+                    <div class="text-left text-white">
+                        <h2>Ticket Prijs</h2>
+                        <p>€@Html.DisplayFor(modelItem => modelItem.Price)</p>
+                        <input type="hidden" asp-for="Price" />
+                    </div>
+                    @*<div class="text-left text-white">
+                            <h2>Aantal tickets</h2>
+                            <input asp-for="Quantity" class="form-control" />
+                            <span asp-validation-for="Quantity" class="text-danger"></span>
+                        </div>*@
+                </form>
                 <br />
                 @{
                     var Email = new Byte[20];
@@ -56,7 +58,7 @@
                         string EmailString = System.Text.Encoding.UTF8.GetString(Email);
                         <div class="text-left">
                             <form method="post">
-                                <button type="submit" asp-controller="Order" asp-action="CreateOrder">Betalen</button>
+
                                 <input type="hidden" asp-for="MovieId" />
                                 <input type="hidden" asp-for="UserId" />
                                 <input type="hidden" asp-for="SeatId" />
@@ -66,7 +68,12 @@
                                 <input type="hidden" asp-for="TotalPrice" />
                                 <input type="hidden" asp-for="AgendaId" />
                                 <input type="hidden" asp-for="Time" />
-                                <input type="hidden" asp-for="Quantity" />
+                                <div class="text-left text-white">
+                                    <h2>Aantal tickets</h2>
+                                    <input asp-for="Quantity" class="form-control" />
+                                    <span asp-validation-for="Quantity" class="text-danger"></span>
+                                </div>
+                                <button type="submit" asp-controller="Order" asp-action="CreateOrder">Betalen</button>
                             </form>
                         </div>
                     }

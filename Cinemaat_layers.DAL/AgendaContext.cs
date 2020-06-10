@@ -24,7 +24,7 @@ namespace Cinemaat_layers.DAL
         {
             _connection.SqlConnection.Open();
 
-            var cmd = new MySqlCommand("SELECT * FROM Agenda", _connection.SqlConnection);
+            var cmd = new MySqlCommand("SELECT * FROM agenda", _connection.SqlConnection);
             var reader = cmd.ExecuteReader();
 
             var agendaRecords = new List<IAgenda>();

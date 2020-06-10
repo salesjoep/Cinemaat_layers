@@ -42,7 +42,7 @@ namespace Cinemaat_layers.DAL
         {
             _connection.SqlConnection.Open();
 
-            var cmd = new MySqlCommand("SELECT * FROM Movie", _connection.SqlConnection);
+            var cmd = new MySqlCommand("SELECT * FROM movie", _connection.SqlConnection);
             var reader = cmd.ExecuteReader();
 
             var movieRecords = new List<IMovie>();
