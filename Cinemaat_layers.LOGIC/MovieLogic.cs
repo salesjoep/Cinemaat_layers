@@ -9,10 +9,12 @@ namespace Cinemaat_layers.LOGIC
 {
     public class MovieLogic : IMovieLogic
     {
+        private readonly IMovieContext movieContext;
         
         public MovieLogic(IMovieContext context)
         {
-            Repository = new MovieRepository(context);
+            //Repository = new MovieRepository(context);
+            movieContext = context;
 
         }
 
