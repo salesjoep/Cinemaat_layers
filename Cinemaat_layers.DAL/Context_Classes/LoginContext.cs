@@ -35,6 +35,7 @@ namespace Cinemaat_layers.DAL.Context_Classes
                     login = true;
                 }
             }
+            _connection.SqlConnection.Close();
             return login;
         }
     }

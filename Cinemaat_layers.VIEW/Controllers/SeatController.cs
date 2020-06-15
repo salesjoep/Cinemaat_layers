@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Cinemaat_layers.DAL;
+using Cinemaat_layers.INTERFACES.Logic;
 using Cinemaat_layers.LOGIC;
 using Cinemaat_layers.VIEW.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -11,20 +11,20 @@ namespace Cinemaat_layers.VIEW.Controllers
 {
     public class SeatController : Controller
     {
-        private readonly ISeatContext _seatContext;
+        private readonly ISeatLogic _seatLogic;
 
-        public SeatController(ISeatContext seatContext)
+        public SeatController(ISeatLogic seatLogic)
         {
-            _seatContext = seatContext;
+            _seatLogic = seatLogic;
         }
 
         //Read
         public ActionResult Index()
         {
-            var seatLogic = new SeatLogic(_seatContext);
+            var seatLogic = _seatLogic.GetAllSeats();
             var seats = new List<SeatViewModel>();
 
-            foreach (var seat in seatLogic.GetAllSeats())
+            foreach (var seat in seatLogic)
             {
                 seats.Add(new SeatViewModel
                 {

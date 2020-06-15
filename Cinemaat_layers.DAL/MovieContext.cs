@@ -20,7 +20,7 @@ namespace Cinemaat_layers.DAL
         public void CreateMovie(IMovie movie)
         {
             _connection.SqlConnection.Open();
-            string query = "INSERT INTO movie VALUES (@MovieId, @MovieName, @Description, @DateCreated, @Genre, @Review, @Rating @Price); ";
+            string query = "INSERT INTO movie VALUES (@MovieId, @MovieName, @Description, @DateCreated, @Genre, @Review, @Rating, @Price); ";
             using (MySqlCommand command = new MySqlCommand(query, _connection.SqlConnection))
             {
                 command.Parameters.AddWithValue("@MovieId", movie.MovieId);

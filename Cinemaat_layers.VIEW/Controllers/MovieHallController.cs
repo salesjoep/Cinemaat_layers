@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Cinemaat_layers.DAL;
-using Cinemaat_layers.LOGIC;
+using Cinemaat_layers.INTERFACES.Logic;
 using Cinemaat_layers.VIEW.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,18 +10,18 @@ namespace Cinemaat_layers.VIEW.Controllers
 {
     public class MovieHallController : Controller
     {
-        private readonly IMovieHallContext _movieHallContext;
+        private readonly IMovieHallLogic _movieHallLogic;
 
-        public MovieHallController(IMovieHallContext movieHallContext)
+        public MovieHallController(IMovieHallLogic movieHallLogic)
         {
-            _movieHallContext = movieHallContext;
+            _movieHallLogic = movieHallLogic;
         }
         public ActionResult Index()
         {
-            var movieHallLogic = new MovieHallLogic(_movieHallContext);
+            var movieHallLogic = _movieHallLogic.GetAllMovieHalls();
             var movieHalls = new List<MovieHallViewModel>();
 
-            foreach (var movieHall in movieHallLogic.GetAllMovieHalls())
+            foreach (var movieHall in movieHallLogic)
             {
                 movieHalls.Add(new MovieHallViewModel
                 {
