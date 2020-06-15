@@ -11,10 +11,10 @@ namespace Cinemaat_layers.LOGIC
 {
     public class UserRegistrationLogic : IUserRegistrationLogic
     {
-        private UserRegistrationRepository Repository { get; }
+        private readonly IUserRegistrationContext userRegistrationContext;
         public UserRegistrationLogic(IUserRegistrationContext context)
         {
-            Repository = new UserRegistrationRepository(context);
+            userRegistrationContext = context;
         }
         public void CreateUser(IUserRegistration user)
         {
@@ -26,7 +26,7 @@ namespace Cinemaat_layers.LOGIC
                 Password = user.Password,
                 ConfirmPassword = user.ConfirmPassword
             };
-            Repository.CreateUser(_user);
+            userRegistrationContext.CreateUser(_user);
         }
         
     }

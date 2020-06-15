@@ -11,10 +11,10 @@ namespace Cinemaat_layers.LOGIC
 {
     public class FavouriteLogic : IFavouriteLogic
     {
-        private FavouriteRepository Repository { get; }
+        private readonly IFavouriteContext favouriteContext;
         public FavouriteLogic(IFavouriteContext context)
         {
-            Repository = new FavouriteRepository(context);
+            favouriteContext = context;
         }
 
         public void CreateFavourite(IFavourite _favourite)
@@ -26,12 +26,12 @@ namespace Cinemaat_layers.LOGIC
                 UserId = _favourite.UserId,
                 MovieName = _favourite.MovieName
             };
-            Repository.CreateFavourite(favourite);
+            favouriteContext.CreateFavourite(favourite);
         }
 
-        public IEnumerable<IFavourite> GetAll(int favouriteId)
+        public IEnumerable<IFavourite> GetAll(int userId)
         {
-            return Repository.GetAll(favouriteId);
+            return favouriteContext.GetAll(userId);
         }
     }
 }

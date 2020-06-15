@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Cinemaat_layers.VIEW.Models.FavouriteViewModel>
+
+@{
+    ViewData["Title"] = "MyAccount";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Homepagestyle.css" />
+</head>
+
+<body>
+    <h1 class="text-center text-white">Mijn Account</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col text-center text-white">
+                <h1>Gegevens</h1><br>
+                <h3>Email Adres:</h3>
+                @{
+                    var Email = new Byte[20];
+                    bool nameOK = Context.Session.TryGetValue("Email", out Email);
+                }
+                @{
+                    if (nameOK)
+                    {
+                        string EmailString = System.Text.Encoding.UTF8.GetString(Email);
+                        <p>@EmailString</p>
+                    }
+                }
+            </div>
+            <div class="col text-center text-white">
+                <h2>Favoriete films</h2>
+                @foreach (var item in Model)
+                {
+                    <p>@Html.DisplayFor(modelItem => item.MovieName)</p>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+

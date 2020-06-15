@@ -9,7 +9,7 @@ namespace Cinemaat_layers.DAL
     {
         void Add(IAgenda agenda);
 
-        IEnumerable<IAgenda> GetAll();
+        IEnumerable<IAgenda> GetAll(int movieId);
 
         IAgenda GetById(int id);
     }

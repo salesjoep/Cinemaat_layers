@@ -9,11 +9,11 @@ namespace Cinemaat_layers.LOGIC
 {
     public class SeatLogic
     {
+        private readonly ISeatContext seatContext;
         public SeatLogic(ISeatContext context)
         {
-            Repository = new SeatRepository(context);
+            seatContext = context;
         }
-        private SeatRepository Repository { get; }
 
         public void AddSeat(int seatNr, bool isReserved)
         {
@@ -22,12 +22,12 @@ namespace Cinemaat_layers.LOGIC
                 SeatNr = seatNr,
                 IsReserved = isReserved
             };
-            Repository.Add(seat);
+            seatContext.Add(seat);
         }
 
         public IEnumerable<ISeat> GetAllSeats()
         {
-            return Repository.GetAll();
+            return seatContext.GetAll();
         }
     }
 }

@@ -18,9 +18,9 @@ namespace Cinemaat_layers.VIEW.Controllers
         {
             _agendaLogic = agendaLogic;
         }
-        public ActionResult Avengers_Endgame()
+        public ActionResult Avengers_Endgame(int movieId)
         {
-            var allRecords = _agendaLogic.GetAllAgendas();
+            var allRecords = _agendaLogic.GetAllAgendas(movieId);
             var agendas = new List<AgendaViewModel>();
 
             foreach (var agenda in allRecords)
@@ -39,9 +39,25 @@ namespace Cinemaat_layers.VIEW.Controllers
             return View(agendas);
         }
 
-        public ActionResult Agenda()
+        public ActionResult Agenda(int movieId)
         {
-            return View();
+            var allRecords = _agendaLogic.GetAllAgendas(movieId);
+            var agendas = new List<AgendaViewModel>();
+
+            foreach (var agenda in allRecords)
+            {
+                agendas.Add(new AgendaViewModel
+                {
+                    AgendaId = agenda.AgendaId,
+                    MovieId = agenda.MovieId,
+                    MovieName = agenda.MovieName,
+                    MovieHallId = agenda.MovieHallId,
+                    IsValid = agenda.IsValid,
+                    Time = agenda.Time,
+                    Price = agenda.Price
+                });
+            }
+            return View(agendas);
         }
     }
 }

@@ -19,9 +19,9 @@ namespace Cinemaat_layers.DAL
             _context.Add(agenda);
         }
 
-        public IEnumerable<IAgenda> GetAll()
+        public IEnumerable<IAgenda> GetAll(int movieId)
         {
-            return _context.GetAll();
+            return _context.GetAll(movieId);
         }
     }
 }

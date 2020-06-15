@@ -11,11 +11,11 @@ namespace Cinemaat_layers.LOGIC
 {
     public class ReviewLogic : IReviewLogic
     {
+        private readonly IReviewContext reviewContext;
         public ReviewLogic(IReviewContext context)
         {
-            Repository = new ReviewRepository(context);
+            reviewContext = context;
         }
-        private ReviewRepository Repository { get; }
 
         public void CreateReview(IReview _review)
         {
@@ -27,12 +27,12 @@ namespace Cinemaat_layers.LOGIC
                 MovieId = _review.MovieId,
                 UserId = _review.UserId
             };
-            Repository.CreateReview(review);
+            reviewContext.CreateReview(review);
         }
 
         public IEnumerable<IReview> GetAllReviews(int movieId)
         {
-            return Repository.GetAll(movieId);
+            return reviewContext.GetAll(movieId);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Cinemaat_layers.VIEW.Models.MovieViewModel>
+@{
     ViewData["Title"] = "All Movies";
 }
 
@@ -10,81 +11,87 @@
 <body>
     <div class="container text-center maintitle">
         <h1>Alle Films</h1>
+        @foreach (var item in Model)
+        {
 
-        @*Row 1*@
 
-        <div class="row movies">
-            <div class="col-md-3 movie">
-                <a asp-area="" asp-controller="Movie" asp-action="Movie_1917">
-                    <img src="~/images/Homepage/Movies/1917/1917_cover.jpg"  />
-                </a>
-            </div>
-            <div class="col-md-3 movie">
-                <a asp-area="" asp-controller="Movie" asp-action="Avengers_Endgame">
-                    <img src="~/images/Homepage/Avengers_Endgame.jpg"  />
-                </a>
-            </div>
-            <div class="col-md-3 movie">
-                <a asp-area="" asp-controller="Movie" asp-action="Thor_Ragnarok">
-                    <img src="~/images/Homepage/Thor_ragnorok.jpg" />
-                </a>
-            </div>
-            <div class="col-md-3 movie">
-                <a asp-area="" asp-controller="Movie" asp-action="Spiderman_Far_From_Home">
-                    <img src="~/images/Homepage/Spiderman_farm_from_home.jpg" />
-                </a>
-            </div>
-        </div>
 
-        @*Row 2*@
+            @*Row 1*@
 
-        <div class="row movies">
-            <div class="col-md-3 movie">
-                <a asp-area="" asp-controller="Movie" asp-action="Captain_Marvel">
-                    <img src="~/images/All Movies/Captain_Marvel.jpg" />
-                </a>
+            <div class="row movies">
+                <div class="col-md-3 movie">
+                    <a asp-area="" asp-controller="Movie" asp-action="Movie_1917">
+                        <img src="~/images/Homepage/Movies/1917/1917_cover.jpg" />
+                    </a>
+                </div>
+                <div class="col-md-3 movie">
+                    <a asp-area="" asp-controller="Movie" asp-action="Avengers_Endgame">
+                        <img src="~/images/Homepage/Avengers_Endgame.jpg" />
+                    </a>
+                </div>
+                <div class="col-md-3 movie">
+                    <a asp-area="" asp-controller="Movie" asp-action="Thor_Ragnarok">
+                        <img src="~/images/Homepage/Thor_ragnorok.jpg" />
+                    </a>
+                </div>
+                <div class="col-md-3 movie">
+                    <a asp-area="" asp-controller="Movie" asp-action="Spiderman_Far_From_Home">
+                        <img src="~/images/Homepage/Spiderman_farm_from_home.jpg" />
+                    </a>
+                </div>
             </div>
-            <div class="col-md-3 movie">
-                <a asp-area="" asp-controller="Movie" asp-action="Antman_And_The_Wasp">
-                    <img src="~/images/All Movies/Antman_And_The_Wasp.jpg" />
-                </a>
-            </div>
-            <div class="col-md-3 movie">
-                <a asp-area="" asp-controller="Movie" asp-action="Black_Panther">
-                    <img src="~/images/All Movies/Black_panther.jpg" />
-                </a>
-            </div>
-            <div class="col-md-3 movie">
-                <a asp-area="" asp-controller="Movie" asp-action="Doctor_Strange">
-                    <img src="~/images/All Movies/Doctor_Strange.jpg" />
-                </a>
-            </div>
-        </div>
 
-        @*Row 3*@
+            @*Row 2*@
 
-        <div class="row movies">
-            <div class="col-md-3 movie">
-                <a asp-area="" asp-controller="Movie" asp-action="Captain_America_Winter_Soldier">
-                    <img src="~/images/All Movies/Captain_America_Winter_Soldier.jpg" />
-                </a>
+            <div class="row movies">
+                <div class="col-md-3 movie">
+                    <a asp-area="" asp-controller="Movie" asp-action="Captain_Marvel">
+                        <img src="~/images/All Movies/Captain_Marvel.jpg" />
+                    </a>
+                </div>
+                <div class="col-md-3 movie">
+                    <a asp-area="" asp-controller="Movie" asp-action="Antman_And_The_Wasp">
+                        <img src="~/images/All Movies/Antman_And_The_Wasp.jpg" />
+                    </a>
+                </div>
+                <div class="col-md-3 movie">
+                    <a asp-area="" asp-controller="Movie" asp-action="Black_Panther">
+                        <img src="~/images/All Movies/Black_panther.jpg" />
+                    </a>
+                </div>
+                <div class="col-md-3 movie">
+                    <a asp-area="" asp-controller="Movie" asp-action="Doctor_Strange">
+                        <img src="~/images/All Movies/Doctor_Strange.jpg" />
+                    </a>
+                </div>
             </div>
-            <div class="col-md-3 movie">
-                <a asp-area="" asp-controller="Movie" asp-action="Antman">
-                    <img src="~/images/All Movies/Ant_Man.jpg" />
-                </a>
+
+            @*Row 3*@
+
+            <div class="row movies">
+                <div class="col-md-3 movie">
+                    <a asp-area="" asp-controller="Movie" asp-action="Captain_America_Winter_Soldier">
+                        <img src="~/images/All Movies/Captain_America_Winter_Soldier.jpg" />
+                    </a>
+                </div>
+                <div class="col-md-3 movie">
+                    <a asp-area="" asp-controller="Movie" asp-action="Antman">
+                        <img src="~/images/All Movies/Ant_Man.jpg" />
+                    </a>
+                </div>
+                <div class="col-md-3 movie">
+                    <a asp-area="" asp-controller="Movie" asp-action="Spiderman_Homecoming">
+                        <img src="~/images/All Movies/Spiderman_Homecoming.jpg" />
+                    </a>
+                </div>
+                <div class="col-md-3 movie">
+                    <a asp-area="" asp-controller="Movie" asp-action="No_Time_To_Die">
+                        <img src="~/images/All Movies/No_Time_To_Die.jpg" />
+                    </a>
+                </div>
             </div>
-            <div class="col-md-3 movie">
-                <a asp-area="" asp-controller="Movie" asp-action="Spiderman_Homecoming">
-                    <img src="~/images/All Movies/Spiderman_Homecoming.jpg" />
-                </a>
-            </div>
-            <div class="col-md-3 movie">
-                <a asp-area="" asp-controller="Movie" asp-action="No_Time_To_Die">
-                    <img src="~/images/All Movies/No_Time_To_Die.jpg" />
-                </a>
-            </div>
-        </div>
+            break;
+        }
     </div>
 </body>
 </html>

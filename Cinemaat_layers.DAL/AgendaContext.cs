@@ -20,11 +20,12 @@ namespace Cinemaat_layers.DAL
             throw new NotImplementedException();
         }
 
-        IEnumerable<IAgenda> IAgendaContext.GetAll()
+        IEnumerable<IAgenda> IAgendaContext.GetAll(int movieId)
         {
             _connection.SqlConnection.Open();
 
-            var cmd = new MySqlCommand("SELECT * FROM agenda", _connection.SqlConnection);
+            var cmd = new MySqlCommand("SELECT * FROM agenda WHERE MovieId=@MovieId", _connection.SqlConnection);
+            cmd.Parameters.AddWithValue("@MovieId", movieId);
             var reader = cmd.ExecuteReader();
 
             var agendaRecords = new List<IAgenda>();

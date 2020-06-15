@@ -16,70 +16,123 @@
         <div class="row">
             <div class="col-md-6 left-box">
 
-
                 @{
-                    
-                string movieName;
-                foreach (var item in Model)
-                {
-                    if (item.MovieName == "1917")
-                    {
-                        movieName = item.MovieName;
-                            <h1>@movieName</h1>
-                            break;
-                        }
-                        else
-                        {                            
-                            continue;
-                            <h1>Error: Could not load Movie Title</h1>
-                            
-                        }
-                    }
-                }
-
-                @{
-                    string movieDescription;
+                    string movieName;
                     foreach (var item in Model)
                     {
                         if (item.MovieName == "1917")
                         {
-                            movieDescription = item.Description;
-                            <p>@movieDescription</p>
+                            movieName = item.MovieName;
+                            <h1>@movieName</h1>
                             break;
                         }
                         else
                         {
                             continue;
-                            <p>Error: Could not load Movie Description</p>
+                            <h1>Error: Could not load Movie Title.</h1>
+
                         }
                     }
+                }
 
-                    @*int count2 = 0;
+                @{
+                    string movieDesciption;
                     foreach (var item in Model)
                     {
-                        count2 += 1;
-                        if (count2 == 2)
+                        if (item.MovieName == "1917")
                         {
-                            <p>@Html.DisplayFor(modelItem => item.Description)</p>
-                            count2 = 0;
+                            movieDesciption = item.Description;
+                            <p>@movieDesciption</p>
                             break;
                         }
-
-                    }*@
+                        else
+                        {
+                            continue;
+                            <p>Error:  Could not load Movie Description.</p>
+                        }
+                    }
                 }
-                
+
+                @{
+                    double moviePrice;
+                    foreach (var item in Model)
+                    {
+                        if (item.MovieName == "1917")
+                        {
+                            moviePrice = item.Price;
+                            <p>Filmprijs: €@moviePrice </p>
+                            break;
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                }
+
+
+
 
 
                 <p>Cast: </p>
                 <div class="casting">
-                    <img src="~/images/Homepage/Movies/1917/George_Mac_Kay.jpg" title="Scarlett Johansson">
-                    <img src="~/images/Homepage/Movies/1917/Dean_Charles.jpg" title="Robert Downey Jr.">
-                    <img src="~/images/Homepage/Movies/1917/Richard_Madden.jpg" title="Chris Hamsworth">
-                    <img src="~/images/Homepage/Movies/1917/Benedict_Cumberbatch.jpg" title="Chris Pratt">
-                    <img src="~/images/Homepage/Movies/1917/Colin_Firth.jpg" title="Tom Holland">
+                    <img src="~/images/Homepage/Movies/Avengers_Endgame/Black_widow.jpg" title="Scarlett Johansson">
+                    <img src="~/images/Homepage/Movies/Avengers_Endgame/iron_man.jpg" title="Robert Downey Jr.">
+                    <img src="~/images/Homepage/Movies/Avengers_Endgame/thor.jpeg" title="Chris Hamsworth">
+                    <img src="~/images/Homepage/Movies/Avengers_Endgame/starlord.jpg" title="Chris Pratt">
+                    <img src="~/images/Homepage/Movies/Avengers_Endgame/spiderman.jpg" title="Tom Holland">
                 </div>
-                <a href="#"><i class=""></i>Selecteer film</a>
-                <a href="#" class="download-btn"><i class=""></i>Voeg aan favorieten toe</a>
+                @*<a asp-area="" asp-controller="Agenda" asp-action="Avengers_Endgame">Selecteer film</a>*@
+                @{
+                    foreach (var item in Model)
+                    {
+                        if (item.MovieId == 2)
+                        {
+                            @Html.ActionLink("Selecteer film", "Agenda", "Agenda", new { movieId = item.MovieId });
+                            break;
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                        @*<a href="#" class="download-btn"><i class=""></i>@Url.ActionLink("Lees Reviews", "Index", "Review", new );</a>*@
+
+                    }
+                }
+                @{
+                    foreach (var item in Model)
+                    {
+                        if (item.MovieId == 2)
+                        {
+                            @Html.ActionLink("Lees Reviews", "Index", "Review", new { movieId = item.MovieId });
+                            break;
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                        @*<a href="#" class="download-btn"><i class=""></i>@Url.ActionLink("Lees Reviews", "Index", "Review", new );</a>*@
+
+                    }
+                }
+
+                @{
+                    foreach (var item in Model)
+                    {
+                        if (item.MovieId == 2)
+                        {
+                            @Html.ActionLink("Voeg toe aan favorieten", "Create", "Favourite", new { movieId = item.MovieId, movieName = item.MovieName });
+                            break;
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                        @*<a href="#" class="download-btn"><i class=""></i>@Url.ActionLink("Lees Reviews", "Index", "Review", new );</a>*@
+
+                    }
+                }
+
 
             </div>
             <div class="col-md-6 text-center">

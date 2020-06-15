@@ -9,11 +9,11 @@ namespace Cinemaat_layers.LOGIC
 {
     public class ShoppingCartLogic
     {
+        private readonly IShoppingCartContext shoppingCartContext;
         public ShoppingCartLogic(IShoppingCartContext context)
         {
-            Repository = new ShoppingCartRepository(context);
+            shoppingCartContext = context;
         }
-        private ShoppingCartRepository Repository { get;}
 
         public void AddShoppingCart(int userId, int orderId, DateTime date, int quanitity)
         {
@@ -24,12 +24,12 @@ namespace Cinemaat_layers.LOGIC
                 Date = date,
                 Quantity = quanitity
             };
-            Repository.Add(shoppingCart);
+            shoppingCartContext.Add(shoppingCart);
         }
 
         public IEnumerable<IShoppingCart> GetShoppingCarts()
         {
-            return Repository.GetAll();
+            return shoppingCartContext.GetAll();
         }
     }
 }

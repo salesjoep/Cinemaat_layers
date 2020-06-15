@@ -16,9 +16,9 @@ namespace Cinemaat_layers.VIEW.Controllers
         {
             _favouriteLogic = favouriteLogic;
         }
-        public ActionResult Index(int favouriteId)
+        public ActionResult Index(/*int userId*/)
         {
-            var allFavourites = _favouriteLogic.GetAll(favouriteId);
+            var allFavourites = _favouriteLogic.GetAll(Convert.ToInt32(HttpContext.Session.GetInt32("UserId")));
             var favourites = new List<FavouriteViewModel>();
 
             foreach (var favourite in allFavourites)
@@ -27,7 +27,7 @@ namespace Cinemaat_layers.VIEW.Controllers
                 {
                     favouriteId = favourite.favouriteId,
                     MovieId = favourite.MovieId,
-                    UserId = favourite.UserId,
+                    UserId = Convert.ToInt32(HttpContext.Session.GetInt32("UserId")),
                     MovieName = favourite.MovieName
                 });
             }

@@ -38,12 +38,20 @@ namespace Cinemaat_layers.VIEW.Controllers
         [HttpGet]
         public ActionResult WriteReview(int movieId)
         {
-            var reviewViewModel = new ReviewViewModel()
+            if (HttpContext.Session.GetInt32("UserId") == 0)
             {
-                MovieId = movieId,
-                UserId = Convert.ToInt32(HttpContext.Session.GetInt32("UserId"))
-            };
-            return View(reviewViewModel);
+                return RedirectToAction("Index", "Login");
+            }
+            else
+            {
+                var reviewViewModel = new ReviewViewModel()
+                {
+                    MovieId = movieId,
+                    UserId = Convert.ToInt32(HttpContext.Session.GetInt32("UserId"))
+                };
+                return View(reviewViewModel);
+            }
+            
         }
 
         [HttpPost]

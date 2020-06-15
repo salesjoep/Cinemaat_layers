@@ -10,12 +10,12 @@ namespace Cinemaat_layers.LOGIC
 {
     public class OrderLogic : IOrderLogic
     {
+        private readonly IOrderContext orderContext;
         public OrderLogic(IOrderContext context)
         {
-            Repository = new OrderRepository(context);
+            orderContext = context;
         }
 
-        private OrderRepository Repository { get; }
 
         public void CreateOrder(IOrder _order)
         {
@@ -33,12 +33,12 @@ namespace Cinemaat_layers.LOGIC
                 TotalPrice = _order.TotalPrice,
                 Quantity = _order.Quantity
             };
-            Repository.CreateOrder(order);
+            orderContext.CreateOrder(order);
         }
 
         public IEnumerable<IOrder> GetAllOrders()
         {
-            return Repository.GetAll();
+            return orderContext.GetAll();
         }
     }
 }

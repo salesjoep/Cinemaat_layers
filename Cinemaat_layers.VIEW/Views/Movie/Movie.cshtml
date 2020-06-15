@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<Cinemaat_layers.VIEW.Models.MovieViewModel>
 
 @{
-    ViewBag.Title = "Spiderman: Far From Home";
+    ViewBag.Title = "Movie";
     Layout = "_Layout";
 }
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="~/css/Spiderman_Far_From_Home_Style.css" />
+    <link rel="stylesheet" href="~/css/MovieStyle.css" />
 </head>
 
 <body>
@@ -16,11 +16,15 @@
         <div class="row">
             <div class="col-md-6 left-box">
 
-                @{
+                @foreach (var item in Model)
+                {
+                    
+                }
+                @*@{
                     string movieName;
                     foreach (var item in Model)
                     {
-                        if (item.MovieName == "Spiderman: Far From Home")
+                        if (item.MovieName == "Avengers: Endgame")
                         {
                             movieName = item.MovieName;
                             <h1>@movieName</h1>
@@ -33,13 +37,13 @@
 
                         }
                     }
-                }
+                }*@
 
-                @{
+                @*@{
                     string movieDesciption;
                     foreach (var item in Model)
                     {
-                        if (item.MovieName == "Spiderman: Far From Home")
+                        if (item.MovieName == "Avengers: Endgame")
                         {
                             movieDesciption = item.Description;
                             <p>@movieDesciption</p>
@@ -51,13 +55,13 @@
                             <p>Error:  Could not load Movie Description.</p>
                         }
                     }
-                }
+                }*@
 
-                @{
+                @*@{
                     double moviePrice;
                     foreach (var item in Model)
                     {
-                        if (item.MovieName == "Spiderman: Far From Home")
+                        if (item.MovieName == "Avengers: Endgame")
                         {
                             moviePrice = item.Price;
                             <p>Filmprijs: €@moviePrice </p>
@@ -68,7 +72,7 @@
                             continue;
                         }
                     }
-                }
+                }*@
 
 
 
@@ -82,27 +86,11 @@
                     <img src="~/images/Homepage/Movies/Avengers_Endgame/starlord.jpg" title="Chris Pratt">
                     <img src="~/images/Homepage/Movies/Avengers_Endgame/spiderman.jpg" title="Tom Holland">
                 </div>
-                @*<a asp-area="" asp-controller="Agenda" asp-action="Avengers_Endgame">Selecteer film</a>*@
-                @{
+                <a asp-area="" asp-controller="Agenda" asp-action="Avengers_Endgame">Selecteer film</a>
+                @*@{
                     foreach (var item in Model)
                     {
-                        if (item.MovieId == 14)
-                        {
-                            @Html.ActionLink("Selecteer film", "Agenda", "Agenda", new { movieId = item.MovieId });
-                            break;
-                        }
-                        else
-                        {
-                            continue;
-                        }
-                        @*<a href="#" class="download-btn"><i class=""></i>@Url.ActionLink("Lees Reviews", "Index", "Review", new );</a>*@
-
-                    }
-                }
-                @{
-                    foreach (var item in Model)
-                    {
-                        if (item.MovieId == 14)
+                        if (item.MovieId == 1)
                         {
                             @Html.ActionLink("Lees Reviews", "Index", "Review", new { movieId = item.MovieId });
                             break;
@@ -111,15 +99,15 @@
                         {
                             continue;
                         }
-                        @*<a href="#" class="download-btn"><i class=""></i>@Url.ActionLink("Lees Reviews", "Index", "Review", new );</a>*@
+                        <a href="#" class="download-btn"><i class=""></i>@Url.ActionLink("Lees Reviews", "Index", "Review", new );</a>
 
                     }
-                }
+                }*@
 
-                @{
+                @*@{
                     foreach (var item in Model)
                     {
-                        if (item.MovieId == 14)
+                        if (item.MovieId == 1)
                         {
                             @Html.ActionLink("Voeg toe aan favorieten", "Create", "Favourite", new { movieId = item.MovieId, movieName = item.MovieName });
                             break;
@@ -128,15 +116,15 @@
                         {
                             continue;
                         }
-                        @*<a href="#" class="download-btn"><i class=""></i>@Url.ActionLink("Lees Reviews", "Index", "Review", new );</a>*@
+                        <a href="#" class="download-btn"><i class=""></i>@Url.ActionLink("Lees Reviews", "Index", "Review", new );</a>
 
                     }
-                }
+                }*@
 
 
             </div>
             <div class="col-md-6 text-center">
-                <img src="~/images/Homepage/Spiderman_farm_from_home.jpg" class="movie-img">
+                <img src="~/images/Homepage/Movies/Avengers_Endgame/Avengers_Endgame.jpg" class="movie-img">
             </div>
         </div>
     </div>

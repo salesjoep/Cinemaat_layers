@@ -10,15 +10,15 @@ namespace Cinemaat_layers.LOGIC
 {
     public class LoginLogic : ILoginLogic
     {
-        private LoginRepository Repository { get; }
+        private readonly ILoginContext loginContext;
 
         public LoginLogic(ILoginContext context)
         {
-            Repository = new LoginRepository(context);
+            loginContext = context;
         }
         public bool Login(ILogin user)
         {
-            return Repository.Login(user);
+            return loginContext.Login(user);
         }
     }
 }

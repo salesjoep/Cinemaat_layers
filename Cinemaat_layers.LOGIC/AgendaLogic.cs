@@ -10,12 +10,12 @@ namespace Cinemaat_layers.LOGIC
 {
     public class AgendaLogic : IAgendaLogic
     {
+        private readonly IAgendaContext agendaContext;
         public AgendaLogic(IAgendaContext context)
         {
-            Repository = new AgendaRepository(context);
+            agendaContext = context;
         }
 
-        private AgendaRepository Repository { get; }
 
         public void AddAgenda(int agendaId, int movieId, string movieName,int movieHallId, bool isValid, DateTime time, double price)
         {
@@ -29,12 +29,12 @@ namespace Cinemaat_layers.LOGIC
                 Time = time,
                 Price = price
             };
-            Repository.Add(agenda);
+            agendaContext.Add(agenda);
         }
 
-        public IEnumerable<IAgenda> GetAllAgendas()
+        public IEnumerable<IAgenda> GetAllAgendas(int movieId)
         {
-            return Repository.GetAll();
+            return agendaContext.GetAll(movieId);
         }
     }
 }

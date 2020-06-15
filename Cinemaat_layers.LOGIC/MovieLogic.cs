@@ -13,12 +13,9 @@ namespace Cinemaat_layers.LOGIC
         
         public MovieLogic(IMovieContext context)
         {
-            //Repository = new MovieRepository(context);
             movieContext = context;
 
         }
-
-        private MovieRepository Repository { get; }
 
         public void CreateMovie(IMovie _movie)
         {
@@ -32,30 +29,30 @@ namespace Cinemaat_layers.LOGIC
                 Rating = _movie.Rating,
                 Price = _movie.Price
             };
-            Repository.CreateMovie(movie);
+            movieContext.CreateMovie(movie);
         }
 
         public IEnumerable<IMovie> GetAllMovies()
         {
-            return Repository.GetAll();
+            return movieContext.GetAll();
         }
 
         public IMovie UpdateMovie(IMovie movie)
         {
             //Movie _movie = new Movie();
             //movie = _movie;
-            Repository.UpdateMovie(movie);
+            movieContext.UpdateMovie(movie);
             return movie;
         }
 
         public void DeleteMovie(int movieId)
         {
-            Repository.DeleteMovie(movieId);
+            movieContext.DeleteMovie(movieId);
         }
 
         public IMovie GetById(IMovie movie)
         {
-            return Repository.GetById(movie);
+            return movieContext.GetById(movie);
         }
 
         public void CreateReview(IMovie _movie)
@@ -65,7 +62,7 @@ namespace Cinemaat_layers.LOGIC
                 Review = _movie.Review,
                 Rating = _movie.Rating
             };
-            Repository.CreateReview(movie);
+            movieContext.CreateReview(movie);
         }
     }
 }

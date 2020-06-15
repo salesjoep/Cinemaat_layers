@@ -15,7 +15,7 @@
                 <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">
                     <img src="~/images/Homepage/cinemaat_logo.png" alt="Cinemaat" width="50" height="50"/> Cinemaat
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -27,9 +27,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Movie" asp-action="AllMovies">Alle Films</a>
                         </li>
-                        <li class="nav-item">
+                        @*<li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Movie" asp-action="Index">Films Beheren</a>
-                        </li>
+                        </li>*@
                         @*<li class="nav-item">
                                 <a class="nav-link text-white" asp-area="" asp-controller="UserRegistration" asp-action="CreateUser">Registreren</a>
                             </li>
@@ -47,7 +47,7 @@
                             {
                                 string EmailString = System.Text.Encoding.UTF8.GetString(Email);
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" asp-area="" asp-controller="User" asp-action="MyAccount">Mijn Account</a>
+                                    <a class="nav-link text-white" asp-area="" asp-controller="Favourite" asp-action="Index">Mijn Account</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-white" asp-area="" asp-controller="Login" asp-action="Logout">Logout @EmailString</a>

@@ -24,6 +24,7 @@
             
                     foreach (var item in Model)
                     {
+
                         <h1>@Html.ActionLink("Schrijf Een Review!", "WriteReview", "Review", new { movieId = item.MovieId }, new { id = "OT", style = "color: white" })</h1>
                     break;
                 }
@@ -47,9 +48,6 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Rating)
                 </th>
-                <th>
-                    Geschreven door
-                </th>
             </tr>
         </thead>
         <tbody>
@@ -64,9 +62,6 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Rating)
-                    </td>
-                    <td>
-
                     </td>
                 </tr>
             }

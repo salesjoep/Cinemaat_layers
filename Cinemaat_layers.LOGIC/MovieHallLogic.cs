@@ -9,11 +9,12 @@ namespace Cinemaat_layers.LOGIC
 {
     public class MovieHallLogic
     {
+        private readonly IMovieHallContext movieHallContext;
         public MovieHallLogic(IMovieHallContext context)
         {
-            Repository = new MovieHallRepository(context);
+            //Repository = new MovieHallRepository(context);
+            movieHallContext = context;
         }
-        private MovieHallRepository Repository { get; }
 
         public void AddMovieHall(int movieId, int nrOfSeats)
         {
@@ -22,12 +23,12 @@ namespace Cinemaat_layers.LOGIC
                 MovieId = movieId,
                 NrOfSeats = nrOfSeats
             };
-            Repository.Add(movieHall);
+            movieHallContext.Add(movieHall);
         }
 
         public IEnumerable<IMovieHall> GetAllMovieHalls()
         {
-            return Repository.GetAll();
+            return movieHallContext.GetAll();
         }
     }
 }
