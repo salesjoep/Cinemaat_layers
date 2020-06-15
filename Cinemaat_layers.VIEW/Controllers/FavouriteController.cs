@@ -51,7 +51,7 @@ namespace Cinemaat_layers.VIEW.Controllers
         public ActionResult Create(FavouriteViewModel favourite)
         {
             _favouriteLogic.CreateFavourite(favourite);
-            return View();
+            return RedirectToAction("Index", "favourite");
         }
     }
 }
