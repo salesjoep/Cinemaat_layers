@@ -15,7 +15,9 @@
     <div class="container movie-details">
         <div class="row">
             <div class="col text-right">
-                <img src="~/images/Homepage/Avengers_Endgame.jpg" class="movie-img">
+                @*<img src="../../wwwroot/images/Order/@Html.DisplayFor(modelItem => modelItem.MovieId) cover.jpg">*@
+                <img src="../../wwwroot/images/Order/1 cover.jpg">
+
             </div>
             <div class="col text-center">
                 <form asp-action="CreateOrder">
@@ -35,7 +37,7 @@
                         <h2>Filmzaal</h2>
                         <p>Zaal @Html.DisplayFor(modelItem => modelItem.MovieHallId)</p>
                         <input type="hidden" asp-for="MovieHallId" />
-                    </div> 
+                    </div>
                     <div class="text-left text-white">
                         <h2>Ticket Prijs</h2>
                         <p>€@Html.DisplayFor(modelItem => modelItem.Price)</p>
