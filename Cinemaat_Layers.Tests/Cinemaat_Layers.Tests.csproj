@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Cinemaat_layers.DAL\Cinemaat_layers.DAL.csproj" />
     <ProjectReference Include="..\Cinemaat_layers.LOGIC\Cinemaat_layers.LOGIC.csproj" />
+    <ProjectReference Include="..\Cinemaat_layers.VIEW\Cinemaat_layers.VIEW.csproj" />
   </ItemGroup>
 
 </Project>
