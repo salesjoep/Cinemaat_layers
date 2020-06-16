@@ -33,6 +33,7 @@ namespace Cinemaat_Layers.Tests
 
             var result = sut.GetById(movie);
             Assert.AreEqual(movie.MovieId, result.MovieId);
+            MockConnection.CloseConnection();
         }
     }
 }

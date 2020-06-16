@@ -12,6 +12,6 @@ namespace Cinemaat_layers.DAL
             SqlConnection = new MySqlConnection(connectionString);
         }
 
-        internal MySqlConnection SqlConnection { get; set; }
+        public MySqlConnection SqlConnection { get; set; }
     }
 }

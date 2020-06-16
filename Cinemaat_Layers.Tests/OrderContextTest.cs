@@ -1,5 +1,4 @@
-﻿using Cinemaat_layers.DAL.Context_Classes;
-using Cinemaat_layers.INTERFACES.Context;
+﻿using Cinemaat_layers.DAL;
 using Cinemaat_Layers.Tests.MockData;
 using NUnit.Framework;
 using System;
@@ -8,17 +7,17 @@ using System.Text;
 
 namespace Cinemaat_Layers.Tests
 {
-    public class FavouriteContextTest
+    public class OrderContextTest
     {
-        public IFavouriteContext sut = new FavouriteContext(MockConnection.connection);
+        public IOrderContext sut = new OrderContext(MockConnection.connection);
         [SetUp]
         public void Setup()
         {
         }
         [Test]
-        public void FavouriteContextTest1()
+        public void OrderContextTest1()
         {
-            var result = sut.GetAll(12);
+            var result = sut.GetAll();
             Assert.IsNotNull(result);
             MockConnection.CloseConnection();
         }

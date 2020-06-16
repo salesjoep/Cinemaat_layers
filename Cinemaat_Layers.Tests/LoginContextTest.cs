@@ -28,6 +28,7 @@ namespace Cinemaat_Layers.Tests
             };
             var result = sut.Login(user);
             Assert.IsTrue(result);
+            MockConnection.CloseConnection();
 
 
         }
@@ -43,6 +44,7 @@ namespace Cinemaat_Layers.Tests
             };
             var result2 = sut.Login(user2);
             Assert.IsFalse(result2);
+            MockConnection.CloseConnection();
 
 
         }
