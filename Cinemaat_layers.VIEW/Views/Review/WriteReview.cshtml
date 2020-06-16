@@ -3,9 +3,13 @@
 @{
     ViewData["Title"] = "WriteReview";
 }
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/Order/OrderStyle.css">
+</head>
 
 
-<h1>Schrijf een review</h1>
+<h1 class="text-white">Een review schrijven</h1>
 
 @*<h4>ReviewViewModel</h4>*@
 <hr />
@@ -14,17 +18,17 @@
         <form asp-action="WriteReview">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @*<div class="form-group">
-            <label asp-for="ReviewId" class="control-label"></label>
-            <input asp-for="ReviewId" class="form-control" />
-            <span asp-validation-for="ReviewId" class="text-danger"></span>
-        </div>*@
+                    <label asp-for="ReviewId" class="control-label"></label>
+                    <input asp-for="ReviewId" class="form-control" />
+                    <span asp-validation-for="ReviewId" class="text-danger"></span>
+                </div>*@
             <div class="form-group">
-                <label asp-for="Review" class="control-label"></label>
+                <label asp-for="Review" class="control-label text-white"></label>
                 <input asp-for="Review" class="form-control" />
                 <span asp-validation-for="Review" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Rating" class="control-label"></label>
+                <label asp-for="Rating" class="control-label text-white"></label>
                 <input asp-for="Rating" min="1" max="5" class="form-control" />
                 <span asp-validation-for="Rating" class="text-danger"></span>
             </div>
@@ -34,14 +38,14 @@
             </div>
             <input type="hidden" asp-for="MovieId" />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Posten" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-controller="Home" asp-action="Index">Terug</a>
 </div>
 
 @section Scripts {
